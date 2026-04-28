@@ -18,7 +18,7 @@ import imgBlock4LineH from '../assets/raz_block4_line_h.svg';
 import imgBlock6Bg from '../assets/raz_block6_bg.webp';
 import imgBlock8Bg from '../assets/raz_block8_bg.webp';
 import imgBlock9Bg from '../assets/raz_block9_bg.webp';
-import imgBlock11Bg from '../assets/raz_block11_bg.webp';
+import imgBlock10Bg from '../assets/raz_block10_bg.webp';
 import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
 
@@ -278,7 +278,7 @@ export const RazyezzhayaPage: React.FC = () => {
       {/* Block 10: Summary */}
       <section className={styles.summarySectionRaz}>
         <div className={styles.summaryBgContainer}>
-          <img src={imgBlock11Bg} alt="Summary background" className={styles.summaryBgImg} />
+          <img src={imgBlock10Bg} alt="Summary background" className={styles.summaryBgImg} />
           <div className={styles.summaryOverlay} style={{ background: 'rgba(27, 58, 63, 0.1)' }}></div>
         </div>
 
