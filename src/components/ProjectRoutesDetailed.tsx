@@ -1,0 +1,60 @@
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import styles from './ProjectRoutesDetailed.module.css';
+
+// Assets
+import marshrutiSvg from '../assets/marshruti.svg';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export const ProjectRoutesDetailed: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const svgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !svgRef.current) return;
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(max-width: 768px)", () => {
+      // Mobile animation: Sticky + Slide
+      gsap.to(svgRef.current, {
+        x: () => -(svgRef.current?.scrollWidth || 0) + window.innerWidth - 40,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'top top',
+          end: '+=100%', // Shortened from 150%
+          pin: true,
+          scrub: 0.5, // Faster scrub
+          invalidateOnRefresh: true,
+          anticipatePin: 1,
+        },
+      });
+    });
+
+    // On desktop (>768px), matchMedia does nothing, so no ScrollTrigger is created.
+
+    return () => mm.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className={styles.projectRoutesDetailed}>
+      <div className={styles.routesBgOverlay}>
+        <div className={styles.noiseLayer}></div>
+      </div>
+
+      <div className={styles.routesContainer}>
+        <div className={styles.routesText}>
+          <h2 className={styles.routesTitle}>Маршруты — невидимая<br />архитектура сада</h2>
+          <p className={styles.routesSubtitle}>Одно из важных решений проекта — логика движения.</p>
+        </div>
+
+        <div className={styles.routesVisual}>
+          <img ref={svgRef} src={marshrutiSvg} alt="Маршруты проекта" className={styles.marshrutiImage} />
+        </div>
+      </div>
+    </section>
+  );
+};

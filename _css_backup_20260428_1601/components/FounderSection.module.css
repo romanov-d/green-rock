@@ -1,0 +1,530 @@
+.teamScrollContainer {
+  position: relative;
+  width: 100%;
+  height: 600vh; /* 5 people */
+  background: #0C1A1C;
+}
+
+.teamSticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.teamBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+.teamBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1;
+}
+
+.teamContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  left: 80px;
+  right: 80px;
+  top: 120px;
+  bottom: 0;
+}
+
+/* --- Left side: quote or heading --- */
+.teamLeft {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 550px;
+}
+
+/* Founder state */
+.teamFounderQuote {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamQuoteText {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.88px;
+  color: white;
+}
+
+.teamSignature {
+  width: 293px;
+  height: 146px;
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.teamSignature img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.teamPromise {
+  font-size: 17px;
+  color: white;
+  position: absolute;
+  top: 580px;
+  transform: translateY(-100%);
+  left: 0;
+  max-width: 256px;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Team member state */
+.teamHeadingBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.teamHeading {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: -0.32px;
+  color: white;
+  max-width: 500px; /* Slightly wider to allow natural flow */
+}
+
+
+.teamCta {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 24px;
+  text-decoration: none;
+}
+
+.teamCtaIcon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.teamCtaIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+.teamCta span {
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+}
+
+.teamMemberQuote {
+  font-family: 'Caveat', cursive;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.48px;
+  color: white;
+  position: absolute;
+  top: 580px;
+  transform: translateY(-100%);
+  left: 0;
+  width: 216px;
+  margin: 0;
+}
+
+/* --- Photo card (right) --- */
+.teamPortraitArea {
+  position: absolute;
+  left: 652px;
+  top: 0;
+  width: 411px;
+  height: 580px;
+}
+
+.teamCard {
+  position: absolute;
+  inset: 0;
+  width: 411px;
+  height: 580px;
+  border-radius: 32px;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(1.02);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.teamCardActive {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.teamCardPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.teamCardGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(102, 102, 102, 0) 46%, rgba(0, 0, 0, 0.35) 100%);
+  border-radius: 32px;
+}
+
+.teamCardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  padding: 0 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 2;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(to top, rgba(12, 26, 28, 0.4) 0%, rgba(12, 26, 28, 0) 100%);
+  -webkit-mask-image: linear-gradient(to top, black 40%, transparent 100%);
+  mask-image: linear-gradient(to top, black 40%, transparent 100%);
+}
+
+.teamActiveInfoMobile {
+  display: none;
+}
+
+/* ... rest of existing code ... */
+
+@media (max-width: 768px) {
+  .teamCardInfo {
+    padding: 24px;
+    height: 120px;
+    z-index: 10;
+  }
+
+  .founderInfoHideMobile {
+    display: none !important;
+  }
+
+  .teamActiveInfoMobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 720px;
+    left: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+}
+
+.teamCardName {
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.teamCardRole {
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.5;
+}
+
+/* --- Avatars nav (right edge) --- */
+.teamAvatars {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.teamAvatarDot {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.teamAvatarDotActive {
+  opacity: 1;
+}
+
+.teamAvatarBorderSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.teamAvatarBorderVisible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.teamAvatarImgWrapper {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: width, height;
+}
+
+.teamAvatarDotActive .teamAvatarImgWrapper {
+  width: 48px;
+  height: 48px;
+}
+
+.teamAvatarImgWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* --- Counter --- */
+.teamCounter {
+  position: absolute;
+  top: 580px;
+  transform: translateY(-100%);
+  right: 0;
+  font-size: 17px;
+  color: white;
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .teamContent {
+    left: 40px;
+    right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamScrollContainer {
+    height: 500vh; /* 5 people */
+    background: #0C1A1C;
+  }
+
+  .teamSticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  height: 100dvh;
+    overflow: hidden;
+  }
+
+  .teamBgOverlay {
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+  }
+
+  .teamContent {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    z-index: 2;
+  }
+
+  /* Portrait Area */
+  .teamPortraitArea {
+    position: absolute;
+    top: 96px;
+    left: 20px;
+    width: 248px;
+    height: 314px;
+    z-index: 5;
+  }
+
+  .teamCard {
+    position: absolute;
+    inset: 0;
+    width: 248px;
+    height: 314px;
+    border-radius: 24px;
+    opacity: 0;
+    transform: none;
+    display: block;
+    overflow: hidden; /* Ensure gradient is clipped */
+  }
+
+  .teamCardActive {
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .teamCardGradient {
+    border-radius: 24px;
+  }
+
+.teamCardBlur {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .teamCardBlur {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    z-index: 3;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: linear-gradient(to top, rgba(12, 26, 28, 0.4) 0%, rgba(12, 26, 28, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, black 40%, transparent 100%);
+    mask-image: linear-gradient(to top, black 40%, transparent 100%);
+  }
+
+  .teamActiveInfoMobile {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 720px; /* Position at the bottom based on Figma */
+    left: 20px;
+    right: 20px;
+    z-index: 100;
+  }
+
+  .teamCardName {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: white;
+  }
+
+  .teamCardRole {
+    font-size: 11px;
+    opacity: 0.5;
+    color: white;
+  }
+
+  /* ... rest of the media query ... */
+}
+
+  /* Quote / Heading Area */
+  .teamLeft {
+    position: absolute;
+    top: 442px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    z-index: 5;
+  }
+
+  .teamQuoteText {
+    font-size: 24px;
+    line-height: 1.33;
+    letter-spacing: -0.48px;
+  }
+
+  .teamSignature {
+    position: absolute;
+    top: 140px; /* Lower signature relative to quote */
+    right: 0;
+    width: 160px;
+    height: 80px;
+    margin: 0;
+    z-index: 10;
+  }
+
+  .teamHeading {
+    font-size: 24px;
+    line-height: 1.2;
+    max-width: 100%;
+  }
+
+  .teamCta {
+    display: none !important;
+  }
+
+  /* Promise / Member Quote */
+  .teamMemberQuote {
+    display: block;
+    position: absolute;
+    top: 640px; /* Move below the heading area */
+    left: 20px;
+    right: 20px;
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    line-height: 1;
+    color: white;
+    z-index: 5;
+    transform: none;
+    margin: 0;
+  }
+
+  .teamPromise {
+    display: none;
+  }
+
+  /* Avatars Nav */
+  .teamAvatars {
+    position: absolute;
+    right: 20px;
+    top: 138px; /* Align bottom of list with bottom of portrait (410px) */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Tighter gap */
+    z-index: 10;
+  }
+
+  .teamAvatarDot {
+    width: 48px;
+    height: 48px;
+  }
+
+  .teamAvatarDotActive .teamAvatarImgWrapper {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Counter */
+  .teamCounter {
+    position: absolute;
+    top: 96px;
+    right: 20px;
+    bottom: auto;
+    transform: none;
+    font-size: 11px;
+    opacity: 0.3;
+    z-index: 10;
+  }
+}

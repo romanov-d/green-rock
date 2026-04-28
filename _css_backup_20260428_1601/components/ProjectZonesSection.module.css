@@ -1,0 +1,394 @@
+.zoneScrollContainer {
+  position: relative;
+  width: 100%;
+  height: 500vh;
+  background: #0C1A1C;
+}
+
+.zoneSticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* --- Backgrounds crossfade --- */
+.zoneBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.zoneBgActive {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.zoneBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoneBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.65);
+}
+
+/* --- Content --- */
+.zoneContent {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 80px;
+}
+
+/* Subtitle */
+.zoneSubtitle {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* Title + Desc blocks (crossfade) */
+.zoneTextBlock {
+  position: absolute;
+  left: 80px;
+  bottom: 240px;
+  width: 512px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+.zoneTextBlockActive {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.zoneTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.88px;
+  color: white;
+  white-space: pre-line;
+  margin-bottom: 24px;
+}
+
+.zoneDesc {
+  font-size: 17px;
+  line-height: 1.3;
+  color: white;
+  opacity: 0.7;
+}
+
+/* --- Cards right --- */
+.zoneCards {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 24px;
+}
+
+@keyframes zoneCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zoneCard {
+  position: relative;
+  width: 272px;
+  height: 340px;
+  border-radius: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  animation: zoneCardIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.zoneCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoneCardGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to top, rgba(12, 26, 28, 0.4) 0%, rgba(12, 26, 28, 0) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  -webkit-mask-image: linear-gradient(to top, black 40%, transparent 100%);
+  mask-image: linear-gradient(to top, black 40%, transparent 100%);
+  z-index: 1;
+}
+
+.zoneCardTitle {
+  position: absolute;
+  bottom: 28px;
+  left: 24px;
+  right: 24px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.85;
+  line-height: 1.3;
+  white-space: pre-line;
+  z-index: 2;
+}
+
+/* --- Bottom controls --- */
+.zoneControls {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.zoneArrows {
+  display: flex;
+  gap: 10px;
+}
+
+.zoneArrow {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.zoneArrow:hover {
+  transform: scale(1.08);
+}
+
+.zoneProgressBar {
+  flex-grow: 1;
+  max-width: 372px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.zoneProgressFill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width 0.4s ease;
+  border-radius: 1px;
+}
+
+.zoneNumber {
+  font-size: 66px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: -0.99px;
+  line-height: 0.8;
+  margin-left: auto;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1024px) {
+  .zoneContent {
+    padding: 40px;
+  }
+
+  .zoneSubtitle {
+    left: 40px;
+  }
+
+  .zoneTextBlock {
+    left: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .zoneScrollContainer {
+    height: 500vh;
+    background: #0C1A1C;
+  }
+
+  .zoneSticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .zoneBg {
+    opacity: 0;
+    transform: none;
+    display: block;
+    transition: opacity 0.6s ease;
+  }
+
+  .zoneBgActive {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .zoneContent {
+    position: absolute;
+    inset: 0;
+    padding: 0;
+    display: block;
+    z-index: 2;
+  }
+
+  .zoneSubtitle {
+    position: absolute;
+    top: 120px; /* Lowered from 100px */
+    left: 20px;
+    font-size: 15px;
+    opacity: 0.7;
+    line-height: 1.33;
+    margin: 0;
+  }
+
+  .zoneTextBlock {
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 280px; /* Lowered from 236px */
+    width: auto;
+    opacity: 0;
+    transform: none;
+    display: block;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+
+  .zoneTextBlockActive {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .zoneTitle {
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 16px;
+    width: 250px;
+  }
+
+  .zoneDesc {
+    font-size: 15px;
+    line-height: 1.33;
+    opacity: 0.7;
+    width: 335px;
+  }
+
+  .zoneCards {
+    position: absolute;
+    top: 540px; /* Lowered from 500px to be closer to line/number */
+    left: 0;
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    width: 100%;
+    padding: 0 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .zoneCards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .zoneCard {
+    width: 162px;
+    height: 200px;
+    border-radius: 24px;
+    flex-shrink: 0;
+    opacity: 1 !important;
+    animation: none;
+  }
+
+  .zoneCardGradient {
+    height: 100px; /* Reduced from 160px to lower the blur */
+    background: linear-gradient(to top, rgba(12, 26, 28, 0.6) 0%, rgba(12, 26, 28, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  }
+
+  .zoneCardTitle {
+    font-size: 13px;
+    bottom: 16px;
+    left: 16px;
+    line-height: 1.38;
+    opacity: 0.8;
+  }
+
+  .zoneControls {
+    position: absolute;
+    top: 760px; /* Lowered from 708px */
+    bottom: auto;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+  }
+
+  .zoneArrows {
+    display: none;
+  }
+
+  .zoneProgressBar {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    width: 248px;
+    max-width: none;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .zoneProgressFill {
+    background: white;
+  }
+
+  .zoneNumber {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 0;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,516 @@
+.scenariosHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 120px 80px 40px;
+  color: white;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.scenariosHeaderTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  max-width: 440px;
+}
+
+.scenariosHeaderDesc {
+  font-size: 17px;
+  line-height: 22px;
+  opacity: 0.7;
+  max-width: 440px;
+}
+
+.mobileHeaderBlock {
+  display: none;
+}
+
+.svcScrollContainer {
+  position: relative;
+  width: 100%;
+  height: 400vh;
+  background: #0c1a1c;
+}
+
+.svcSticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* --- Slide --- */
+.svcSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+
+.svcSlideActive {
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.svcSlidePrev {
+  opacity: 0;
+  z-index: 1;
+}
+
+/* --- Background --- */
+.svcSlideBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scale(1.05);
+  transition: transform 1s ease;
+}
+
+.svcSlideBgActive {
+  transform: scale(1);
+}
+
+.svcSlideBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svcSlideBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.7);
+}
+
+/* --- Layout --- */
+.svcSlideLayout {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.svcSlideLeft {
+  position: absolute;
+  left: 80px;
+  top: 220px;
+  width: 512px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.svcSlideRight {
+  position: absolute;
+  right: 80px;
+  top: 160px;
+  width: 518px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* --- Number --- */
+.svcNum {
+  font-size: 126px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: -1.89px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.svcNumActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Heading --- */
+.svcHeading {
+  font-size: 56px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: -0.84px;
+  line-height: 1.14;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease 0.06s, transform 0.5s ease 0.06s;
+}
+
+.svcHeadingActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Description --- */
+.svcDesc {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease 0.12s, transform 0.5s ease 0.12s;
+}
+
+.svcDescActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svcDesc p {
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.7;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+/* --- CTA --- */
+.svcCta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease 0.18s, transform 0.5s ease 0.18s;
+}
+
+.svcCtaActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svcCtaIcon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svcCtaIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+.svcCta span {
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+}
+
+/* --- Small cards (right side) --- */
+.svcCard {
+  position: relative;
+  width: 518px;
+  height: 300px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.svcCardActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.svcCardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.svcCardBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svcCardBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.35);
+}
+
+.svcCardNum {
+  position: absolute;
+  top: -60px;
+  right: 24px;
+  font-size: 156px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+  letter-spacing: -2px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.svcCardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  padding: 30px 40px 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(to top, rgba(12, 26, 28, 0.7) 0%, rgba(12, 26, 28, 0) 100%);
+  
+  -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  mask-image: linear-gradient(to top, black 20%, transparent 100%);
+}
+
+.svcCardArrow {
+  position: absolute;
+  top: 136px;
+  left: 40px;
+  width: 48px;
+  height: 48px;
+  z-index: 3;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svcCardArrow img {
+  width: 100%;
+  height: 100%;
+}
+
+.svcCardInfo h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.3;
+}
+
+.svcCardInfo p {
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+  .svcSlideLeft {
+    left: 40px;
+    width: calc(100% - 80px);
+  }
+  .svcSlideRight {
+    right: 40px;
+    width: calc(100% - 80px);
+  }
+}
+
+@media (max-width: 768px) {
+  .scenariosHeaderRow {
+    flex-direction: column;
+    padding: 80px 20px 20px;
+    gap: 16px;
+  }
+
+  .scenariosHeaderTitle {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .scenariosHeaderDesc {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .mobileHeaderBlock {
+    display: block;
+    padding: 80px 20px 40px;
+    background: #0c1a1c;
+    color: white;
+    z-index: 5;
+    position: relative;
+  }
+
+  .mobileHeaderTitle {
+    font-size: 32px;
+    line-height: 36px;
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .mobileHeaderDesc {
+    font-size: 15px;
+    line-height: 20px;
+    opacity: 0.7;
+  }
+
+  .svcScrollContainer {
+    height: 400vh;
+    background: #0c1a1c;
+  }
+
+  .svcSticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+  height: 100dvh;
+    overflow: hidden;
+  }
+
+  .svcSlide {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+
+  .svcSlideActive {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+  }
+
+  .svcSlideLayout {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 2;
+  }
+
+  .svcSlideLeft {
+    position: absolute;
+    top: 60px !important;
+    left: 20px !important;
+    right: 20px !important;
+    width: auto !important;
+    bottom: auto !important;
+    gap: 8px;
+  }
+
+  .svcSlideRight {
+    position: absolute;
+    top: auto !important;
+    bottom: 30px !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: 200px !important;
+    flex-direction: row !important;
+    gap: 12px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    z-index: 10;
+  }
+  .svcSlideRight::-webkit-scrollbar { display: none; }
+
+  .svcNum {
+    font-size: 72px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.25);
+    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.4);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    transform: none;
+    margin-bottom: -10px;
+    letter-spacing: -1px;
+  }
+
+  .svcHeading {
+    font-size: 32px;
+    opacity: 1;
+    transform: none;
+    line-height: 1.1;
+  }
+
+  .svcDesc {
+    opacity: 0.7;
+    transform: none;
+  }
+
+  .svcDesc p {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+
+  .svcCta {
+    opacity: 1;
+    transform: none;
+    margin-top: 10px;
+    gap: 12px;
+  }
+
+  .svcCtaIcon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .svcCta span {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .svcCard {
+    width: 260px;
+    height: 200px;
+    flex-shrink: 0;
+    opacity: 1;
+    transform: none;
+    border-radius: 20px;
+  }
+
+  .svcCardNum {
+    font-size: 64px;
+    top: -15px;
+    right: 12px;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  }
+
+  .svcCardInfo {
+    padding: 12px;
+    height: 80px;
+  }
+
+  .svcCardArrow {
+    left: 16px;
+    top: 16px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .svcCardInfo h3 {
+    font-size: 15px;
+  }
+
+  .svcCardInfo p {
+    font-size: 10px;
+  }
+}

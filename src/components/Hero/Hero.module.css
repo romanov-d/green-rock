@@ -1,0 +1,338 @@
+.heroBlock {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 110%;
+  height: 110%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  z-index: -1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.35);
+  z-index: 0;
+}
+
+.heroSection {
+  position: absolute;
+  bottom: 80px;
+  left: 80px;
+  max-width: 450px;
+  z-index: 5;
+}
+
+.heroTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  letter-spacing: -0.88px;
+}
+
+.titleLine {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.titleLine:nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+.titleLine:nth-child(2) {
+  animation-delay: 0.24s;
+}
+
+.titleLine:nth-child(3) {
+  animation-delay: 0.36s;
+}
+
+.heroSubtitle {
+  font-size: 17px;
+  line-height: 1.4;
+  opacity: 0.7;
+  max-width: 330px;
+}
+
+.animateSubtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Online Tour Card */
+.tourCardWrapper {
+  position: absolute;
+  bottom: 80px;
+  right: 80px;
+  width: 275px;
+  height: 264px;
+  z-index: 5;
+  cursor: pointer;
+}
+
+/* Unified Glass Effect Layer */
+.tourCardWrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.03); /* Subtle white glass tint */
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  z-index: 1;
+  pointer-events: none;
+  will-change: backdrop-filter, transform;
+  
+  /* Mask to match SVG shape */
+  mask-image: url('../../assets/card_bg.svg');
+  mask-size: 100% 100%;
+  -webkit-mask-image: url('../../assets/card_bg.svg');
+  -webkit-mask-size: 100% 100%;
+}
+
+.pcOnlyCard {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.9; /* Slight transparency to let glass show through */
+}
+
+.mobileOnlyCard {
+  display: none;
+}
+
+.animateCard {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUp 0.7s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+/* Keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Bottom Scroll */
+.bottomScroll {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.scrollText {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+
+.scrollProgress {
+  width: 1px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollProgressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: white;
+  animation: scrollRunner 3s infinite ease-in-out;
+}
+
+@keyframes scrollRunner {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+@media (max-width: 1280px) {
+  .heroSection {
+    bottom: 60px;
+    left: 60px;
+  }
+
+  .tourCardWrapper {
+    bottom: 60px;
+    right: 60px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroSection {
+    left: 40px;
+  }
+
+  .tourCard {
+    right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroBlock {
+    height: 100vh;
+  height: 100dvh;
+    min-height: 812px;
+    display: block;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .backgroundImage {
+    top: 0; /* Remove top gap */
+    height: 100%;
+    object-position: center;
+  }
+
+  .heroSection {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    z-index: 1; /* Lower than card */
+  }
+
+  .heroTextContainer {
+    position: absolute;
+    top: 147px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1px;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+  }
+
+  .titleLine {
+    display: block;
+    white-space: nowrap;
+  }
+
+  /* Preserve staggered delays on mobile */
+  .titleLine:nth-child(1) { animation-delay: 0.12s; }
+  .titleLine:nth-child(2) { animation-delay: 0.24s; }
+  .titleLine:nth-child(3) { animation-delay: 0.36s; }
+
+  .animateSubtitle {
+    animation-delay: 0.6s;
+  }
+
+  .heroSubtitle {
+    position: relative;
+    top: auto;
+    left: auto;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 100%;
+    opacity: 0.7;
+    margin: 0;
+  }
+
+  .tourCardWrapper {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    height: 180px;
+    z-index: 10;
+    cursor: pointer;
+    background: none !important;
+    border: none !important;
+  }
+
+  .tourCardWrapper::before {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(32px);
+    -webkit-backdrop-filter: blur(32px);
+    mask-image: url('../../assets/herobanner_mask.svg');
+    mask-size: 100% 100%;
+    -webkit-mask-image: url('../../assets/herobanner_mask.svg');
+    -webkit-mask-size: 100% 100%;
+    will-change: backdrop-filter;
+  }
+
+  .pcOnlyCard {
+    display: none;
+  }
+
+  .mobileOnlyCard {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+  }
+
+  .bottomScroll {
+    display: none;
+  }
+}

@@ -1,0 +1,171 @@
+.header {
+  position: absolute;
+  top: 30px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.navMenu {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 6px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navItem {
+  padding: 10px 24px;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: var(--transition-smooth);
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ctaButton {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  transition: var(--transition-smooth);
+}
+
+.ctaButton:hover {
+  opacity: 0.8;
+}
+
+.ctaIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ctaText {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.burgerTrigger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+  .header {
+    left: 60px;
+    right: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    top: 30px;
+    left: 20px;
+    right: 20px;
+  }
+
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .navMenu {
+    display: none;
+  }
+
+  .headerActions {
+    gap: 12px;
+  }
+
+  .ctaButton {
+    display: none;
+  }
+
+  .burgerTrigger {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: flex-end;
+    background: none;
+    border: none;
+    z-index: 10001;
+  }
+
+  .burgerIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .burgerIcon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .burgerOpen span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .burgerOpen span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .menuOpen {
+    z-index: 10000;
+  }
+}
+
+.desktopIcon {
+  display: block;
+}
+
+@media (min-width: 769px) {
+  .burgerIcon {
+    display: none;
+  }
+}

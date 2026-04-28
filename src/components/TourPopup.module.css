@@ -1,0 +1,223 @@
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popupBackdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.tourPopupContainer {
+  position: relative;
+  z-index: 10;
+  width: 720px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 40px;
+  padding: 80px 40px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.popupCloseBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.popupCloseBtn:hover {
+  transform: rotate(90deg);
+}
+
+.popupCloseBtn img {
+  width: 100%;
+  height: 100%;
+}
+
+.popupHeader {
+  margin-bottom: 40px;
+}
+
+.popupTitle {
+  font-size: 32px;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 16px;
+  max-width: 450px;
+}
+
+.popupSubtitle {
+  font-size: 15px;
+  line-height: 1.4;
+  color: white;
+  opacity: 0.8;
+  max-width: 400px;
+}
+
+.popupFormPill {
+  width: 640px;
+  height: 88px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  padding: 6px 6px 6px 32px;
+  gap: 12px;
+}
+
+.formInputWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.inputPrefix {
+  color: white;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.popupInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 17px;
+  width: 100%;
+  font-weight: 400;
+}
+
+.popupInput::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.popupSubmitBtn {
+  background: none;
+  border: none;
+  border-radius: 100px;
+  height: 76px;
+  padding-left: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popupSubmitBtn span {
+  white-space: nowrap;
+}
+
+.submitIcon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.popupSubmitBtn:hover .submitIcon {
+  transform: translateX(4px);
+}
+
+.submitIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .tourPopupContainer {
+    width: calc(100% - 32px);
+    margin: 16px;
+    padding: 64px 20px 40px;
+    border-radius: 32px;
+  }
+  
+  .popupTitle {
+    font-size: 24px;
+    max-width: 100%;
+  }
+  
+  .popupSubtitle {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .popupFormPill {
+    width: 100%;
+    height: 72px;
+    flex-direction: row;
+    padding: 6px 6px 6px 24px;
+    border-radius: 100px;
+    gap: 0;
+  }
+
+  .formInputWrapper {
+    flex: 1;
+    justify-content: flex-start;
+    padding: 0;
+  }
+
+  .popupSubmitBtn {
+    width: auto;
+    height: 60px;
+    padding: 0;
+    justify-content: center;
+    background: none;
+  }
+
+  .popupSubmitBtn span {
+    display: none;
+  }
+
+  .submitIcon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.popupSuccess {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px;
+  color: white;
+  font-size: 17px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.popupError {
+  color: #ff8a8a;
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 10px 0 0 4px;
+  text-align: center;
+}

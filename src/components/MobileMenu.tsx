@@ -1,0 +1,113 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import imgYoutube from '../assets/youtube_icon.svg';
+import imgTelegram from '../assets/telegram_icon.svg';
+import imgPromoImg from '../assets/menu_promo_img.webp';
+import imgArrow from '../assets/arrow_diagonal_grey.svg';
+import imgLogo from '../assets/logo.svg';
+
+import styles from './MobileMenu.module.css';
+
+interface MobileMenuProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div 
+          className={styles.mobileMenuOverlay}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+        >
+          <div className={styles.mobileMenuContainer}>
+            {/* Header with Logo and Close */}
+            <div className={styles.mobileMenuHeader}>
+              <div className={styles.logo}>
+                <img src={imgLogo} alt="ГРИН РОК" />
+              </div>
+              <button className={styles.mobileMenuClose} onClick={onClose}>
+                <div className={styles.closeIcon}>
+                  <span></span>
+                  <span></span>
+                </div>
+              </button>
+            </div>
+
+            {/* Navigation & Services Grid */}
+            <div className={styles.mobileMenuGrid}>
+              <div className={styles.mobileMenuSection}>
+                <h4 className={styles.mobileMenuLabel}>Навигация</h4>
+                <nav className={styles.mobileMenuLinks}>
+                  <Link to="/#projects" onClick={onClose}>Проекты</Link>
+                  <Link to="/#about" onClick={onClose}>О компании</Link>
+                </nav>
+              </div>
+
+              <div className={styles.mobileMenuSection}>
+                <h4 className={styles.mobileMenuLabel}>Услуги</h4>
+                <nav className={styles.mobileMenuLinks}>
+                  <Link to="/services#landscape" onClick={onClose}>Ландшафт</Link>
+                  <Link to="/services#design" onClick={onClose}>Дизайн</Link>
+                  <Link to="/services#architecture" onClick={onClose}>Архитектура</Link>
+                  <Link to="/services" onClick={onClose}>Интерьер</Link>
+                </nav>
+              </div>
+            </div>
+
+            {/* Contacts Section */}
+            <div className={styles.mobileMenuFooter}>
+              <div className={styles.mobileMenuContacts}>
+                <h4 className={styles.mobileMenuLabel}>Контакты</h4>
+                <div className={styles.mobileMenuLinks}>
+                  <p>+7 999 123 45 67</p>
+                  <p>info@greenrock.ru</p>
+                  <p>Санкт-Петербург</p>
+                </div>
+              </div>
+
+              {/* Socials */}
+              <div className={styles.mobileMenuSocials}>
+                <a href="https://youtube.com" target="_blank" rel="noreferrer" className={styles.socialIcon}>
+                  <img src={imgYoutube} alt="YouTube" />
+                </a>
+                <a href="https://t.me" target="_blank" rel="noreferrer" className={styles.socialIcon}>
+                  <img src={imgTelegram} alt="Telegram" />
+                </a>
+              </div>
+
+              {/* Promo Card - Stretched Block with Figma Shape */}
+              <div className={styles.mobileMenuPromo}>
+                <div className={styles.promoShape} />
+                <div className={styles.promoContent}>
+                  <div className={styles.promoText}>
+                    <h3>Хотите обсудить ваш проект?</h3>
+                  </div>
+                  <div className={styles.promoVisual}>
+                    <img src={imgPromoImg} alt="Promo" className={styles.promoImg} />
+                  </div>
+                  <div className={styles.promoArrow}>
+                    <img src={imgArrow} alt="" />
+                  </div>
+                  <p className={styles.promoDesc}>
+                    Свяжитесь с нами и мы ответим на любые интересующие вас вопросы
+                  </p>
+                </div>
+              </div>
+
+              {/* Copyright */}
+              <p className={styles.mobileMenuCopyright}>
+                © Грин Рок, Санкт-Петербург | 2026. Все права защищены
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};

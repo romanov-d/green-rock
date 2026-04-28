@@ -1,0 +1,149 @@
+.projectBlockAnnotated {
+  padding: 140px 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.stickyInner {
+  position: relative;
+  width: 100%;
+}
+
+.sectionBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.85); /* Dark green glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contentZIndex {
+  position: relative;
+  z-index: 10;
+}
+
+.annotatedHeader {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  color: white;
+  padding: 0 80px;
+}
+
+.annotatedTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  margin-bottom: 24px;
+}
+
+.annotatedSubtitle {
+  font-size: 17px;
+  line-height: 22px;
+  opacity: 0.7;
+  max-width: 602px;
+  margin: 0 auto;
+}
+
+.annotatedVisualWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 80px;
+}
+
+.prostranstvoSvg {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .projectBlockAnnotated {
+    padding: 0;
+    height: 250vh;
+    background: #0C1A1C;
+    overflow: clip;
+  }
+
+  .stickyInner {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .bgOverlay {
+    background: rgba(12, 26, 28, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .contentZIndex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px 20px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .annotatedHeader {
+    padding: 0;
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .annotatedTitle {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .annotatedSubtitle {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .annotatedVisualWrapper {
+    width: 100vw;
+    flex-grow: 1;
+    margin-left: 0;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .prostranstvoSvg {
+    height: 60vh;
+    width: auto;
+    max-width: none;
+    border-radius: 12px;
+    padding: 0 40px;
+    object-fit: contain;
+    will-change: transform;
+  }
+}

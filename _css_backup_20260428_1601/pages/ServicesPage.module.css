@@ -1,0 +1,1336 @@
+/* ===== WRAPPER ===== */
+.servicesPage {
+  background: #0c1a1c;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  
+}
+
+/* ===== HEADER ===== */
+/* Using global Header component */
+
+/* ===== BLOCK 1: HERO ===== */
+.servicesHero {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 800px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px;
+  color: white;
+  overflow: hidden; 
+}
+
+/* ===== BLOCK 1: HERO ===== */
+.servicesHero {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 800px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 80px;
+  color: white;
+  overflow: hidden; /* Prevent horizontal scroll from scaled image */
+}
+
+.heroBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.heroBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1) translateX(5%); /* Increased scale and shift */
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.65); /* Even darker background */
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroTitle {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 64px;
+  letter-spacing: -1.5px;
+  margin-bottom: 14px;
+  max-width: 753px;
+}
+
+.titleLine {
+  display: block;
+  opacity: 0;
+  transform: translateY(24px);
+  animation: fadeInUpHero 0.7s ease-out forwards;
+}
+
+.titleLine:nth-child(1) {
+  animation-delay: 0.12s;
+}
+
+.titleLine:nth-child(2) {
+  animation-delay: 0.24s;
+}
+
+.heroSubtitle {
+  font-size: 17px;
+  line-height: 24px;
+  opacity: 0.7;
+  max-width: 491px;
+}
+
+.animateSubtitle {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpHero 0.7s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUpHero {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== BLOCK 2: DESIGN (svc-static-slide) ===== */
+.svcStaticSlide {
+  height: 100vh;
+  
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #0c1a1c;
+}
+
+.svcSlideBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transform: scale(1.05);
+  transition: transform 1s ease;
+}
+
+.svcSlideBgActive {
+  transform: scale(1);
+}
+
+.svcSlideBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svcSlideBgOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.svcSlideLayout {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 160px 80px 80px;
+}
+
+.svcSlideLeft {
+  position: absolute;
+  left: 80px;
+  top: 220px;
+  width: 512px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.svcSlideRight {
+  position: absolute;
+  right: 80px;
+  top: 160px;
+  width: 518px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.svcNum {
+  font-size: 126px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: -1.89px;
+  line-height: 1;
+}
+
+.svcHeading {
+  font-size: 56px;
+  font-weight: 500;
+  color: white;
+  letter-spacing: -0.84px;
+  line-height: 1.14;
+}
+
+.svcDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.svcDesc p {
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.7;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.svcCta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.svcCtaIcon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svcCtaIcon img {
+  width: 100%;
+  height: 100%;
+}
+
+.svcCta span {
+  font-size: 17px;
+  font-weight: 500;
+  color: white;
+}
+
+.svcCard {
+  position: relative;
+  width: 518px;
+  height: 300px;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.svcCardBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.svcCardBg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svcCardBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.35);
+}
+
+.svcCardNum {
+  position: absolute;
+  top: -60px;
+  right: 24px;
+  font-size: 156px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.4);
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
+  letter-spacing: -2px;
+  line-height: 1;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.svcCardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  padding: 30px 40px 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: linear-gradient(to top, rgba(12, 26, 28, 0.4) 0%, rgba(12, 26, 28, 0) 100%);
+  -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  mask-image: linear-gradient(to top, black 20%, transparent 100%);
+}
+
+.svcCardArrow {
+  position: absolute;
+  top: 136px;
+  left: 40px;
+  width: 48px;
+  height: 48px;
+  z-index: 3;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svcCardArrow img {
+  width: 100%;
+  height: 100%;
+}
+
+.svcCardInfo h3 {
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  line-height: 1.3;
+}
+
+.svcCardInfo p {
+  font-size: 17px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.7;
+}
+
+/* ===== BLOCK 3: LANDSCAPE ===== */
+.landscapeSection {
+  padding: 120px 80px;
+  background: #0c1a1c;
+}
+
+.sectionHeaderRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 48px;
+  color: white;
+}
+
+.sectionTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+}
+
+.sectionDesc {
+  font-size: 24px;
+  line-height: 32px;
+  max-width: 628px;
+  color: white;
+}
+
+.opacityMuted {
+  opacity: 0.5;
+}
+
+.landscapeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.landscapeCard {
+  height: 650px;
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.landscapeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 350px;
+  background: rgba(17, 32, 28, 0.6); /* Deep green glass tint */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.9) 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.9) 30%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cardBgAbs {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.cardOverlayAbs {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cardTopContent {
+  position: relative;
+  z-index: 10;
+}
+
+.landscapeCardTitle {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.32px;
+  font-weight: 400;
+}
+
+.cardBottomContent {
+  position: relative;
+  z-index: 10;
+  max-width: 414px;
+}
+
+.cardText {
+  font-size: 17px;
+  line-height: 22px;
+}
+
+/* ===== BLOCK 5: INTERIORS ===== */
+.interiorsSection {
+  padding: 120px 80px;
+  background: #0c1a1c;
+  position: relative;
+  overflow: hidden;
+}
+
+.interiorsBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.sectionBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(40px) brightness(0.6);
+  transform: scale(1.1);
+}
+
+.greenGlassOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.7);
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.interiorsHeader {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+}
+
+.headerLeft {
+  max-width: 628px;
+}
+
+.headerRight {
+  margin-top: 24px;
+}
+
+.interiorsCta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.interiorsCta:hover {
+  opacity: 0.8;
+}
+
+.ctaIconCircle {
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaIconCircle img {
+  width: 24px;
+  height: 24px;
+  transform: rotate(45deg);
+}
+
+.interiorsCta span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.interiorsHeader .sectionTitle {
+  margin-bottom: 16px;
+}
+
+.interiorsLayout {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.interiorCard {
+  height: 650px;
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.largeCard {
+  width: 100%;
+}
+
+.interiorsBottomRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.cardBgCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.8s ease;
+}
+
+.interiorCard:hover .cardBgCover {
+  transform: scale(1.05);
+}
+
+.cardDarkenOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45); /* Darken as requested */
+  z-index: 1;
+}
+
+.cardContentCentered {
+  position: relative;
+  z-index: 10;
+  max-width: 648px;
+}
+
+.interiorCardTitle {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.32px;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.interiorCardSubtitle {
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+
+/* ===== BLOCK 7: PROCESS ===== */
+.processSection {
+  padding: 120px 80px;
+  background: #0c1a1c;
+  position: relative;
+  overflow: hidden;
+}
+
+.processBgOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.processBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(60px) brightness(0.4); /* Increased blur and darkened for more subtle look */
+  transform: scale(1.2);
+}
+
+.darkGreenGlassOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.85); /* Darkened as requested */
+  backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.processSectionHeader {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 64px;
+  text-align: center;
+  color: white;
+}
+
+.processSectionTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  margin: 0;
+}
+
+.processTrack {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.processCard {
+  height: 400px;
+  position: relative;
+  border-radius: 32px;
+  overflow: hidden;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: rgba(12, 26, 28, 0.2);
+}
+
+.processCardBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.8s ease;
+}
+
+.processCard:hover .processCardBg {
+  transform: scale(1.05);
+}
+
+.processCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Darker card overlay */
+  z-index: 1;
+}
+
+.processCardContent {
+  position: relative;
+  z-index: 10;
+  padding: 40px;
+  height: 215px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.processCardContent::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12, 26, 28, 0) 0%, rgba(12, 26, 28, 0.35) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  -webkit-mask-image: linear-gradient(to top, black 20%, transparent 80%);
+  mask-image: linear-gradient(to top, black 20%, transparent 80%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.processCardNumber {
+  position: absolute;
+  right: 40px;
+  top: -40px;
+  font-size: 126px;
+  line-height: 1;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: -1.89px;
+  pointer-events: none;
+  z-index: 5;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+}
+
+.processCardTitle {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.32px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.processCardDesc {
+  font-size: 17px;
+  line-height: 22px;
+  max-width: 500px;
+  opacity: 0.7;
+}
+
+
+/* ===== BLOCK 8: BENEFITS ===== */
+.benefitsSection {
+  height: 900px;
+  position: relative;
+  overflow: hidden;
+  padding: 120px 0 80px;
+  background: #0c1a1c;
+}
+
+.benefitsBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.benefitsBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.benefitsBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.45); /* Darker background */
+}
+
+.benefitsSectionContent {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.benefitsHeader {
+  padding: 0 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.benefitsTitle {
+  font-size: 44px;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  font-weight: 500;
+  color: white;
+  max-width: 547px;
+}
+
+.benefitsBottomContent {
+  margin-top: auto;
+  padding-bottom: 20px;
+}
+
+.benefitsControlsRow {
+  padding: 0 80px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+.benefitsProgress {
+  width: 300px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: -0.5px;
+  height: 2px;
+  background: white;
+}
+
+.benefitsArrows {
+  display: flex;
+  gap: 12px;
+}
+
+.arrowBtn {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowBtn img {
+  width: 64px; /* Adjust size as needed for the SVG with circle */
+  height: 64px;
+}
+
+.arrowBtn:hover {
+  transform: scale(1.1);
+}
+
+
+.benefitsSlider {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 0 80px 20px;
+  scrollbar-width: none;
+}
+
+.benefitsSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.benefitCard {
+  height: 450px; /* Slightly taller */
+  position: relative;
+  flex-shrink: 0;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(17, 32, 28, 0.4); /* Dark green glass effect as requested */
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.benefitCardW411 {
+  width: 411px;
+}
+
+.benefitCardW302 {
+  width: 302px;
+}
+
+.cardShape {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.cardInner {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.benefitCardTitle {
+  font-size: 28px; /* Slightly larger */
+  line-height: 34px;
+  font-weight: 400;
+  color: white;
+}
+
+.benefitCardDesc {
+  font-size: 17px;
+  line-height: 22px;
+  color: white;
+  opacity: 0.8;
+}
+
+
+/* ===== BLOCK 9: TOUR CTA ===== */
+.tourSection {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.tourBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.tourBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tourOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.3);
+  z-index: 2;
+}
+
+.tourContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.tourHeaderCentered {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.tourTitleLarge {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -1.12px;
+}
+
+.tourSubtitleCentered {
+  font-size: 17px;
+  opacity: 0.8;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.tourPlayWrapper {
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.tourPlayButton {
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.tourPlayButton:hover {
+  transform: scale(1.2);
+}
+
+.tourFormWrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tourFormPill {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border-radius: 200px;
+  padding: 6px 6px 6px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tourFormInput {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 17px;
+  outline: none;
+  flex: 1;
+}
+
+.tourFormSubmit {
+  background: var(--color-green);
+  border: none;
+  border-radius: 100px;
+  padding: 8px 8px 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tourSubmitIcon {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tourSubmitIcon img {
+  width: 20px;
+  height: 20px;
+}
+
+.tourConsentRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0.6;
+  font-size: 12px;
+  text-align: center;
+}
+
+.consentIcon {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 768px) {
+  .heroBgImg {
+    transform: none;
+    object-position: 75% center;
+  }
+
+  .servicesHero {
+    padding: 0 20px 80px;
+    min-height: auto;
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+    line-height: 36px;
+    letter-spacing: -0.32px;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+
+  .heroSubtitle {
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.15px;
+    opacity: 0.7;
+    max-width: 100%;
+  }
+
+  /* Rest of mobile styles */
+  .interiorsSection, .landscapeSection, .managementSection {
+    padding: 80px 0;
+  }
+
+  .managementSection {
+    height: auto;
+  }
+
+  .contentHeaderCentered {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .processSection, .benefitsSection {
+    padding: 80px 20px;
+  }
+
+  .sectionTitle, .processSectionTitle, .benefitsTitle {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .sectionHeaderRow {
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding: 0 20px;
+  }
+
+  .sectionDesc {
+    font-size: 15px;
+    line-height: 20px;
+    max-width: 100%;
+  }
+
+  .landscapeGrid, .interiorsBottomRow, .processGrid, .managementCards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .landscapeCard {
+    height: 400px;
+    padding: 32px 20px;
+    border-radius: 32px;
+  }
+
+  .interiorCard, .managementCard {
+    height: 340px;
+    padding: 32px 20px;
+  }
+
+  .landscapeCardTitle {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .cardText {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .interiorsHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 32px;
+    padding: 0 20px;
+  }
+
+  .headerRight {
+    display: none;
+  }
+
+  .interiorsLayout {
+    gap: 12px;
+  }
+
+  .interiorCard {
+    height: 400px;
+    padding: 32px 20px;
+    border-radius: 32px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .interiorCardTitle {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 4px;
+  }
+
+  .interiorCardSubtitle {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.7;
+  }
+
+  .processSection {
+    height: 350vh; /* Slightly reduced but still enough for 6 cards */
+    padding: 0;
+    overflow: visible; /* CRITICAL: overflow: hidden breaks position: sticky */
+  }
+
+  .processSticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .processTrack {
+    display: flex;
+    gap: 16px;
+    padding: 0 20px;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .processCard {
+    width: 280px;
+    height: 450px;
+    flex-shrink: 0;
+  }
+
+  .processSectionHeader {
+    margin-bottom: 32px;
+    padding: 0 20px;
+    text-align: left;
+  }
+
+  .processSectionTitle {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .processCardNumber {
+    font-size: 80px;
+    right: 20px;
+    top: 10px;
+  }
+
+  .processCardTitle {
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+
+  .processCardDesc {
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+
+  .processCardContent {
+    padding: 24px 20px;
+    height: auto; /* Overriding desktop height */
+  }
+
+  .cardInfoSubtitle {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* --- Benefits Block 8 --- */
+  .benefitsSection {
+    padding: 80px 0;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .benefitsBgImg {
+    filter: blur(2px);
+  }
+
+  .benefitsHeader {
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .benefitsTitle {
+    font-size: 24px;
+    line-height: 32px;
+    max-width: 237px;
+  }
+
+  .benefitsControlsRow {
+    padding: 0 20px;
+    margin-bottom: 32px;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .benefitsProgress {
+    width: 100%;
+    max-width: 216px;
+  }
+
+  .benefitsArrows {
+    gap: 8px;
+  }
+
+  .arrowBtn img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .benefitsSlider {
+    padding: 0 20px 40px;
+    gap: 24px;
+  }
+
+  .benefitCard {
+    height: 350px;
+    padding: 32px 24px;
+  }
+
+  .benefitCardW411 {
+    width: 335px; /* Adjusting for 375px viewport */
+  }
+
+  .benefitCardW302 {
+    width: 280px;
+  }
+
+  .benefitCardTitle {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .benefitCardDesc {
+    font-size: 17px;
+    line-height: 22px;
+    opacity: 0.7;
+  }
+}

@@ -1,0 +1,61 @@
+.quoteSection {
+  position: relative;
+  width: 100%;
+  height: 910px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+.quoteBg {
+  position: absolute;
+  inset: -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
+  object-fit: cover;
+  z-index: 0;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+.quoteOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.15);
+  z-index: 1;
+}
+
+.quoteContent {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 40px;
+}
+
+.quoteText {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.88px;
+  color: white;
+}
+
+.quoteChar {
+  color: rgba(255, 255, 255, 0.15); /* More gray/darker */
+  transition: color 0.1s ease;
+}
+
+.quoteCharFilled {
+  color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+  .quoteSection {
+    height: 600px;
+  }
+  .quoteText {
+    font-size: 32px;
+  }
+}

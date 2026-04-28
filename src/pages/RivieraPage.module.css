@@ -1,0 +1,1280 @@
+/* ===== WRAPPER ===== */
+.projectPage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  
+}
+
+/* ===== HERO ===== */
+.projectHero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.projectHeroBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  transform: scale(1.05);
+  filter: brightness(0.65);
+}
+
+.projectHeroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(12, 26, 28, 0.24) 0%, rgba(12, 26, 28, 0.6) 86.7%);
+  z-index: 0;
+}
+
+/* Header */
+.projectHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  height: 120px;
+}
+
+.logo {
+  position: absolute;
+  left: 80px;
+  top: 30px;
+  width: 80px;
+  height: 80px;
+}
+
+.logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.projectNav {
+  position: absolute;
+  left: 50%;
+  top: 46px;
+  transform: translateX(-50%);
+  display: flex;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 6px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navItem {
+  padding: 10px 24px;
+  font-size: 13px;
+  color: white;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: var(--transition-smooth);
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.projectCta {
+  position: absolute;
+  right: 80px;
+  top: 46px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.projectCtaIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectCtaIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.projectCtaText {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Hero Content */
+.projectHeroContent {
+  flex: 1;
+  position: relative;
+  z-index: 5;
+  padding: 150px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projectHeroMain {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.projectTitle {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 64px;
+  letter-spacing: -0.84px;
+  margin-bottom: 24px;
+}
+
+.projectSubtitle {
+  font-size: 17px;
+  line-height: 22px;
+  max-width: 474px;
+  margin: 0 auto;
+}
+
+.projectHeroBottom {
+  position: absolute;
+  bottom: 40px;
+  left: 80px;
+  right: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.projectServices p,
+.projectSpecs p {
+  font-size: 15px;
+  opacity: 0.8;
+  line-height: 20px;
+}
+
+.projectServices {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 400px;
+}
+
+.projectSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+.desktopOnly {
+  display: flex;
+}
+
+.projectScroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.scrollHint {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: lowercase;
+  opacity: 0.7;
+}
+
+.scrollIndicator {
+  width: 1px;
+  height: 60px;
+  background: rgba(47, 85, 82, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.scrollIndicatorFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background: white;
+  animation: scrollProgress 3s infinite ease-in-out;
+}
+
+@keyframes scrollProgress {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(100%); }
+  100% { transform: translateY(200%); }
+}
+
+.animateTitleV2 {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUpV2 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+.animateSubtitleV2 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUpV2 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUpV2 {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== BLOCK 2 ===== */
+.projectBlock2 {
+  background: #1b3a3f;
+  padding: 120px 0 0;
+}
+
+.block2Header {
+  padding: 0 80px 120px;
+}
+
+.block2Intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 139px;
+}
+
+.block2Text {
+  font-size: 24px;
+  line-height: 32px;
+  max-width: 643px;
+  color: white;
+}
+
+.block2Subtitle {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.subtitleDivider {
+  width: 1px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.subtitleContent p {
+  font-size: 17px;
+  line-height: 22px;
+  opacity: 0.8;
+}
+
+.block2Visual {
+  position: relative;
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+}
+
+.block2Bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.block2FloatingCard {
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+  width: 560px;
+  background: rgba(17, 32, 28, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  padding: 10px;
+  z-index: 5;
+}
+
+.cardPlan {
+  width: 100%;
+  height: 214px;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  opacity: 0.9;
+}
+
+.cardPlan img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardDetails {
+  display: flex;
+  padding: 0 24px 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cardColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardColumn p {
+  font-size: 15px;
+  opacity: 0.7;
+  letter-spacing: 0.15px;
+  margin: 0;
+}
+
+.cardDivider {
+  width: 1px;
+  height: 98px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 32px;
+}
+
+/* ===== BLOCK 3 — Architecture of Relief ===== */
+.projectBlock3Riviera {
+  background: #1b3a3f;
+  padding: 120px 80px;
+}
+
+.block3Container {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.block3Visual {
+  flex: 0 0 518px;
+}
+
+.block3Visual img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.block3Content {
+  flex: 1;
+}
+
+.block3Title {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  color: white;
+  margin-bottom: 40px;
+  max-width: 328px;
+}
+
+.block3DescWrapper {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.descDivider {
+  width: 1px;
+  display: flex;
+  align-items: stretch;
+}
+
+.descDivider img {
+  height: 100%;
+}
+
+.descText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 17px;
+  line-height: 24px;
+  font-weight: 500;
+  color: white;
+  max-width: 533px;
+}
+
+/* ===== BLOCK 4 — Full-width with Side Panel ===== */
+.rivieraFullBlock {
+  position: relative;
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+}
+
+.fullBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.fullBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidePanelDark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background: rgba(17, 32, 28, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+  border-radius: 32px 0 0 32px;
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+}
+
+.panelInner {
+  max-width: 501px;
+  color: white;
+}
+
+.panelTitle {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+
+.panelDividerH {
+  width: 100%;
+  max-width: 560px;
+  height: 1px;
+  margin: 32px 0;
+  opacity: 0.3;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.panelDividerH img {
+  width: 100%;
+  height: 1px;
+  display: block;
+  object-fit: cover;
+}
+
+.panelDescription {
+  font-size: 17px;
+  line-height: 22px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0.9;
+}
+
+.listTitle {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 16px;
+}
+
+.panelList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0.8;
+}
+
+.panelList li {
+  font-size: 17px;
+  line-height: 22px;
+}
+
+/* ===== BLOCK 5 — Implementation ===== */
+.rivieraImplementationSection {
+  background: #1b3a3f;
+  width: 100%;
+}
+
+.implHeader {
+  height: 240px;
+  padding: 80px 80px 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.implHeaderContent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.implTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  color: white;
+  margin: 0;
+}
+
+.implSubtitle {
+  font-size: 24px;
+  line-height: 32px;
+  color: white;
+  opacity: 0.5;
+  max-width: 514px;
+  margin: 0;
+}
+
+.implBody {
+  position: relative;
+  height: 900px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.implBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.implBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.implBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 58, 63, 0.3);
+}
+
+.implContainer {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  gap: 130px;
+  padding: 120px 0;
+}
+
+.implLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 65px;
+}
+
+.implNumber {
+  font-size: 126px;
+  font-weight: 400;
+  line-height: 64px;
+  letter-spacing: -1.89px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.implMainCard {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  color: white;
+}
+
+.implCardTitle {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 64px;
+  letter-spacing: -0.84px;
+}
+
+.implCardDesc {
+  font-size: 17px;
+  line-height: 22px;
+  opacity: 0.7;
+  max-width: 472px;
+}
+
+.implRight {
+  width: 518px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.implMiniCard {
+  position: relative;
+  height: 300px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.implMiniCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.miniCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 58, 63, 0.3);
+}
+
+.miniCardNum {
+  position: absolute;
+  right: 80px;
+  top: 40px;
+  font-size: 126px;
+  line-height: 64px;
+  letter-spacing: -1.89px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.miniCardLabel {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  font-size: 24px;
+  color: white;
+  opacity: 0.8;
+}
+
+/* ===== BLOCK 6 — Full Width Image ===== */
+.projectImageFull {
+  width: 100%;
+  height: 100vh;
+  
+  overflow: hidden;
+  background: var(--color-green);
+}
+
+.fullBgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== BLOCK 8 — Summary ===== */
+.rivieraSummarySection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 120px;
+  overflow: hidden;
+}
+
+.summaryBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.summaryBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.summaryBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(27, 58, 63, 0.1);
+}
+
+.summaryCard {
+  position: relative;
+  z-index: 10;
+  width: 510px;
+  height: 298px;
+  background: rgba(17, 32, 28, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+}
+
+.summaryCardTitle {
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -0.32px;
+  color: white;
+  margin: 0 0 24px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.summaryCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  align-items: center;
+}
+
+.summaryCardList p {
+  font-size: 17px;
+  line-height: 22px;
+  color: white;
+  margin: 0;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* ===== BLOCK 9 — Online Tour ===== */
+.lubitovoTourSection {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.tourBgContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.tourBgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tourOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.3);
+  z-index: 2;
+}
+
+.tourContent {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.tourHeaderCentered {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.tourTitleLarge {
+  font-size: 56px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -1.12px;
+}
+
+.tourSubtitleCentered {
+  font-size: 17px;
+  opacity: 0.8;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.tourPlayWrapper {
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.tourPlayButton {
+  width: 24px;
+  height: 28px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.tourPlayButton:hover {
+  transform: scale(1.2);
+}
+
+.tourFormWrapper {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.tourFormPill {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15.5px);
+  -webkit-backdrop-filter: blur(15.5px);
+  border-radius: 200px;
+  padding: 6px 6px 6px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tourFormInput {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 17px;
+  outline: none;
+  flex: 1;
+}
+
+.tourFormSubmit {
+  background: var(--color-green);
+  border: none;
+  border-radius: 100px;
+  padding: 8px 8px 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.tourSubmitIcon {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tourSubmitIcon img {
+  width: 20px;
+  height: 20px;
+}
+
+.tourConsentRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  opacity: 0.6;
+  font-size: 12px;
+  text-align: center;
+}
+
+.consentIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+.glassyNavTags {
+  display: none;
+}
+
+.glassyTag {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 8px 20px;
+  border-radius: 32px;
+  font-size: 12px;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .projectHero {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .projectHeroContent {
+    padding: 0 20px;
+    justify-content: flex-start;
+    padding-top: 240px; /* Space for header and tags */
+  }
+
+  /* Glassy Tags */
+  .glassyNavTags {
+    position: absolute;
+    top: 130px;
+    left: 20px;
+    right: 0;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 20px 10px 0;
+    scrollbar-width: none;
+    z-index: 15;
+  }
+
+  .glassyNavTags::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glassyTag {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-size: 13px;
+    color: white;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .projectHeroMain {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .projectTitle {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+  }
+
+  .projectSubtitle {
+    font-size: 15px;
+    line-height: 1.4;
+    max-width: 335px;
+    margin: 0 auto 32px;
+    opacity: 0.8;
+  }
+
+  /* Mobile Specs */
+  .projectSpecs {
+    text-align: center;
+    gap: 8px;
+    margin-top: 32px;
+  }
+
+  .projectSpecs p {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.7;
+  }
+
+  .mobileOnly {
+    display: flex;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .projectHeroBottom {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 0;
+  }
+
+  .projectScroll {
+    position: relative;
+    left: 0;
+    transform: none;
+  }
+
+  .scrollIndicator {
+    height: 60px;
+  }
+
+  /* ===== BLOCK 2 MOBILE ===== */
+  .projectBlock2 {
+    padding: 80px 20px 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .block2Header {
+    padding: 0 0 40px;
+  }
+
+  .block2Intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .block2Text {
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 100%;
+    opacity: 0.8;
+  }
+
+  .block2Subtitle {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .subtitleDivider {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .subtitleContent p {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+    opacity: 1;
+  }
+
+  .block2Visual {
+    height: 520px;
+    margin: 0 -20px;
+    width: calc(100% + 40px);
+  }
+
+  .block2FloatingCard {
+    left: 20px;
+    bottom: 20px;
+    width: 254px;
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .cardPlan {
+    height: 127px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+
+  .cardDetails {
+    padding: 0 10px 10px;
+  }
+
+  .cardColumn p {
+    font-size: 9px;
+    line-height: 1.3;
+    letter-spacing: 0.09px;
+  }
+
+  .cardDivider {
+    height: 60px;
+    margin: 0 12px;
+  }
+
+  /* ===== BLOCK 3 MOBILE ===== */
+  .projectBlock3Riviera {
+    padding: 80px 20px;
+    background: #1B3A3F;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .block3Container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .block3Content {
+    order: 1;
+  }
+
+  .block3Title {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 16px;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .block3DescWrapper {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .descDivider {
+    display: none;
+  }
+
+  .descText {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.7;
+    max-width: 100%;
+  }
+
+  .block3Visual {
+    order: 2;
+    flex: none;
+    width: 100%;
+    height: 350px;
+  }
+
+  .block3Visual img {
+    height: 350px;
+    border-radius: 32px;
+    aspect-ratio: auto;
+  }
+
+  /* ===== BLOCK 4 MOBILE ===== */
+  .rivieraFullBlock {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    background: #11201C;
+  }
+
+  .fullBgContainer {
+    position: relative;
+    height: 440px;
+    z-index: 1;
+  }
+
+  .sidePanelDark {
+    position: relative;
+    width: 100%;
+    margin-top: -40px; /* Overlap image */
+    padding: 40px 20px;
+    border-radius: 32px 32px 0 0;
+    z-index: 10;
+    background: rgba(17, 32, 28, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .panelInner {
+    max-width: 100%;
+  }
+
+  .panelTitle {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    letter-spacing: 0;
+  }
+
+  .panelDividerH {
+    margin: 20px 0;
+    opacity: 0.1;
+  }
+
+  .panelDescription {
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 32px;
+    opacity: 0.7;
+  }
+
+  .listTitle {
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+
+  .panelList {
+    gap: 8px;
+  }
+
+  .panelList li {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.8;
+  }
+
+  /* ===== BLOCK 6 MOBILE ===== */
+  .projectImageFull {
+    height: 340px;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  /* ===== BLOCK 8 MOBILE ===== */
+  .rivieraSummarySection {
+    height: 100vh;
+    height: 100dvh;
+    padding-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .summaryCard {
+    width: 335px;
+    height: 296px;
+    padding: 40px 20px;
+    border-radius: 32px;
+    background: rgba(17, 32, 28, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .summaryCardTitle {
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  .summaryCardList {
+    gap: 10px;
+  }
+
+  .summaryCardList p {
+    font-size: 13px;
+    line-height: 18px;
+  }
+}

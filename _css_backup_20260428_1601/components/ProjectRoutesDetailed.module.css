@@ -1,0 +1,132 @@
+.projectRoutesDetailed {
+  position: relative;
+  width: 100%;
+  min-height: 890px;
+  background: rgba(12, 26, 28, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 140px 0;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.routesBgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 32, 28, 0.6);
+  z-index: 1;
+}
+
+.noiseLayer {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.routesContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  text-align: center;
+}
+
+.routesTitle {
+  font-size: 44px;
+  font-weight: 500;
+  color: white;
+  margin-bottom: 16px;
+  letter-spacing: -0.88px;
+  line-height: 1.1;
+}
+
+.routesSubtitle {
+  font-size: 17px;
+  color: white;
+  opacity: 0.7;
+  margin-bottom: 60px;
+}
+
+.routesVisual {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.marshrutiImage {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+@media (max-width: 1024px) {
+  .projectRoutesDetailed {
+    padding: 80px 20px;
+    min-height: auto;
+  }
+
+  .routesTitle {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectRoutesDetailed {
+    height: 100vh;
+    height: 100dvh;
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .routesContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 20px 40px;
+    text-align: center;
+  }
+
+  .routesText {
+    margin-bottom: 40px;
+  }
+
+  .routesTitle {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .routesSubtitle {
+    font-size: 13px; /* Reduced to 13px as requested */
+    line-height: 1.4;
+    opacity: 0.7;
+    margin-bottom: 0;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .routesVisual {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: visible;
+  }
+
+  .marshrutiImage {
+    width: auto;
+    height: 65vh;
+    max-width: none;
+    transform: none;
+    flex-shrink: 0;
+  }
+}

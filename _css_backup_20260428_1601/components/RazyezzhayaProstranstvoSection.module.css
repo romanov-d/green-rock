@@ -1,0 +1,127 @@
+.projectBlockAnnotated {
+  padding: 140px 0;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.sectionBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 26, 28, 0.85); /* Dark green glass */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contentZIndex {
+  position: relative;
+  z-index: 10;
+}
+
+.annotatedHeader {
+  max-width: 900px;
+  margin: 0 auto 80px;
+  color: white;
+  padding: 0 80px;
+}
+
+.annotatedTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 52px;
+  letter-spacing: -0.88px;
+  margin-bottom: 24px;
+}
+
+.annotatedSubtitle {
+  font-size: 17px;
+  line-height: 22px;
+  opacity: 0.7;
+  max-width: 602px;
+  margin: 0 auto;
+}
+
+.annotatedVisualWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 80px;
+}
+
+.prostranstvoSvg {
+  width: 100%;
+  max-width: 1280px;
+  height: auto;
+  border-radius: 20px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .projectBlockAnnotated {
+    padding: 80px 20px 40px;
+    height: 90vh;
+    height: 90dvh;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .annotatedHeader {
+    padding: 0;
+    margin-bottom: 32px;
+    text-align: left;
+  }
+
+  .annotatedTitle {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .annotatedSubtitle {
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  .contentZIndex {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .annotatedVisualWrapper {
+    width: 100vw;
+    height: 45vh;
+    margin-left: -20px;
+    margin-top: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: 0;
+    flex-shrink: 0;
+  }
+
+  .prostranstvoSvg {
+    height: 100%;
+    width: auto;
+    max-width: none;
+    border-radius: 12px;
+    padding: 0 40px;
+    object-fit: contain;
+  }
+}

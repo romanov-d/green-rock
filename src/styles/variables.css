@@ -1,0 +1,10 @@
+:root {
+  --font-family: 'Golos Text', sans-serif;
+  --color-green: #1B3A3F;
+  --color-light-green: #2F5552;
+  --color-white: #FFFFFF;
+  --color-glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-blur: 12px;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
