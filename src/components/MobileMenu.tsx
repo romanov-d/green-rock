@@ -5,7 +5,6 @@ import imgYoutube from '../assets/youtube_icon.svg';
 import imgTelegram from '../assets/telegram_icon.svg';
 import imgPromoImg from '../assets/menu_promo_img.webp';
 import imgArrow from '../assets/arrow_diagonal_grey.svg';
-import imgLogo from '../assets/logo.svg';
 
 import styles from './MobileMenu.module.css';
 
