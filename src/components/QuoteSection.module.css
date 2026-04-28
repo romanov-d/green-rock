@@ -39,16 +39,12 @@
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.88px;
-  color: white;
+  color: rgba(255, 255, 255, 0.15);
 }
 
 .quoteChar {
-  color: rgba(255, 255, 255, 0.15); /* More gray/darker */
-  transition: color 0.1s ease;
-}
-
-.quoteCharFilled {
-  color: #ffffff;
+  color: inherit;
+  will-change: color;
 }
 
 @media (max-width: 1024px) {
