@@ -1,276 +1,278 @@
-.rivieraZonesSection {
+.prinScrollContainer {
   position: relative;
   width: 100%;
-  background: #1b3a3f;
+  background: #0C1A1C;
 }
 
-.zonesSticky {
+.prinSticky {
   position: sticky;
   top: 0;
+  left: 0;
+  width: 100%;
   height: 100vh;
   height: 100dvh;
-  width: 100%;
   overflow: hidden;
 }
 
-.zoneBgItem {
+/* --- Backgrounds crossfade --- */
+.prinBg {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
+  z-index: 0;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transform: scale(1.04);
+  transition: opacity 0.8s ease, transform 1s ease;
+}
+
+.prinBgActive {
+  opacity: 1;
+  transform: scale(1);
   z-index: 1;
 }
 
-.active {
-  opacity: 1;
-}
-
-.zoneOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(27, 58, 63, 0.3);
-}
-
-.zonesLayout {
-  position: relative;
-  z-index: 10;
-  height: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  display: flex;
-  padding: 160px 0 80px;
-}
-
-.zonesInfo {
-  flex: 0 0 473px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.zonesTag {
-  font-size: 24px;
-  color: white;
-  opacity: 0.7;
-}
-
-.zonesContent {
-  display: flex;
-  flex-direction: column;
-}
-
-.zoneTitle {
-  font-size: 44px;
-  font-weight: 500;
-  line-height: 52px;
-  letter-spacing: -0.88px;
-  color: white;
-  margin-bottom: 24px;
-}
-
-.zoneDescription {
-  font-size: 17px;
-  line-height: 22px;
-  color: white;
-  opacity: 0.7;
-  max-width: 473px;
-}
-
-.zonesControls {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
-
-.controlsLeft {
-  display: flex;
-  gap: 12px;
-}
-
-.controlBtn {
-  width: 48px;
-  height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.controlBtn:hover:not(:disabled) {
-  background: white;
-}
-
-.controlBtn:hover:not(:disabled) img {
-  filter: invert(1);
-}
-
-.controlBtn:disabled {
-  opacity: 0.3;
-  cursor: default;
-}
-
-.controlsRight {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex: 1;
-}
-
-.progressBar {
-  flex: 1;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.2);
-  position: relative;
-}
-
-.progressFill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: white;
-  transition: width 0.5s ease;
-}
-
-.zoneIndex {
-  font-size: 66px;
-  line-height: 64px;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: -1px;
-}
-
-.zonesGallery {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  padding-left: 100px;
-  overflow: hidden;
-}
-
-.galleryWrapper {
-  display: flex;
-  gap: 24px;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.zoneCard {
-  flex: 0 0 272px;
-  height: 340px;
-  border-radius: 32px;
-  overflow: hidden;
-  position: relative;
-}
-
-.zoneCard img {
+.prinBg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.cardOverlay {
+.prinBgOverlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12, 26, 28, 0) 50%, rgba(12, 26, 28, 0.6) 100%);
+  background: rgba(12, 26, 28, 0.65);
 }
 
-.cardTitle {
+/* --- Content --- */
+.prinContent {
   position: absolute;
-  left: 24px;
-  bottom: 32px;
-  font-size: 24px;
-  line-height: 32px;
-  color: white;
-  opacity: 0.8;
-  margin: 0;
+  inset: 0;
+  z-index: 2;
+  padding: 80px;
 }
 
-.hidden {
+/* Subtitle */
+.prinSubtitle {
+  position: absolute;
+  top: 100px;
+  left: 80px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* Title + Desc blocks (crossfade) */
+.prinTextBlock {
+  position: absolute;
+  left: 80px;
+  bottom: 240px;
+  width: 512px;
   opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   pointer-events: none;
-  transform: scale(0.9);
-  transition: all 0.5s ease;
+}
+
+.prinTextBlockActive {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.prinTitle {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.88px;
+  color: white;
+  white-space: pre-line;
+  margin-bottom: 24px;
+}
+
+.prinDesc {
+  font-size: 17px;
+  line-height: 1.3;
+  color: white;
+  opacity: 0.7;
+}
+
+/* --- Cards right --- */
+.prinCards {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 24px;
+}
+
+@keyframes prinCardIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.prinCard {
+  position: relative;
+  width: 272px;
+  height: 340px;
+  border-radius: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  animation: prinCardIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.prinCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prinCardGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to top, rgba(12, 26, 28, 0.4) 0%, rgba(12, 26, 28, 0) 100%);
+  z-index: 1;
+}
+
+.prinCardTitle {
+  position: absolute;
+  bottom: 28px;
+  left: 24px;
+  right: 24px;
+  font-size: 24px;
+  font-weight: 400;
+  color: white;
+  opacity: 0.85;
+  line-height: 1.3;
+  white-space: pre-line;
+  z-index: 2;
+}
+
+/* --- Bottom controls --- */
+.prinControls {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  right: 80px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.prinArrows {
+  display: flex;
+  gap: 10px;
+}
+
+.prinArrow {
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.prinProgressBar {
+  flex-grow: 1;
+  max-width: 372px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.prinProgressFill {
+  height: 100%;
+  background: white;
+  transition: width 0.4s ease;
+}
+
+.prinNumber {
+  font-size: 66px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-left: auto;
 }
 
 @media (max-width: 768px) {
-  .rivieraZonesSection {
-    overflow-x: hidden;
+  .prinContent {
+    padding: 0;
   }
 
-  .zonesLayout {
-    padding: 80px 0 40px;
-    flex-direction: column;
-    overflow-x: hidden;
-  }
-
-  .zonesInfo {
-    flex: none;
-    width: 100%;
-    padding: 0 20px;
-    margin-bottom: 40px;
-  }
-
-  .zoneTitle {
-    font-size: 32px;
-    line-height: 40px;
-    margin-bottom: 16px;
-  }
-
-  .zoneDescription {
-    font-size: 15px;
-    line-height: 20px;
-    max-width: 100%;
-  }
-
-  .zonesGallery {
-    padding-left: 0;
-    width: 100%;
-    overflow: visible;
-  }
-
-  .galleryWrapper {
-    flex-direction: column;
-    gap: 0;
-    width: 100%;
-  }
-
-  .zoneCard {
-    flex: none;
-    width: 100vw;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    border-radius: 0;
-    margin: 0;
-    position: relative;
-    left: 0;
-  }
-
-  /* Since the layout might have padding, we ensure card is edge-to-edge */
-  .zoneCard {
-    margin-left: 0;
-    width: 100vw;
-  }
-
-  .cardTitle {
-    font-size: 20px;
+  .prinSubtitle {
+    top: 100px;
     left: 20px;
-    bottom: 24px;
+    font-size: 15px;
   }
 
-  .zonesControls {
+  .prinTextBlock {
+    left: 20px;
+    right: 20px;
+    top: 180px;
+    bottom: auto;
+    width: auto;
+  }
+
+  .prinTitle {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+
+  .prinDesc {
+    font-size: 15px;
+    line-height: 1.4;
+    width: 100%;
+  }
+
+  .prinCards {
+    top: 420px; /* Pushed down to avoid overlap */
+    left: 0;
+    transform: none;
     padding: 0 20px;
-    margin-top: 40px;
-    gap: 20px;
-    justify-content: space-between;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
   }
 
-  .zoneIndex {
+  .prinCards::-webkit-scrollbar { display: none; }
+
+  .prinCard {
+    width: 200px;
+    height: 250px;
+    opacity: 1 !important;
+    animation: none;
+  }
+
+  .prinCardTitle {
+    font-size: 16px;
+  }
+
+  .prinControls {
+    top: 680px; /* Moved up to tighten gap with cards */
+    bottom: auto;
+    left: 20px;
+    right: 20px;
+    width: auto;
+  }
+
+  .prinArrows { display: none; }
+
+  .prinProgressBar {
+    position: absolute;
+    top: 24px; /* Tighter gap to cards */
+    left: 0;
+    width: 70%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .prinNumber {
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 40px;
-    line-height: 1;
+    margin: 0;
   }
 }

@@ -299,7 +299,8 @@
     position: absolute;
     left: 20px;
     right: 20px;
-    top: 196px;
+    top: 180px;
+    bottom: auto;
     width: auto;
     opacity: 0;
     transform: none;
@@ -329,8 +330,9 @@
 
   .prinCards {
     position: absolute;
-    top: 380px;
+    top: 460px; /* Lowered for more air from desc */
     left: 0;
+    transform: none; /* CRITICAL FIX: removed desktop transform */
     display: flex;
     overflow-x: auto;
     gap: 12px;
@@ -363,7 +365,7 @@
 
   .prinControls {
     position: absolute;
-    top: 596px;
+    top: 680px; /* Tight gap to cards (460+200=660) */
     bottom: auto;
     left: 20px;
     right: 20px;
@@ -380,7 +382,7 @@
 
   .prinProgressBar {
     position: absolute;
-    top: 32px;
+    top: 16px; /* Tight gap to cards */
     left: 0;
     width: 248px;
     max-width: none;

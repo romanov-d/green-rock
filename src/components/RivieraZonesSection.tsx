@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import styles from './PrinciplesSection.module.css';
+import styles from './RivieraZonesSection.module.css';
 
 import imgZone1 from '../assets/riviera_zone1_bg.webp';
 import imgZone2 from '../assets/riviera_zone2_bg.webp';

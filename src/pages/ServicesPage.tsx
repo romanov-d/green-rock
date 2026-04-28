@@ -113,7 +113,7 @@ export const ServicesPage: React.FC = () => {
 
   return (
     <div className={styles.servicesPage}>
-      <Header onMenuToggle={() => setIsMenuOpen(true)} />
+      <Header onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} isMenuOpen={isMenuOpen} />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
       {/* Block 1: Hero */}

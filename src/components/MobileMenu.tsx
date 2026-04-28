@@ -26,19 +26,8 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
           transition={{ duration: 0.3, ease: 'easeInOut' }}
         >
           <div className={styles.mobileMenuContainer}>
-            {/* Header with Logo and Close */}
-            <div className={styles.mobileMenuHeader}>
-              <div className={styles.logo}>
-                <img src={imgLogo} alt="ГРИН РОК" />
-              </div>
-              <button className={styles.mobileMenuClose} onClick={onClose}>
-                <div className={styles.closeIcon}>
-                  <span></span>
-                  <span></span>
-                </div>
-              </button>
-            </div>
-
+            {/* Spacer to match Header height and prevent jump */}
+            <div className={styles.mobileMenuHeader} />
             {/* Navigation & Services Grid */}
             <div className={styles.mobileMenuGrid}>
               <div className={styles.mobileMenuSection}>

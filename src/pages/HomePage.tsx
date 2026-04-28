@@ -48,12 +48,11 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className={styles.premiumContainer}>
+      <Header onMenuToggle={toggleMenu} isMenuOpen={isMenuOpen} />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <TourPopup isOpen={isTourPopupOpen} onClose={() => setIsTourPopupOpen(false)} />
       
-      <Hero onTourClick={() => setIsTourPopupOpen(true)}>
-        <Header onMenuToggle={toggleMenu} isMenuOpen={isMenuOpen} />
-      </Hero>
+      <Hero onTourClick={() => setIsTourPopupOpen(true)} />
 
       <ProjectsSection />
       <ServicesSection />

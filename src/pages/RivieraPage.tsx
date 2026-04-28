@@ -33,15 +33,12 @@ export const RivieraPage: React.FC = () => {
 
   return (
     <div className={styles.projectPage}>
+      <Header onMenuToggle={toggleMenu} isMenuOpen={isMenuOpen} />
       <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
-      {/* Hero Section */}
       <section className={styles.projectHero}>
         <img src={imgRivieraBg} alt="Ривьера" className={styles.projectHeroBg} />
         <div className={styles.projectHeroOverlay}></div>
-
-        {/* Header */}
-        <Header onMenuToggle={toggleMenu} isMenuOpen={isMenuOpen} />
 
         {/* Hero Content */}
         <div className={styles.projectHeroContent}>

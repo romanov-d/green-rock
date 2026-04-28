@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  height: 100dvh;
   background: var(--color-green);
   overflow: hidden;
   display: flex;

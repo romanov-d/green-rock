@@ -133,9 +133,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 6px;
-    width: 24px;
-    height: 24px;
+    gap: 8px;
+    width: 32px;
+    height: 32px;
   }
 
   .burgerIcon span {
