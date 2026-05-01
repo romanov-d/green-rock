@@ -107,6 +107,11 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.projectCta:hover .projectCtaIcon img {
+  transform: rotate(45deg);
 }
 
 .projectCtaText {
@@ -197,7 +202,7 @@
 .scrollHint {
   font-size: 11px;
   font-weight: 500;
-  text-transform: lowercase;
+  
   opacity: 0.7;
 }
 
@@ -265,7 +270,9 @@
 }
 
 .block2Header {
-  padding: 0 80px 120px;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 0 120px;
 }
 
 .block2Intro {
@@ -447,25 +454,27 @@
 }
 
 .block3Container {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
 }
 
 .block3Title {
   font-size: 56px;
   font-weight: 500;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   color: white;
+  text-align: left;
 }
 
 .block3Description {
   font-size: 17px;
   line-height: 1.5;
   max-width: 800px;
-  margin: 0 auto 80px;
+  margin-bottom: 80px;
   opacity: 0.8;
   color: white;
+  text-align: left;
 }
 
 .block3Cards {
@@ -518,47 +527,7 @@
   opacity: 0.5;
 }
 
-@media (max-width: 768px) {
-  .projectBlock3 {
-    padding: 80px 20px;
-  }
 
-  .block3Title {
-    font-size: 24px;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-
-  .block3Description {
-    font-size: 13px;
-    line-height: 18px;
-    margin-bottom: 32px; /* Reduced from 48px to be closer to cards */
-    text-align: left;
-    max-width: 100%;
-  }
-
-  .block3Cards {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .taskCard {
-    padding: 24px 16px;
-    border-radius: 24px;
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  .taskCardTitle {
-    font-size: 17px;
-    font-weight: 500;
-    margin-bottom: 24px;
-  }
-
-  .taskList li {
-    font-size: 13px;
-    line-height: 18px;
-  }
-}
 
 /* ===== BLOCK 5 — Full Width Image ===== */
 .projectImageFull {
@@ -609,11 +578,11 @@
 }
 
 .splitEmpty {
-  flex: 1;
+  flex: 0 0 50%;
 }
 
 .splitContent {
-  flex: 1;
+  flex: 0 0 50%;
   background: rgba(17, 32, 28, 0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -639,6 +608,7 @@
 
 .splitTitle {
   font-size: 32px;
+  font-weight: 400; /* Changed from default 500/bold to regular */
   line-height: 1.2;
   margin-bottom: 24px;
   letter-spacing: -0.64px;
@@ -700,7 +670,7 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px;
   display: flex;
   justify-content: center;
   padding-top: 400px;
@@ -1030,7 +1000,7 @@
   .projectSpecs {
     text-align: center;
     gap: 4px;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .mobileOnly {
@@ -1042,8 +1012,8 @@
   }
 
   .projectSpecs p {
-    font-size: 12px;
-    line-height: 16px;
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   .projectHeroBottom {
@@ -1108,12 +1078,13 @@
   }
 
   .splitContent {
-    background: #0C1A1C;
+    background: rgba(17, 32, 28, 0.6);
     border-radius: 32px 32px 0 0;
     padding: 40px 20px;
     border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   .splitTitle {
@@ -1146,7 +1117,7 @@
   }
 
   .summaryCard {
-    width: 335px;
+    width: calc(100% - 40px);
     height: 296px;
     padding: 40px 20px;
     border-radius: 32px;
@@ -1173,6 +1144,56 @@
   .summaryList li {
     font-size: 13px;
     line-height: 1.4;
+  }
+
+  /* Block 3 Mobile Final Fix */
+  .projectBlock3 {
+    padding: 80px 20px !important;
+  }
+
+  .block3Container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .block3Title {
+    font-size: 24px;
+    margin-bottom: 16px;
+    text-align: left;
+  }
+
+  .block3Description {
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 32px;
+    text-align: left;
+    width: 100%;
+    padding: 0 !important; /* Already has section padding */
+  }
+
+  .block3Cards {
+    flex-direction: column;
+    gap: 16px;
+    width: 100% !important;
+  }
+
+  .taskCard {
+    width: 100% !important;
+    padding: 24px 20px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .taskCardTitle {
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .taskList li {
+    font-size: 13px;
+    line-height: 18px;
   }
 
   /* ===== BLOCK 2 MOBILE UNIFIED ===== */

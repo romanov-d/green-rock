@@ -10,6 +10,10 @@ import imgCard1 from '../assets/riviera_card1.webp';
 import imgCard2 from '../assets/riviera_card2.webp';
 import imgCard3 from '../assets/riviera_card3.webp';
 import imgCard4 from '../assets/riviera_card4.webp';
+import imgCard1Mobile from '../assets/riviera_card1_mobile.webp';
+import imgCard2Mobile from '../assets/riviera_card2_mobile.webp';
+import imgCard3Mobile from '../assets/riviera_card3_mobile.webp';
+import imgCard4Mobile from '../assets/riviera_card4_mobile.webp';
 
 import arrowLeft from '../assets/arrow_left_circle.svg';
 import arrowRight from '../assets/arrow_right_circle.svg';
@@ -19,7 +23,7 @@ interface ZoneSlide {
   title: string;
   description: string;
   bg: string;
-  cards: { title: string; img: string }[];
+  cards: { title: string; img: string; imgMobile: string }[];
 }
 
 const slides: ZoneSlide[] = [
@@ -29,44 +33,44 @@ const slides: ZoneSlide[] = [
     description: "Приватная площадка на нижней террасе участка. Пространство организовано для отдыха у костра с видом на сад и окружающий ландшафт.",
     bg: imgZone1,
     cards: [
-      { title: "Маршруты по\nрельефу", img: imgCard1 },
-      { title: "Спортивная\nплощадка", img: imgCard2 },
-      { title: "Композиции из\nрастений", img: imgCard3 },
+      { title: "Маршруты", img: imgCard1, imgMobile: imgCard1Mobile },
+      { title: "Площадка", img: imgCard2, imgMobile: imgCard2Mobile },
+      { title: "Растения", img: imgCard3, imgMobile: imgCard3Mobile },
     ]
   },
   {
     number: "02",
-    title: "Маршруты по рельефу",
+    title: "Маршруты",
     description: "Система плит и каскадных ступеней соединяет разные уровни участка. Маршруты позволяют комфортно перемещаться по саду и открывают новые видовые точки.",
     bg: imgZone2,
     cards: [
-      { title: "Спортивная\nплощадка", img: imgCard2 },
-      { title: "Композиции из\nрастений", img: imgCard3 },
-      { title: "Газон с перепадами\nвысот", img: imgCard4 },
+      { title: "Площадка", img: imgCard2, imgMobile: imgCard2Mobile },
+      { title: "Растения", img: imgCard3, imgMobile: imgCard3Mobile },
+      { title: "Газон", img: imgCard4, imgMobile: imgCard4Mobile },
     ]
   },
   {
     number: "03",
-    title: "Спортивная площадка",
+    title: "Площадка",
     description: "Система плит и каскадных ступеней соединяет разные уровни участка. Маршруты позволяют комфортно перемещаться по саду и открывают новые видовые точки.",
     bg: imgZone3,
     cards: [
-      { title: "Композиции из\nрастений", img: imgCard3 },
-      { title: "Газон с перепадами\nвысот", img: imgCard4 },
+      { title: "Растения", img: imgCard3, imgMobile: imgCard3Mobile },
+      { title: "Газон", img: imgCard4, imgMobile: imgCard4Mobile },
     ]
   },
   {
     number: "04",
-    title: "Композиции из растений",
+    title: "Растения",
     description: "Композиции из хвойных, декоративных злаков и кустарников формируют природный характер сада. Посадки мягко интегрируют архитектуру дома в лесной ландшафт.",
     bg: imgZone4,
     cards: [
-      { title: "Газон с перепадами\nвысот", img: imgCard4 }
+      { title: "Газон", img: imgCard4, imgMobile: imgCard4Mobile }
     ]
   },
   {
     number: "05",
-    title: "Газон с перепадами высот",
+    title: "Газон",
     description: "Открытая зона сада, сформированная мягкими террасами рельефа. Газон объединяет разные части участка и создаёт пространство для отдыха и прогулок.",
     bg: imgZone5,
     cards: []
@@ -87,6 +91,30 @@ export const RivieraZonesSection: React.FC = () => {
     const idx = Math.min(slides.length - 1, Math.floor(p * slides.length));
     setActiveIndex(idx);
   }, []);
+
+  const goToSlide = (idx: number) => {
+    if (!containerRef.current) return;
+    const scrollableHeight = containerRef.current.offsetHeight - window.innerHeight;
+    const targetScroll = (idx / (slides.length - 1)) * scrollableHeight;
+    const offsetTop = containerRef.current.offsetTop;
+
+    window.scrollTo({
+      top: offsetTop + targetScroll,
+      behavior: 'smooth'
+    });
+  };
+
+  const nextSlide = () => {
+    if (activeIndex < slides.length - 1) {
+      goToSlide(activeIndex + 1);
+    }
+  };
+
+  const prevSlide = () => {
+    if (activeIndex > 0) {
+      goToSlide(activeIndex - 1);
+    }
+  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -135,7 +163,10 @@ export const RivieraZonesSection: React.FC = () => {
                 className={styles.prinCard}
                 style={{ animationDelay: `${ci * 100}ms` }}
               >
-                <img src={card.img} alt="" className={styles.prinCardImg} />
+                <picture className={styles.prinCardImgPicture}>
+                  <source srcSet={card.imgMobile} media="(max-width: 768px)" />
+                  <img src={card.img} alt="" className={styles.prinCardImg} />
+                </picture>
                 <div className={styles.prinCardGradient} />
                 <p className={styles.prinCardTitle} style={{ whiteSpace: 'pre-line' }}>{card.title}</p>
               </div>
@@ -145,8 +176,18 @@ export const RivieraZonesSection: React.FC = () => {
           {/* Bottom controls */}
           <div className={styles.prinControls}>
             <div className={styles.prinArrows}>
-              <img src={arrowLeft} alt="Previous" className={styles.prinArrow} />
-              <img src={arrowRight} alt="Next" className={styles.prinArrow} />
+              <img
+                src={arrowLeft}
+                alt="Previous"
+                className={`${styles.prinArrow} ${activeIndex === 0 ? styles.prinArrowDisabled : ''}`}
+                onClick={prevSlide}
+              />
+              <img
+                src={arrowRight}
+                alt="Next"
+                className={`${styles.prinArrow} ${activeIndex === slides.length - 1 ? styles.prinArrowDisabled : ''}`}
+                onClick={nextSlide}
+              />
             </div>
             <div className={styles.prinProgressBar}>
               <div className={styles.prinProgressFill} style={{ width: `${progressWidth}%` }} />

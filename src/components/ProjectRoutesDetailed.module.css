@@ -30,7 +30,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px; /* Increased to match grid */
   text-align: center;
 }
 
@@ -47,18 +47,26 @@
   font-size: 17px;
   color: white;
   opacity: 0.7;
-  margin-bottom: 60px;
+  margin-bottom: 40px; /* Adjusted spacing */
 }
 
 .routesVisual {
   display: flex;
   justify-content: center;
   width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.routesVisualActive {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .marshrutiImage {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px; /* Increased to match grid */
   height: auto;
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
 }

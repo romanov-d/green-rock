@@ -26,7 +26,7 @@ const slides: SlideState[] = [
     number: "01",
     title: "Общение",
     description: [
-      "Зона для взаимодействия — без жёсткой функции, но с понятным ощущением комфорта."
+      "Зона для\u00A0взаимодействия\u00A0— без\u00A0жёсткой функции, но\u00A0с\u00A0понятным ощущением комфорта."
     ],
     bg: bg0,
     cards: [
@@ -39,7 +39,7 @@ const slides: SlideState[] = [
     number: "02",
     title: "Открытость",
     description: [
-      "Светлое пространство для отдыха и свободного времени."
+      "Пространство становится более свободным и\u00A0светлым, создавая контраст с\u00A0камерными номерами."
     ],
     bg: bg1,
     cards: [
@@ -51,7 +51,7 @@ const slides: SlideState[] = [
     number: "03",
     title: "Тишина",
     description: [
-      "Приватная зона для работы или уединения в тишине."
+      "Даже в\u00A0открытом пространстве сохраняется спокойствие."
     ],
     bg: bg2,
     cards: [
@@ -62,7 +62,7 @@ const slides: SlideState[] = [
     number: "04",
     title: "Сценарии",
     description: [
-      "Разные уровни освещения и рассадки для любых задач."
+      "Пространство допускает разные способы использования: отдых, работа, встречи."
     ],
     bg: bg3,
     cards: []
@@ -95,8 +95,8 @@ export const RazyezzhayaScenariosSection: React.FC = () => {
   return (
     <div style={{ background: '#1b3a3f' }}>
       <div className={styles.scenariosHeaderRow}>
-        <h2 className={styles.scenariosHeaderTitle}>Пространство раскрывается</h2>
-        <p className={styles.scenariosHeaderDesc}>После компактных и приватных зон отель меняет характер. Третий этаж становится точкой, где можно остановиться, выдохнуть и остаться дольше.</p>
+        <h2 className={styles.scenariosHeaderTitle}>{"Пространство раскрывается"}</h2>
+        <p className={styles.scenariosHeaderDesc}>{"После компактных и\u00A0приватных зон отель меняет характер. Третий этаж становится точкой, где\u00A0можно остановиться, выдохнуть и\u00A0остаться дольше."}</p>
       </div>
 
       <section ref={containerRef} className={styles.svcScrollContainer}>

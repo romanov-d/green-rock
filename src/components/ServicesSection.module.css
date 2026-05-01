@@ -80,7 +80,7 @@
 .svcSlideRight {
   position: absolute;
   right: 80px;
-  top: 160px;
+  top: 100px; /* Raised from 160px to show 4th card */
   width: 518px;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@
 .svcNum {
   font-size: 126px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.15); /* Subdued as requested */
   letter-spacing: -1.89px;
   line-height: 1;
   opacity: 0;
@@ -172,6 +172,11 @@
 .svcCtaIcon img {
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.svcCta:hover .svcCtaIcon img {
+  transform: rotate(45deg);
 }
 
 .svcCta span {
@@ -184,7 +189,7 @@
 .svcCard {
   position: relative;
   width: 518px;
-  height: 300px;
+  height: 280px; /* Reduced from 300px */
   border-radius: 32px;
   overflow: hidden;
   display: flex;
@@ -214,7 +219,7 @@
 .svcCardBgOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(12, 26, 28, 0.35);
+  background: rgba(12, 26, 28, 0.6); /* Subdued card brightness */
 }
 
 .svcCardNum {
@@ -223,9 +228,7 @@
   right: 24px;
   font-size: 156px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.4);
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
-  text-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.15); /* Subdued and without stroke */
   letter-spacing: -2px;
   line-height: 1;
   pointer-events: none;
@@ -259,7 +262,7 @@
   width: 48px;
   height: 48px;
   z-index: 3;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.6); /* Subdued arrow saturation */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -269,6 +272,11 @@
 .svcCardArrow img {
   width: 100%;
   height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.svcCard:hover .svcCardArrow img {
+  transform: rotate(45deg);
 }
 
 .svcCardInfo h3 {

@@ -11,8 +11,21 @@ gsap.registerPlugin(ScrollTrigger);
 export const ProjectRoutesDetailed: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const svgRef = useRef<HTMLImageElement>(null);
+  const [isVisible, setIsVisible] = React.useState(false);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
     if (!sectionRef.current || !svgRef.current) return;
 
     const mm = gsap.matchMedia();
@@ -25,18 +38,19 @@ export const ProjectRoutesDetailed: React.FC = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=100%', // Shortened from 150%
+          end: '+=100%',
           pin: true,
-          scrub: 0.5, // Faster scrub
+          scrub: 0.5,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
       });
     });
 
-    // On desktop (>768px), matchMedia does nothing, so no ScrollTrigger is created.
-
-    return () => mm.revert();
+    return () => {
+      mm.revert();
+      observer.disconnect();
+    };
   }, []);
 
   return (
@@ -46,12 +60,12 @@ export const ProjectRoutesDetailed: React.FC = () => {
       </div>
 
       <div className={styles.routesContainer}>
-        <div className={styles.routesText}>
+        <div className={`${styles.routesText} ${isVisible ? styles.routesVisualActive : ''}`} style={{ transitionDelay: '0.1s' }}>
           <h2 className={styles.routesTitle}>Маршруты — невидимая<br />архитектура сада</h2>
-          <p className={styles.routesSubtitle}>Одно из важных решений проекта — логика движения.</p>
+          <p className={styles.routesSubtitle}>Одно из&nbsp;важных решений проекта — логика движения.</p>
         </div>
 
-        <div className={styles.routesVisual}>
+        <div className={`${styles.routesVisual} ${isVisible ? styles.routesVisualActive : ''}`} style={{ transitionDelay: '0.3s' }}>
           <img ref={svgRef} src={marshrutiSvg} alt="Маршруты проекта" className={styles.marshrutiImage} />
         </div>
       </div>

@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onTourClick, children }) => {
     <div className={styles.heroBlock}>
       {children}
       {/* Background Section */}
-      <img src={imgBackground} alt="Background" className={styles.backgroundImage} />
+      <img src={imgBackground} alt="Архитектурное бюро Грин Рок - ландшафтный дизайн и интерьеры" className={styles.backgroundImage} />
       <div className={styles.overlay}></div>
       <div className={styles.heroMeshContainer}></div>
 
@@ -22,12 +22,11 @@ export const Hero: React.FC<HeroProps> = ({ onTourClick, children }) => {
       <main className={styles.heroSection}>
         <div className={styles.heroTextContainer}>
           <h1 className={styles.heroTitle}>
-            <span className={styles.titleLine}>Пространства.</span>
-            <span className={styles.titleLine}>Истории.</span>
-            <span className={styles.titleLine}>Жизнь.</span>
+            <span className={styles.titleLine}>{"Пространства."}</span>
+            <span className={styles.titleLine}>{"Истории. Жизнь."}</span>
           </h1>
           <p className={`${styles.heroSubtitle} ${styles.animateSubtitle}`}>
-            Проектируем и реализуем ландшафты, в которых хочется жить.
+            {"Проектируем и\u00A0реализуем ландшафты, в\u00A0которых хочется жить."}
           </p>
         </div>
       </main>

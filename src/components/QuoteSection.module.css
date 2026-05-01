@@ -11,13 +11,11 @@
 
 .quoteBg {
   position: absolute;
-  inset: -40px;
-  width: calc(100% + 80px);
-  height: calc(100% + 80px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 0;
-  will-change: transform;
-  transition: transform 0.1s linear;
 }
 
 .quoteOverlay {

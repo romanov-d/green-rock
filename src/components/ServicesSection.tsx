@@ -28,46 +28,46 @@ const slides: SlideState[] = [
     number: "01",
     title: "Ландшафты",
     description: [
-      "Чувствовать природу, а не ухаживать за ней.",
-      "Участок становится удобным и живым: с маршрутами, растениями и водой, которые работают без лишнего ухода."
+      "Чувствовать природу, а\u00A0не\u00A0ухаживать за\u00A0ней.",
+      "Участок становится удобным и\u00A0живым: с\u00A0маршрутами, растениями и\u00A0водой, которые работают без\u00A0лишнего ухода."
     ],
     bg: bg0,
     cards: [
-      { number: "02", title: "Архитектура", subtitle: "Форма, вписанная в природу", bg: bg1 },
-      { number: "03", title: "Дизайн", subtitle: "Где красота встречает функцию", bg: bg2 },
-      { number: "04", title: "Интерьер", subtitle: "Продуманные до ощущений", bg: bg3 }
+      { number: "02", title: "Архитектура", subtitle: "Форма, вписанная в\u00A0природу", bg: bg1 },
+      { number: "03", title: "Дизайн", subtitle: "Где\u00A0красота встречает функцию", bg: bg2 },
+      { number: "04", title: "Интерьер", subtitle: "Продуманные до\u00A0ощущений", bg: bg3 }
     ]
   },
   {
     number: "02",
     title: "Архитектура",
     description: [
-      "Дом не спорит с местом — он становится его частью.",
-      "Архитектура рождается из ландшафта: света, рельефа и тишины вокруг."
+      "Дом не\u00A0спорит с\u00A0местом — он\u00A0становится его\u00A0частью.",
+      "Архитектура рождается из\u00A0ландшафта: света, рельефа и\u00A0тишины вокруг."
     ],
     bg: bg1,
     cards: [
-      { number: "03", title: "Дизайн", subtitle: "Где красота встречает функцию", bg: bg2 },
-      { number: "04", title: "Интерьеры", subtitle: "Продуманные до ощущений", bg: bg3 }
+      { number: "03", title: "Дизайн", subtitle: "Где\u00A0красота встречает функцию", bg: bg2 },
+      { number: "04", title: "Интерьеры", subtitle: "Продуманные до\u00A0ощущений", bg: bg3 }
     ]
   },
   {
     number: "03",
     title: "Дизайн",
     description: [
-      "Пространство собирается в цельную идею.",
-      "Так, чтобы каждый элемент работал — и выглядел естественно в вашей жизни."
+      "Пространство собирается в\u00A0цельную идею.",
+      "Так, чтобы\u00A0каждый элемент работал — и\u00A0выглядел естественно в\u00A0вашей жизни."
     ],
     bg: bg2,
     cards: [
-      { number: "04", title: "Интерьеры", subtitle: "Продуманные до ощущений", bg: bg3 }
+      { number: "04", title: "Интерьеры", subtitle: "Продуманные до\u00A0ощущений", bg: bg3 }
     ]
   },
   {
     number: "04",
     title: "Интерьер",
     description: [
-      "Материалы, свет и детали создают ощущение спокойствия и уюта каждый день."
+      "Материалы, свет и\u00A0детали создают ощущение спокойствия и\u00A0уюта каждый день."
     ],
     bg: bg3,
     cards: []
@@ -111,7 +111,7 @@ export const ServicesSection: React.FC = () => {
             >
               {/* Background */}
               <div className={`${styles.svcSlideBg} ${isActive ? styles.svcSlideBgActive : ''}`}>
-                <img src={slide.bg} alt="" />
+                <img src={slide.bg} alt={`Услуга Грин Рок — ${slide.title}`} />
                 <div className={styles.svcSlideBgOverlay} />
               </div>
 
@@ -136,7 +136,7 @@ export const ServicesSection: React.FC = () => {
                     {slide.cards.map((card, ci) => (
                       <div key={ci} className={`${styles.svcCard} ${isActive ? styles.svcCardActive : ''}`} style={{ transitionDelay: `${ci * 80}ms` }}>
                         <div className={styles.svcCardBg}>
-                          <img src={card.bg} alt="" />
+                          <img src={card.bg} alt={`Пример работы — ${card.title}`} />
                           <div className={styles.svcCardBgOverlay} />
                         </div>
                         <p className={styles.svcCardNum}>{card.number}</p>

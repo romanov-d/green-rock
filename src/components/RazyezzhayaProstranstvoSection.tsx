@@ -36,16 +36,16 @@ export const RazyezzhayaProstranstvoSection: React.FC = () => {
 
   return (
     <section ref={containerRef} className={styles.projectBlockAnnotated}>
-      <div className={styles.stickyInner}>
-        <div className={styles.sectionBg}>
-          <img src={imgBlock5Bg} alt="Background" className={styles.bgImg} />
-          <div className={styles.bgOverlay}></div>
-        </div>
+      <div className={styles.sectionBg}>
+        <img src={imgBlock5Bg} alt="Background" className={styles.bgImg} />
+        <div className={styles.bgOverlay}></div>
+      </div>
 
+      <div className={styles.stickyInner}>
         <div className={styles.contentZIndex}>
           <div className={styles.annotatedHeader}>
             <h2 className={styles.annotatedTitle}>Когда пространство ограничено —<br />каждый метр должен работать.</h2>
-            <p className={styles.annotatedSubtitle}>Мы не просто разместили номера, а спроектировали систему проживания, где всё встроено в архитектуру. Капсульные модули позволяют сохранить плотность, не жертвуя комфортом и ощущением уединения.</p>
+            <p className={styles.annotatedSubtitle}>Мы не&nbsp;просто разместили номера, а&nbsp;спроектировали систему проживания, где всё встроено в&nbsp;архитектуру. Капсульные модули позволяют сохранить плотность, не&nbsp;жертвуя комфортом и&nbsp;ощущением уединения.</p>
           </div>
 
           <div className={styles.annotatedVisualWrapper}>

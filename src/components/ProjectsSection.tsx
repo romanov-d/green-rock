@@ -56,7 +56,19 @@ import styles from './ProjectsSection.module.css';
 export const ProjectsSection: React.FC = () => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = React.useState(false);
+  const [activeFilter, setActiveFilter] = React.useState('Все');
+  const cardRefs = React.useRef<(HTMLAnchorElement | null)[]>([]);
 
+  // Filter projects based on the screenshot logic
+  const filteredProjects = projects.filter(project => {
+    if (activeFilter === 'Все' || activeFilter === 'Дизайн') return true;
+    if (activeFilter === 'Ландшафт') return project.tags.includes('ландшафт');
+    if (activeFilter === 'Архитектура') return project.tags.includes('архитектура') || project.id === 'lubitovo';
+    if (activeFilter === 'Интерьеры') return project.tags.includes('интерьеры');
+    return true;
+  });
+
+  // Section observer — for header (title + filter bar) only
   React.useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -67,13 +79,27 @@ export const ProjectsSection: React.FC = () => {
       },
       { threshold: 0.1 }
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  // Per-card observer — each card animates when it individually enters the viewport
+  // Re-run when activeFilter changes to observe newly rendered cards
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.cardVisible);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    );
+    cardRefs.current.forEach(card => { if (card) observer.observe(card); });
+    return () => observer.disconnect();
+  }, [activeFilter, filteredProjects]);
 
   return (
     <div className={styles.projectsHistoryBlock}>
@@ -82,24 +108,29 @@ export const ProjectsSection: React.FC = () => {
           <div className={styles.projectsHeader}>
             <h2 className={styles.projectsTitle}>Новые проекты</h2>
             <div className={styles.filterBar}>
-              <button className={`${styles.filterBtn} ${styles.active}`}>Все</button>
-              <button className={styles.filterBtn}>Дизайн</button>
-              <button className={styles.filterBtn}>Ландшафт</button>
-              <button className={styles.filterBtn}>Архитектура</button>
-              <button className={styles.filterBtn}>Интерьеры</button>
+              {['Все', 'Дизайн', 'Ландшафт', 'Архитектура', 'Интерьеры'].map(filter => (
+                <button 
+                  key={filter} 
+                  className={`${styles.filterBtn} ${activeFilter === filter ? styles.active : ''}`}
+                  onClick={() => setActiveFilter(filter)}
+                >
+                  {filter}
+                </button>
+              ))}
             </div>
           </div>
 
           <div className={styles.projectsGrid}>
-            {projects.map((project, index) => (
-              <Link 
-                key={project.id} 
-                to={project.id === 'lubitovo' ? '/lubitovo' : project.id === 'riviera' ? '/riviera' : project.id === 'repino' ? '/repino-park' : project.id === 'razjezdzhaya' ? '/razyezzhaya' : `#${project.id}`} 
+            {filteredProjects.map((project, index) => (
+              <Link
+                key={project.id}
+                ref={el => { cardRefs.current[index] = el; }}
+                to={project.id === 'lubitovo' ? '/lubitovo' : project.id === 'riviera' ? '/riviera' : project.id === 'repino' ? '/repino-park' : project.id === 'razjezdzhaya' ? '/razyezzhaya' : `#${project.id}`}
                 className={`${styles.projectCard} ${project.large ? styles.large : ''}`}
                 style={{ '--card-index': index } as React.CSSProperties}
               >
                 <div className={styles.projectCardImgWrapper}>
-                  <img src={project.image} alt={project.name} className={styles.projectCardImg} />
+                  <img src={project.image} alt={`Проект ${project.name} — ${project.tags.join(', ')}`} className={styles.projectCardImg} />
                 </div>
                 <div className={styles.projectCardOverlay}></div>
                 
@@ -135,7 +166,7 @@ export const ProjectsSection: React.FC = () => {
             это история
           </h2>
           <p className={styles.historyText}>
-            Мы создаём не отдельные элементы, а среду, где удобно жить, отдыхать и проводить время.
+            {"Мы создаём не\u00A0отдельные элементы, а\u00A0среду, где\u00A0удобно жить, отдыхать и\u00A0проводить время."}
           </p>
         </section>
       </RevealSection>

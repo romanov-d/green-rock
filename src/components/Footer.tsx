@@ -6,7 +6,18 @@ import imgFooterImage from '../assets/footer_image.webp';
 import imgArrow from '../assets/arrow_white_circle.svg';
 import styles from './Footer.module.css';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onStartProjectClick?: (e?: React.MouseEvent) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
+  const handleStartProject = (e: React.MouseEvent) => {
+    if (onStartProjectClick) {
+      e.preventDefault();
+      onStartProjectClick(e);
+    }
+  };
+
   return (
     <footer className={styles.footerV2}>
       <div className={styles.footerV2Bg}>
@@ -25,20 +36,20 @@ export const Footer: React.FC = () => {
             <div className={styles.footerNavSection}>
               <span className={styles.footerLabel}>Навигация</span>
               <div className={styles.footerLinks}>
-                <a href="#projects">Проекты</a>
-                <a href="#about">О компании</a>
-                <a href="#team">Команда</a>
-                <a href="#principles">Принципы</a>
-                <a href="#videos">Видеообзоры</a>
+                <a href="/#projects">Проекты</a>
+                <a href="/#about">О компании</a>
+                <a href="/#about">Команда</a>
+                <a href="/#principles">Принципы</a>
+                <a href="/#services">Услуги</a>
               </div>
             </div>
             <div className={styles.footerNavSection}>
               <span className={styles.footerLabel}>Услуги</span>
               <div className={styles.footerLinks}>
-                <a href="#landscape">Ландшафт</a>
-                <a href="#design">Дизайн</a>
-                <a href="#architecture">Архитектура</a>
-                <a href="#interior">Интерьер</a>
+                <a href="/services#landscape">Ландшафт</a>
+                <a href="/services#design">Дизайн</a>
+                <a href="/services#architecture">Архитектура</a>
+                <a href="/services#interior">Интерьер</a>
               </div>
             </div>
           </div>
@@ -51,14 +62,14 @@ export const Footer: React.FC = () => {
             <div className={styles.footerBrand}>
               <h2 className={styles.footerCompany}>Грин Рок</h2>
               <p className={styles.footerQuote}>
-                Каждый проект — это чья-то жизнь. Мы создаём пространства, которые становятся её частью.
+                Каждый проект — это чья-то жизнь. Мы создаём пространства, которые становятся её частью.
               </p>
             </div>
             <div className={styles.footerContactsSection}>
               <span className={styles.footerLabel}>Контакты</span>
               <div className={styles.footerLinks}>
-                <p>+7 999 123 45 67</p>
-                <p>info@greenrock.ru</p>
+                <a href="tel:+79119225515" className={styles.contactLink}>+7 911 922-55-15</a>
+                <a href="mailto:greenrock@example.com" className={styles.contactLink}>greenrock@example.com</a>
                 <p>Санкт-Петербург</p>
               </div>
             </div>
@@ -77,7 +88,7 @@ export const Footer: React.FC = () => {
           <div className={styles.footerRight}>
             <div className={styles.footerPromo}>
               <img src={imgFooterImage} alt="Проект" className={styles.footerPromoImg} />
-              <a href="#discuss" className={styles.footerPromoCta}>
+              <a href="#discuss" className={styles.footerPromoCta} onClick={handleStartProject}>
                 <div className={styles.footerCtaArrow}>
                   <img src={imgArrow} alt="Обсудить" />
                 </div>
@@ -105,7 +116,7 @@ export const Footer: React.FC = () => {
           <div className={styles.footerMobileBrand}>
             <h2 className={styles.footerMobileCompany}>Грин Рок</h2>
             <p className={styles.footerMobileQuote}>
-              Каждый проект — это чья-то жизнь. Мы создаём пространства, которые становятся её частью.
+              Каждый проект — это чья-то жизнь. Мы создаём пространства, которые становятся её частью.
             </p>
           </div>
         </div>
@@ -114,15 +125,15 @@ export const Footer: React.FC = () => {
         <div className={styles.footerDiscussBox}>
           <div className={styles.discussBoxGlass}></div>
           <div className={styles.discussContent}>
-            <h3 className={styles.discussTitle}>Хотите обсудить ваш проект?</h3>
-            <p className={styles.discussSubtitle}>Свяжитесь с нами и мы ответим на любые интересующие вас вопросы</p>
+            <h3 className={styles.discussTitle}>Хотите обсудить ваш проект?</h3>
+            <p className={styles.discussSubtitle}>Свяжитесь с нами и мы ответим на любые интересующие вас вопросы</p>
             <div className={styles.discussImageWrap}>
               <img src={imgFooterImage} alt="Discuss" />
             </div>
           </div>
-          <a href="#discuss" className={styles.discussArrowBtn}>
+          <button className={styles.discussArrowBtn} onClick={handleStartProject}>
             <img src={imgArrow} alt="Discuss" />
-          </a>
+          </button>
         </div>
 
         <div className={styles.footerDividerMobile}></div>
@@ -132,20 +143,20 @@ export const Footer: React.FC = () => {
           <div className={styles.footerNavCol}>
             <h4 className={styles.footerLabel}>Навигация</h4>
             <div className={styles.footerLinkList}>
-              <a href="#projects">Проекты</a>
-              <a href="#about">О компании</a>
-              <a href="#team">Команда</a>
-              <a href="#principles">Принципы</a>
-              <a href="#videos">Видеообзоры</a>
+              <a href="/#projects">Проекты</a>
+              <a href="/#about">О компании</a>
+              <a href="/#about">Команда</a>
+              <a href="/#principles">Принципы</a>
+              <a href="/#services">Услуги</a>
             </div>
           </div>
           <div className={styles.footerNavCol}>
             <h4 className={styles.footerLabel}>Услуги</h4>
             <div className={styles.footerLinkList}>
-              <a href="#landscape">Ландшафт</a>
-              <a href="#design">Дизайн</a>
-              <a href="#architecture">Архитектура</a>
-              <a href="#interior">Интерьер</a>
+              <a href="/services#landscape">Ландшафт</a>
+              <a href="/services#design">Дизайн</a>
+              <a href="/services#architecture">Архитектура</a>
+              <a href="/services#interior">Интерьер</a>
             </div>
           </div>
         </div>
@@ -154,8 +165,8 @@ export const Footer: React.FC = () => {
         <div className={styles.footerContactsMobile}>
           <h4 className={styles.footerLabel}>Контакты</h4>
           <div className={styles.footerContactList}>
-            <p>+7 999 123 45 67</p>
-            <p>info@greenrock.ru</p>
+            <a href="tel:+79119225515" className={styles.contactLink}>+7 911 922-55-15</a>
+            <a href="mailto:greenrock@example.com" className={styles.contactLink}>greenrock@example.com</a>
             <p>Санкт-Петербург</p>
           </div>
         </div>

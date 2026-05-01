@@ -1,5 +1,5 @@
 .projectBlockAnnotated {
-  padding: 140px 0;
+  padding: 160px 0; /* Restored paddings, now over the photo */
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -26,7 +26,7 @@
 .bgOverlay {
   position: absolute;
   inset: 0;
-  background: rgba(12, 26, 28, 0.85); /* Dark green glass */
+  background: rgba(17, 32, 28, 0.85); /* Matches previous block */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
@@ -38,7 +38,7 @@
 
 .annotatedHeader {
   max-width: 900px;
-  margin: 0 auto 80px;
+  margin: 0 auto 80px; /* Restored bottom gap */
   color: white;
   padding: 0 80px;
 }
@@ -48,7 +48,7 @@
   font-weight: 500;
   line-height: 52px;
   letter-spacing: -0.88px;
-  margin-bottom: 24px;
+  margin-bottom: 24px; /* Restored title gap */
 }
 
 .annotatedSubtitle {
@@ -68,7 +68,7 @@
 
 .prostranstvoSvg {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px; /* Aligned to grid */
   height: auto;
   border-radius: 20px;
   display: block;

@@ -2,9 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 120px 80px 40px;
+  padding: 120px 0 40px; /* Aligned with grid side padding removed */
   color: white;
-  max-width: 1280px;
+  width: 100%;
+  max-width: 1320px; /* Aligned to grid */
   margin: 0 auto;
 }
 
@@ -17,10 +18,10 @@
 }
 
 .scenariosHeaderDesc {
-  font-size: 17px;
-  line-height: 22px;
-  opacity: 0.7;
-  max-width: 440px;
+  font-size: 24px; /* Increased to match user request */
+  line-height: 1.3;
+  opacity: 0.8;
+  max-width: 521px; /* Matches Riviera block 6 style */
 }
 
 .svcScrollContainer {
@@ -94,7 +95,7 @@
 
 .svcSlideLeft {
   position: absolute;
-  left: 80px;
+  left: calc(50% - 660px); /* Aligned to 1320px grid left edge */
   top: 220px;
   width: 512px;
   display: flex;
@@ -104,7 +105,7 @@
 
 .svcSlideRight {
   position: absolute;
-  right: 80px;
+  right: calc(50% - 660px); /* Aligned to 1320px grid right edge */
   top: 160px;
   width: 518px;
   display: flex;
@@ -116,7 +117,8 @@
 .svcNum {
   font-size: 126px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.1); /* Consistent light fill */
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3); /* Balanced outline */
   letter-spacing: -1.89px;
   line-height: 1;
   opacity: 0;
@@ -247,10 +249,10 @@
   top: -60px;
   right: 24px;
   font-size: 156px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.4);
-  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.95);
-  text-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.1); /* Consistent light fill */
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.3); /* Balanced outline */
+  text-shadow: 0 0 50px rgba(255, 255, 255, 0.05);
   letter-spacing: -2px;
   line-height: 1;
   pointer-events: none;
@@ -408,8 +410,8 @@
   .svcNum {
     font-size: 72px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.25);
-    -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.15);
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
     text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     opacity: 1;
     transform: none;
@@ -465,6 +467,7 @@
     font-size: 64px;
     top: -15px;
     right: 12px;
+    color: rgba(255, 255, 255, 0.15);
     -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
   }
 

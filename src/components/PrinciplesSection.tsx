@@ -6,6 +6,14 @@ import bgCard2 from '../assets/principles_card_2.webp';
 import bgCard3 from '../assets/principles_card_3.webp';
 import bgState4 from '../assets/principles_bg_4.webp';
 
+import bgCard1Mobile from '../assets/principles_card_1_mobile.webp';
+import bgCard2Mobile from '../assets/principles_card_2_mobile.webp';
+import bgCard3Mobile from '../assets/principles_card_3_mobile.webp';
+import bgState4Mobile from '../assets/principles_card_4_mobile.webp';
+import miniCalmMobile from '../assets/principles_mini_calm_mobile.webp';
+import miniBalanceMobile from '../assets/principles_mini_balance_mobile.webp';
+import miniControlMobile from '../assets/principles_mini_control_mobile.webp';
+
 import arrowLeft from '../assets/arrow_left_circle.svg';
 import arrowRight from '../assets/arrow_right_circle.svg';
 
@@ -14,45 +22,50 @@ interface PrincipleSlide {
   title: string;
   description: string;
   bg: string;
-  cards: { title: string; img: string }[];
+  bgMobile: string;
+  cards: { title: string; img: string; imgMobile: string }[];
 }
 
 const slides: PrincipleSlide[] = [
   {
     number: "01",
-    title: "Бережное\nотношение к месту",
-    description: "Мы не навязываем пространству случайные решения. Каждый проект начинается с понимания его характера, масштаба и того, как в нём будут жить люди.",
+    title: "Бережное отношение\nк месту",
+    description: "Мы не навязываем пространству случайные решения. Каждый проект начинается с понимания его характера, масштаба и того, как в нём будут жить люди.",
     bg: bgMain,
+    bgMobile: bgCard1Mobile,
     cards: [
-      { title: "Спокойствие клиента", img: bgCard1 },
-      { title: "Баланс идеи\nи реальности", img: bgCard2 },
-      { title: "Полный контроль\nрезультата", img: bgCard3 },
+      { title: "Спокойствие\nклиента", img: bgCard1, imgMobile: miniCalmMobile },
+      { title: "Баланс идеи\nи реальности", img: bgCard2, imgMobile: miniBalanceMobile },
+      { title: "Полный контроль\nрезультата", img: bgCard3, imgMobile: miniControlMobile },
     ]
   },
   {
     number: "02",
     title: "Спокойствие\nклиента",
-    description: "Вам не нужно погружаться в технические детали и координацию работ. Мы управляем проектом и отвечаем за весь процесс реализации.",
+    description: "Вам не нужно погружаться в технические детали и координацию работ. Мы управляем проектом и отвечаем за весь процесс реализации.",
     bg: bgCard1,
+    bgMobile: bgCard1Mobile,
     cards: [
-      { title: "Баланс идеи\nи реальности", img: bgCard2 },
-      { title: "Полный контроль\nрезультата", img: bgCard3 },
+      { title: "Баланс идеи\nи реальности", img: bgCard2, imgMobile: miniBalanceMobile },
+      { title: "Полный контроль\nрезультата", img: bgCard3, imgMobile: miniControlMobile },
     ]
   },
   {
     number: "03",
     title: "Баланс идеи\nи реальности",
-    description: "У каждого пространства — свои задачи. Наш подход — не типовые решения, а то, что действительно подходит именно этому месту.",
+    description: "У каждого пространства — свои задачи. Наш подход — не типовые решения, а то, что действительно подходит именно этому месту.",
     bg: bgCard2,
+    bgMobile: bgCard2Mobile,
     cards: [
-      { title: "Полный контроль\nрезультата", img: bgCard3 },
+      { title: "Полный контроль\nрезультата", img: bgCard3, imgMobile: miniControlMobile },
     ]
   },
   {
     number: "04",
     title: "Полный контроль\nрезультата",
-    description: "Команда профессионалов контролирует ключевые стадии, проверяет инженерные решения и качество исполнения на всех этапах проекта.",
+    description: "Команда профессионалов контролирует ключевые стадии, проверяет инженерные решения и качество исполнения на всех этапах проекта.",
     bg: bgState4,
+    bgMobile: bgState4Mobile,
     cards: []
   }
 ];
@@ -80,6 +93,24 @@ export const PrinciplesSection: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
+  const goToSlide = (index: number) => {
+    if (!containerRef.current) return;
+    const slideHeight = window.innerHeight;
+    const targetScroll = containerRef.current.offsetTop + (index * slideHeight);
+    window.scrollTo({
+      top: targetScroll,
+      behavior: 'smooth'
+    });
+  };
+
+  const handlePrev = () => {
+    if (activeIndex > 0) goToSlide(activeIndex - 1);
+  };
+
+  const handleNext = () => {
+    if (activeIndex < slides.length - 1) goToSlide(activeIndex + 1);
+  };
+
   const active = slides[activeIndex];
   const progressWidth = ((activeIndex) / (slides.length - 1)) * 100;
 
@@ -92,7 +123,10 @@ export const PrinciplesSection: React.FC = () => {
             key={i}
             className={`${styles.prinBg} ${i === activeIndex ? styles.prinBgActive : ''}`}
           >
-            <img src={slide.bg} alt="" />
+            <picture>
+              <source srcSet={slide.bgMobile} media="(max-width: 768px)" />
+              <img src={slide.bg} alt="" />
+            </picture>
             <div className={styles.prinBgOverlay} />
           </div>
         ))}
@@ -121,7 +155,10 @@ export const PrinciplesSection: React.FC = () => {
                 className={styles.prinCard}
                 style={{ animationDelay: `${ci * 100}ms` }}
               >
-                <img src={card.img} alt="" className={styles.prinCardImg} />
+                <picture className={styles.prinCardImgPicture}>
+                  <source srcSet={card.imgMobile} media="(max-width: 768px)" />
+                  <img src={card.img} alt="" className={styles.prinCardImg} />
+                </picture>
                 <div className={styles.prinCardGradient} />
                 <p className={styles.prinCardTitle}>{card.title}</p>
               </div>
@@ -131,8 +168,18 @@ export const PrinciplesSection: React.FC = () => {
           {/* Bottom controls */}
           <div className={styles.prinControls}>
             <div className={styles.prinArrows}>
-              <img src={arrowLeft} alt="Previous" className={styles.prinArrow} />
-              <img src={arrowRight} alt="Next" className={styles.prinArrow} />
+              <img
+                src={arrowLeft}
+                alt="Previous"
+                className={`${styles.prinArrow} ${activeIndex === 0 ? styles.prinArrowDisabled : ''}`}
+                onClick={handlePrev}
+              />
+              <img
+                src={arrowRight}
+                alt="Next"
+                className={`${styles.prinArrow} ${activeIndex === slides.length - 1 ? styles.prinArrowDisabled : ''}`}
+                onClick={handleNext}
+              />
             </div>
             <div className={styles.prinProgressBar}>
               <div className={styles.prinProgressFill} style={{ width: `${progressWidth}%` }} />

@@ -36,6 +36,23 @@ export const RepinoPoolSection: React.FC = () => {
           },
         });
       });
+
+      mm.add("(min-width: 769px)", () => {
+        gsap.fromTo(svgRef.current,
+          { opacity: 0, y: 50, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.5,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: svgRef.current,
+              start: "top 80%",
+            }
+          }
+        );
+      });
     };
 
     if (svgRef.current.complete) {
@@ -59,14 +76,19 @@ export const RepinoPoolSection: React.FC = () => {
 
       <div className={styles.poolContent}>
         <div className={styles.poolHeader}>
-          <h2 className={styles.poolTitle}>Бассейн с откатной террасой</h2>
+          <h2 className={styles.poolTitle}>{"Бассейн с\u00A0откатной террасой"}</h2>
           <p className={styles.poolDescription}>
-            Бассейн интегрирован в общую композицию участка и связан с террасой из лиственницы. Мы продумали не только визуальное решение, но и каждый слой конструкции — от подготовки котлована до монтажа чаши и оборудования.
+            {"Бассейн интегрирован в\u00A0общую композицию участка и\u00A0связан с\u00A0террасой из\u00A0лиственницы. Мы\u00A0продумали не\u00A0только визуальное решение, но\u00A0и\u00A0каждый слой конструкции\u00A0— от\u00A0подготовки котлована до\u00A0монтажа чаши и\u00A0оборудования."}
           </p>
         </div>
 
         <div className={styles.poolVisualWrapper}>
-          <img ref={svgRef} src={imgPoolSvg} alt="Pool Details" className={styles.poolDetailsSvg} />
+          <img 
+            ref={svgRef} 
+            src={imgPoolSvg} 
+            alt="Pool Details" 
+            className={styles.poolDetailsSvg} 
+          />
         </div>
       </div>
     </section>

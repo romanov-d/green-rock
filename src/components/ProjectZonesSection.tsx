@@ -13,6 +13,11 @@ import cardFire from '../assets/lubitovo_card_fire.webp';
 import cardLawn from '../assets/lubitovo_card_lawn.webp';
 import cardGarden from '../assets/lubitovo_card_garden.webp';
 
+import cardPondMobile from '../assets/lubitovo_card_pond_mobile.webp';
+import cardFireMobile from '../assets/lubitovo_card_fire_mobile.webp';
+import cardLawnMobile from '../assets/lubitovo_card_lawn_mobile.webp';
+import cardGardenMobile from '../assets/lubitovo_card_garden_mobile.webp';
+
 import arrowLeft from '../assets/arrow_left_circle.svg';
 import arrowRight from '../assets/arrow_right_circle.svg';
 
@@ -21,7 +26,7 @@ interface ZoneSlide {
   title: string;
   description: string;
   bg: string;
-  cards: { title: string; img: string }[];
+  cards: { title: string; img: string; imgMobile: string }[];
 }
 
 const slides: ZoneSlide[] = [
@@ -31,10 +36,10 @@ const slides: ZoneSlide[] = [
     description: "Посадки формируют естественный экран. Это не просто деревья — это буфер, который создает глубину участка.",
     bg: bg1,
     cards: [
-      { title: "Пруд", img: cardPond },
-      { title: "Зоны костра", img: cardFire },
-      { title: "Лужайка", img: cardLawn },
-      { title: "Плодовый сад", img: cardGarden },
+      { title: "Пруд", img: cardPond, imgMobile: cardPondMobile },
+      { title: "Зоны костра", img: cardFire, imgMobile: cardFireMobile },
+      { title: "Лужайка", img: cardLawn, imgMobile: cardLawnMobile },
+      { title: "Плодовый сад", img: cardGarden, imgMobile: cardGardenMobile },
     ]
   },
   {
@@ -43,9 +48,9 @@ const slides: ZoneSlide[] = [
     description: "Но это не декоративный водоём. Это инженерная система с фильтрацией и расчётом циркуляции воды. Без этой проработки пруд превратился бы в проблему через сезон.",
     bg: bg2,
     cards: [
-      { title: "Зоны костра", img: cardFire },
-      { title: "Лужайка", img: cardLawn },
-      { title: "Плодовый сад", img: cardGarden },
+      { title: "Зоны костра", img: cardFire, imgMobile: cardFireMobile },
+      { title: "Лужайка", img: cardLawn, imgMobile: cardLawnMobile },
+      { title: "Плодовый сад", img: cardGarden, imgMobile: cardGardenMobile },
     ]
   },
   {
@@ -54,8 +59,8 @@ const slides: ZoneSlide[] = [
     description: "Камерный костёр — для семьи. Более открытая зона — для гостей. Мы продумали расстояния, направление ветра и безопасность покрытий.",
     bg: bg3,
     cards: [
-      { title: "Лужайка", img: cardLawn },
-      { title: "Плодовый сад", img: cardGarden },
+      { title: "Лужайка", img: cardLawn, imgMobile: cardLawnMobile },
+      { title: "Плодовый сад", img: cardGarden, imgMobile: cardGardenMobile },
     ]
   },
   {
@@ -64,7 +69,7 @@ const slides: ZoneSlide[] = [
     description: "Газон рассчитан с учётом нагрузки и системы автополива. Он работает не как декорация, а как активная зона.",
     bg: bg4,
     cards: [
-      { title: "Плодовый сад", img: cardGarden },
+      { title: "Плодовый сад", img: cardGarden, imgMobile: cardGardenMobile },
     ]
   },
   {
@@ -98,6 +103,24 @@ export const ProjectZonesSection: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
+  const goToSlide = (index: number) => {
+    if (!containerRef.current) return;
+    const slideHeight = window.innerHeight;
+    const targetScroll = containerRef.current.offsetTop + (index * slideHeight);
+    window.scrollTo({
+      top: targetScroll,
+      behavior: 'smooth'
+    });
+  };
+
+  const handlePrev = () => {
+    if (activeIndex > 0) goToSlide(activeIndex - 1);
+  };
+
+  const handleNext = () => {
+    if (activeIndex < slides.length - 1) goToSlide(activeIndex + 1);
+  };
+
   const active = slides[activeIndex];
   const progressWidth = ((activeIndex) / (slides.length - 1)) * 100;
 
@@ -118,7 +141,7 @@ export const ProjectZonesSection: React.FC = () => {
         {/* Content */}
         <div className={styles.zoneContent}>
           {/* Subtitle top-left */}
-          <p className={styles.zoneSubtitle}>Логика пространства<br />проекта Любитово</p>
+          <p className={styles.zoneSubtitle}>Логика пространства</p>
 
           {/* Title + Description (crossfade per slide) */}
           {slides.map((slide, i) => (
@@ -139,7 +162,10 @@ export const ProjectZonesSection: React.FC = () => {
                 className={styles.zoneCard}
                 style={{ animationDelay: `${ci * 100}ms` }}
               >
-                <img src={card.img} alt="" className={styles.zoneCardImg} />
+                <picture className={styles.zoneCardImgPicture}>
+                  <source srcSet={card.imgMobile} media="(max-width: 768px)" />
+                  <img src={card.img} alt="" className={styles.zoneCardImg} />
+                </picture>
                 <div className={styles.zoneCardGradient} />
                 <p className={styles.zoneCardTitle}>{card.title}</p>
               </div>
@@ -149,8 +175,18 @@ export const ProjectZonesSection: React.FC = () => {
           {/* Bottom controls */}
           <div className={styles.zoneControls}>
             <div className={styles.zoneArrows}>
-              <img src={arrowLeft} alt="Previous" className={styles.zoneArrow} />
-              <img src={arrowRight} alt="Next" className={styles.zoneArrow} />
+              <img
+                src={arrowLeft}
+                alt="Previous"
+                className={`${styles.zoneArrow} ${activeIndex === 0 ? styles.zoneArrowDisabled : ''}`}
+                onClick={handlePrev}
+              />
+              <img
+                src={arrowRight}
+                alt="Next"
+                className={`${styles.zoneArrow} ${activeIndex === slides.length - 1 ? styles.zoneArrowDisabled : ''}`}
+                onClick={handleNext}
+              />
             </div>
             <div className={styles.zoneProgressBar}>
               <div className={styles.zoneProgressFill} style={{ width: `${progressWidth}%` }} />

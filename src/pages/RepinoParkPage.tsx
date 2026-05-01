@@ -5,6 +5,7 @@ import styles from './RepinoParkPage.module.css';
 import imgRepinoBg from '../assets/project_repino_hero.webp';
 import imgBlock2Bg from '../assets/repino_block2_bg.webp';
 import imgBlock2Card from '../assets/repino_block2_card.webp';
+import imgBlock2CardMobile from '../assets/repino_block2_card_mobile.webp';
 import imgLineV from '../assets/repino_line_v.svg';
 import imgBlock3Img from '../assets/repino_block3_img.webp';
 import imgBlock3Line from '../assets/repino_block3_line.svg';
@@ -19,14 +20,17 @@ import { RepinoPoolSection } from '../components/RepinoPoolSection';
 
 import { Header } from '../components/Header/Header';
 import { MobileMenu } from '../components/MobileMenu';
+import { TourPopup } from '../components/TourPopup';
+import { useHeaderPopups } from '../hooks/useHeaderPopups';
 
 export const RepinoParkPage: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const toggleMenu = (e?: React.MouseEvent) => {
-    if (e) e.preventDefault();
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const {
+    isMenuOpen,
+    isProjectPopupOpen,
+    toggleMenu,
+    openProjectPopup,
+    closeProjectPopup,
+  } = useHeaderPopups();
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,7 +38,20 @@ export const RepinoParkPage: React.FC = () => {
 
   return (
     <div className={styles.projectPage}>
-      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <MobileMenu 
+        isOpen={isMenuOpen} 
+        onClose={() => toggleMenu()} 
+        onStartProjectClick={openProjectPopup}
+      />
+      
+      <TourPopup 
+        isOpen={isProjectPopupOpen}
+        formId="project_popup" 
+        onClose={closeProjectPopup}
+        title={"Начать проект —\nс понимания пространства"}
+        subtitle="Обсудим территорию, задачи и сценарии использования. Определим направление и решения, с которых стоит начать."
+        buttonText="Начать проект"
+      />
 
       {/* Hero Section */}
       <section className={styles.projectHero}>
@@ -42,14 +59,18 @@ export const RepinoParkPage: React.FC = () => {
         <div className={styles.projectHeroOverlay}></div>
 
         {/* Header */}
-        <Header onMenuToggle={toggleMenu} isMenuOpen={isMenuOpen} />
+        <Header 
+          onMenuToggle={toggleMenu} 
+          isMenuOpen={isMenuOpen} 
+          onStartProjectClick={openProjectPopup}
+        />
 
         {/* Hero Content */}
         <div className={styles.projectHeroContent}>
           {/* Glassy Nav Tags - Mobile Only */}
           <div className={styles.glassyNavTags}>
             <div className={styles.glassyTag}>Дизайн</div>
-            <div className={styles.glassyTag}>Ланшафт</div>
+            <div className={styles.glassyTag}>Ландшафт</div>
             <div className={styles.glassyTag}>Архитектура</div>
             <div className={styles.glassyTag}>Интерьеры</div>
           </div>
@@ -57,7 +78,7 @@ export const RepinoParkPage: React.FC = () => {
           <div className={styles.projectHeroMain}>
             <h1 className={`${styles.projectTitle} ${styles.animateTitleV2}`}>Репино парк</h1>
             <p className={`${styles.projectSubtitle} ${styles.animateSubtitleV2}`}>
-              Современный частный сад в сосновом окружении,<br className={styles.desktopOnly} />где архитектура дома продолжена в ландшафте.
+              {"Современный частный сад в\u00A0сосновом окружении,"}<br className={styles.desktopOnly} />{"где\u00A0архитектура дома продолжена в\u00A0ландшафте."}
             </p>
 
             {/* Mobile Specs */}
@@ -70,7 +91,7 @@ export const RepinoParkPage: React.FC = () => {
 
           <div className={styles.projectHeroBottom}>
             <div className={`${styles.projectServices} ${styles.desktopOnly}`}>
-              <p>Частный сад, где строгая архитектура дома<br />сочетается с мягкой природной средой</p>
+              <p>{"Частный сад, где\u00A0строгая архитектура дома"}<br />{"сочетается с\u00A0мягкой природной средой"}</p>
             </div>
 
             <div className={styles.projectScroll}>
@@ -119,7 +140,10 @@ export const RepinoParkPage: React.FC = () => {
 
           <div className={styles.block2FloatingCard}>
             <div className={styles.cardPlan}>
-              <img src={imgBlock2Card} alt="Details" />
+              <picture>
+                <source srcSet={imgBlock2CardMobile} media="(max-width: 768px)" />
+                <img src={imgBlock2Card} alt="Details" />
+              </picture>
             </div>
             <div className={styles.cardDetails}>
               <div className={styles.cardColumn}>
@@ -197,17 +221,14 @@ export const RepinoParkPage: React.FC = () => {
             </div>
 
             <div className={styles.panelDescription}>
-              <p>Скамья не поставлена в пространстве, а выстроена вокруг трёх существующих сосен и стала частью композиции участка.</p>
+              <p>Скамья не&nbsp;поставлена в&nbsp;пространстве, а&nbsp;выстроена вокруг трёх существующих сосен и&nbsp;стала частью композиции участка.</p>
             </div>
 
-            <div>
-              <h3 className={styles.listTitle}>Архитектура вписывается в природу, а не подавляет её:</h3>
-              <ul className={styles.panelList}>
-                <li>— основание из лиственницы/кортеновой стали</li>
-                <li>— площадь клумбы вокруг — 25 м²</li>
-                <li>— объём — около 9 м³</li>
-              </ul>
-            </div>
+            <ul className={styles.panelList}>
+              <li>— Основание из лиственницы/кортеновой стали.</li>
+              <li>— Площадь клумбы вокруг — 25 м².</li>
+              <li>— Объём — около 9 м³.</li>
+            </ul>
           </div>
         </div>
       </section>

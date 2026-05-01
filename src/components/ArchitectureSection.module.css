@@ -5,6 +5,10 @@
   background: #0C1A1C;
 }
 
+.archMobileLabel {
+  display: none;
+}
+
 .archSticky {
   position: sticky;
   top: 0;
@@ -56,11 +60,10 @@
   position: absolute;
   top: 100px;
   left: 80px;
-  font-size: 24px;
-  font-weight: 400;
+  font-size: 44px; /* Increased to 44px */
+  font-weight: 500;
   color: white;
-  opacity: 0.7;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 
 /* Title + Desc blocks (crossfade) */
@@ -82,13 +85,13 @@
 }
 
 .archTitle {
-  font-size: 44px;
+  font-size: 32px; /* Decreased to 32px */
   font-weight: 500;
-  line-height: 1.18;
-  letter-spacing: -0.88px;
+  line-height: 1.2;
+  letter-spacing: -0.64px;
   color: white;
   white-space: pre-line;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .archDesc {
@@ -131,10 +134,17 @@
   opacity: 0;
 }
 
+.archCardImgPicture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .archCardImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .archCardGradient {
@@ -234,8 +244,22 @@
 
 @media (max-width: 768px) {
   .archScrollContainer {
-    height: 400vh;
+    height: 500vh;
     background: #0C1A1C;
+  }
+
+  .archMobileLabel {
+    display: block;
+    background: #0C1A1C;
+    padding: 40px 20px;
+    color: white;
+  }
+
+  .archMobileLabel h2 {
+    font-size: 44px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.88px;
   }
 
   .archSticky {
@@ -269,20 +293,15 @@
   }
 
   .archSubtitle {
-    position: absolute;
-    top: 100px;
-    left: 20px;
-    font-size: 15px;
-    opacity: 0.7;
-    line-height: 1.33;
-    margin: 0;
+    display: none;
   }
 
   .archTextBlock {
     position: absolute;
     left: 20px;
     right: 20px;
-    top: 196px;
+    top: 80px;
+    bottom: auto;
     width: auto;
     opacity: 0;
     transform: none;
@@ -312,7 +331,9 @@
 
   .archCards {
     position: absolute;
-    top: 580px;
+    top: auto;
+    bottom: 140px;
+    transform: none;
     left: 0;
     display: flex;
     overflow-x: auto;
@@ -336,6 +357,13 @@
     animation: none;
   }
 
+  .archCardGradient {
+    height: 100px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  }
+
   .archCardTitle {
     font-size: 13px;
     bottom: 16px;
@@ -346,8 +374,8 @@
 
   .archControls {
     position: absolute;
-    top: 780px;
-    bottom: auto;
+    top: auto;
+    bottom: 80px;
     left: 20px;
     right: 20px;
     margin: 0;
@@ -355,6 +383,7 @@
     align-items: center;
     justify-content: space-between;
     width: auto;
+    height: 40px;
   }
 
   .archArrows {
@@ -362,13 +391,13 @@
   }
 
   .archProgressBar {
-    position: absolute;
-    top: 32px;
-    left: 0;
-    width: 248px;
+    position: relative;
+    flex: 1;
+    margin-right: 20px;
     max-width: none;
     height: 1px;
     background: rgba(255, 255, 255, 0.2);
+    top: 2px;
   }
 
   .archProgressFill {
@@ -376,13 +405,13 @@
   }
 
   .archNumber {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
     font-size: 40px;
     color: rgba(255, 255, 255, 0.3);
     margin: 0;
     line-height: 1;
+    display: flex;
+    align-items: center;
   }
 }
 

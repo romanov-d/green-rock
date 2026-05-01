@@ -7,8 +7,9 @@ import { RivieraPage } from './pages/RivieraPage';
 import { RepinoParkPage } from './pages/RepinoParkPage';
 import { RazyezzhayaPage } from './pages/RazyezzhayaPage';
 import { ServicesPage } from './pages/ServicesPage';
-import { Preloader } from './components/Preloader';
+
 import { PageTransition } from './components/PageTransition';
+import { GlobalScrollAnimation } from './components/GlobalScrollAnimation';
 
 import { ReactLenis, useLenis } from 'lenis/react';
 
@@ -31,7 +32,8 @@ function App() {
   return (
     <ReactLenis root>
       <ScrollToTop />
-      <Preloader />
+      <GlobalScrollAnimation />
+
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<PageTransition><HomePage /></PageTransition>} />

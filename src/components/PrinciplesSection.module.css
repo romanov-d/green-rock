@@ -1,7 +1,7 @@
 .prinScrollContainer {
   position: relative;
   width: 100%;
-  height: 500vh;
+  height: 400vh; /* Exactly 4 slides */
   background: #0C1A1C;
 }
 
@@ -31,10 +31,12 @@
   z-index: 1;
 }
 
+.prinBg picture,
 .prinBg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .prinBgOverlay {
@@ -131,10 +133,21 @@
   opacity: 0;
 }
 
+.prinCardImgPicture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .prinCardImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.prinCard:hover .prinCardImg {
+  transform: scale(1.05);
 }
 
 .prinCardGradient {
@@ -154,9 +167,9 @@
 .prinCardTitle {
   position: absolute;
   bottom: 28px;
-  left: 24px;
-  right: 24px;
-  font-size: 24px;
+  left: 36px; /* Even more padding */
+  right: 36px; /* Even more padding */
+  font-size: 20px; /* Smaller font to ensure fit */
   font-weight: 400;
   color: white;
   opacity: 0.85;
@@ -190,6 +203,12 @@
 
 .prinArrow:hover {
   transform: scale(1.08);
+}
+
+.prinArrowDisabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
 }
 
 .prinProgressBar {
@@ -358,7 +377,8 @@
   .prinCardTitle {
     font-size: 13px;
     bottom: 16px;
-    left: 16px;
+    left: 20px; /* Increased padding */
+    right: 20px; /* Increased padding */
     line-height: 1.38;
     opacity: 0.8;
   }

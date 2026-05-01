@@ -123,10 +123,17 @@
   opacity: 0;
 }
 
+.prinCardImgPicture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .prinCardImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .prinCardGradient {
@@ -134,9 +141,13 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 160px;
-  background: linear-gradient(to top, rgba(12, 26, 28, 0.4) 0%, rgba(12, 26, 28, 0) 100%);
+  height: 140px;
+  background: linear-gradient(to top, rgba(12, 26, 28, 0.6) 0%, rgba(12, 26, 28, 0) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   z-index: 1;
+  -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  mask-image: linear-gradient(to top, black 20%, transparent 100%);
 }
 
 .prinCardTitle {
@@ -148,7 +159,7 @@
   font-weight: 400;
   color: white;
   opacity: 0.85;
-  line-height: 1.3;
+  line-height: 1.1; /* Decreased from 1.3 */
   white-space: pre-line;
   z-index: 2;
 }
@@ -173,6 +184,18 @@
   width: 48px;
   height: 48px;
   cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.prinArrow:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.prinArrowDisabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: default;
 }
 
 .prinProgressBar {
@@ -200,34 +223,44 @@
   }
 
   .prinSubtitle {
-    top: 100px;
+    top: 40px;
     left: 20px;
     font-size: 15px;
+    opacity: 0.7;
   }
 
   .prinTextBlock {
     left: 20px;
     right: 20px;
-    top: 180px;
-    bottom: auto;
+    top: auto;
+    bottom: 360px;
     width: auto;
+    opacity: 0;
+    transform: none;
+    transition: opacity 0.6s ease;
+  }
+
+  .prinTextBlockActive {
+    opacity: 1;
   }
 
   .prinTitle {
-    font-size: 32px;
-    line-height: 1.2;
-    margin-bottom: 12px;
-    width: 100%;
+    font-size: 24px;
+    line-height: 1.33;
+    margin-bottom: 16px;
+    width: 250px;
   }
 
   .prinDesc {
     font-size: 15px;
-    line-height: 1.4;
-    width: 100%;
+    line-height: 1.33;
+    opacity: 0.7;
+    width: 335px;
   }
 
   .prinCards {
-    top: 420px; /* Pushed down to avoid overlap */
+    top: auto;
+    bottom: 140px;
     left: 0;
     transform: none;
     padding: 0 20px;
@@ -239,40 +272,63 @@
   .prinCards::-webkit-scrollbar { display: none; }
 
   .prinCard {
-    width: 200px;
-    height: 250px;
+    width: 162px;
+    height: 200px;
+    border-radius: 24px;
+    flex-shrink: 0;
     opacity: 1 !important;
     animation: none;
   }
 
+  .prinCardGradient {
+    height: 100px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: linear-gradient(to top, black 20%, transparent 100%);
+    mask-image: linear-gradient(to top, black 20%, transparent 100%);
+  }
+
   .prinCardTitle {
-    font-size: 16px;
+    font-size: 13px;
+    bottom: 16px;
+    left: 16px;
+    line-height: 1.38;
+    opacity: 0.8;
   }
 
   .prinControls {
-    top: 680px; /* Moved up to tighten gap with cards */
-    bottom: auto;
+    top: auto;
+    bottom: 80px;
     left: 20px;
     right: 20px;
     width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
   }
 
   .prinArrows { display: none; }
 
   .prinProgressBar {
-    position: absolute;
-    top: 24px; /* Tighter gap to cards */
-    left: 0;
-    width: 70%;
+    position: relative;
+    flex: 1;
+    margin-right: 20px;
     height: 1px;
     background: rgba(255, 255, 255, 0.2);
+    top: 2px;
+  }
+
+  .prinProgressFill {
+    background: white;
   }
 
   .prinNumber {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: relative;
     font-size: 40px;
+    color: rgba(255, 255, 255, 0.3);
     margin: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
   }
 }

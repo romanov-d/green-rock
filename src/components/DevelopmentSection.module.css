@@ -30,7 +30,7 @@
 .devContent {
   position: relative;
   z-index: 1;
-  max-width: 1280px;
+  max-width: 1320px; /* Widened to match the grid above */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -163,6 +163,12 @@
   overflow: hidden;
 }
 
+.bannerImgPicture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .bannerImg {
   width: 100%;
   height: 100%;
@@ -218,7 +224,7 @@
   max-width: 526px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px; /* Reduced from 20px */
 }
 
 .bannerHeading {
@@ -338,13 +344,13 @@
 
   .videoBottomBar {
     display: flex !important;
-    align-items: center;
+    align-items: flex-end; /* Lowered from center */
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 90px;
-    padding: 0 20px 20px;
+    padding: 0 20px 14px; /* Lowered from 20px */
     z-index: 5;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
     backdrop-filter: blur(12px);
@@ -387,9 +393,15 @@
     position: relative;
   }
 
-  .bannerImg {
+  .bannerImgPicture {
     position: absolute;
     inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .bannerImg {
+    position: static;
     width: 100%;
     height: 100%;
     object-fit: cover;

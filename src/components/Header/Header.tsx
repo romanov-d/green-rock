@@ -6,10 +6,18 @@ import imgArrowIcon from '../../assets/arrow_icon.svg';
 
 interface HeaderProps {
   onMenuToggle: (e?: React.MouseEvent) => void;
+  onStartProjectClick?: (e?: React.MouseEvent) => void;
   isMenuOpen?: boolean;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMenuOpen }) => {
+export const Header: React.FC<HeaderProps> = ({ onMenuToggle, onStartProjectClick, isMenuOpen }) => {
+  const handleStartProject = (e: React.MouseEvent) => {
+    if (onStartProjectClick) {
+      e.preventDefault();
+      onStartProjectClick(e);
+    }
+  };
+
   return (
     <header className={`${styles.header} ${isMenuOpen ? styles.menuOpen : ''}`}>
       <Link to="/" className={styles.logo}>
@@ -25,7 +33,11 @@ export const Header: React.FC<HeaderProps> = ({ onMenuToggle, isMenuOpen }) => {
       </nav>
 
       <div className={styles.headerActions}>
-        <a href="#start" className={`${styles.ctaButton} header-cta-no-circle`}>
+        <a 
+          href="#start" 
+          className={`${styles.ctaButton} header-cta-no-circle`}
+          onClick={handleStartProject}
+        >
           <div className={styles.ctaIcon}>
             <img src={imgArrowIcon} alt="Arrow" />
           </div>

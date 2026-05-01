@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import imgYoutube from '../assets/youtube_icon.svg';
 import imgTelegram from '../assets/telegram_icon.svg';
-import imgPromoImg from '../assets/menu_promo_img.webp';
+import imgPromoImg from '../assets/mobilemenubanner.svg';
 import imgArrow from '../assets/arrow_diagonal_grey.svg';
 
 import styles from './MobileMenu.module.css';
@@ -11,9 +11,16 @@ import styles from './MobileMenu.module.css';
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  onStartProjectClick?: () => void;
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onStartProjectClick }) => {
+  const handleBannerClick = () => {
+    if (onStartProjectClick) {
+      onStartProjectClick();
+      onClose();
+    }
+  };
   return (
     <AnimatePresence>
       {isOpen && (
@@ -69,23 +76,9 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                 </a>
               </div>
 
-              {/* Promo Card - Stretched Block with Figma Shape */}
-              <div className={styles.mobileMenuPromo}>
-                <div className={styles.promoShape} />
-                <div className={styles.promoContent}>
-                  <div className={styles.promoText}>
-                    <h3>Хотите обсудить ваш проект?</h3>
-                  </div>
-                  <div className={styles.promoVisual}>
-                    <img src={imgPromoImg} alt="Promo" className={styles.promoImg} />
-                  </div>
-                  <div className={styles.promoArrow}>
-                    <img src={imgArrow} alt="" />
-                  </div>
-                  <p className={styles.promoDesc}>
-                    Свяжитесь с нами и мы ответим на любые интересующие вас вопросы
-                  </p>
-                </div>
+              {/* Promo Card - SVG Banner from Figma */}
+              <div className={styles.mobileMenuPromo} onClick={handleBannerClick}>
+                <img src={imgPromoImg} alt="Promo" className={styles.promoFullImg} />
               </div>
 
               {/* Copyright */}

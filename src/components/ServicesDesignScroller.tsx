@@ -5,6 +5,7 @@ import bg1 from '../assets/services_block2_bg.webp';
 import bg2 from '../assets/services_block2_card2.webp';
 import bg3 from '../assets/services_block2_card3.webp';
 import bg4 from '../assets/services_block2_card4.webp';
+import imgArrowDiagonal from '../assets/arrow_diagonal_white_small.svg';
 
 interface Card {
   number: string;
@@ -24,49 +25,45 @@ interface SlideState {
 const slides: SlideState[] = [
   {
     number: "01",
-    title: "Дизайн",
+    title: "Идея",
     description: [
-      "Мы проектируем не отдельные элементы, а среду, где удобно жить, отдыхать и проводить время.",
-      "Определяем концепцию и логику проекта, которая объединяет все решения."
+      "Определяем концепцию и\u00A0логику проекта, которая объединяет все решения"
     ],
     bg: bg1,
     cards: [
-      { number: "02", title: "Сценарии жизни", subtitle: "Продуманные до ощущений", bg: bg2 },
-      { number: "03", title: "Образ", subtitle: "Естественно в вашей жизни", bg: bg3 },
-      { number: "04", title: "Понимание", subtitle: "Цельная идея пространства", bg: bg4 }
+      { number: "02", title: "Сценарии жизни", subtitle: "", bg: bg2 },
+      { number: "03", title: "Образ", subtitle: "", bg: bg3 },
+      { number: "04", title: "Понимание", subtitle: "", bg: bg4 }
     ]
   },
   {
     number: "02",
     title: "Сценарии жизни",
     description: [
-      "Продумываем каждый метр с учётом вашего образа жизни и привычек.",
-      "Создаём пространство, которое подстраивается под вас, а не наоборот."
+      "Формируем, как\u00A0будет устроена жизнь в\u00A0пространстве и\u00A0как\u00A0вы\u00A0взаимодействуете с\u00A0ним"
     ],
     bg: bg2,
     cards: [
-      { number: "03", title: "Образ", subtitle: "Естественно в вашей жизни", bg: bg3 },
-      { number: "04", title: "Понимание", subtitle: "Цельная идея пространства", bg: bg4 }
+      { number: "03", title: "Образ", subtitle: "", bg: bg3 },
+      { number: "04", title: "Понимание", subtitle: "", bg: bg4 }
     ]
   },
   {
     number: "03",
     title: "Образ",
     description: [
-      "Формируем визуальный код, который отражает характер проекта.",
-      "Используем материалы и фактуры, которые со временем становятся только лучше."
+      "Создаём целостный визуальный стиль без\u00A0случайных решений"
     ],
     bg: bg3,
     cards: [
-      { number: "04", title: "Понимание", subtitle: "Цельная идея пространства", bg: bg4 }
+      { number: "04", title: "Понимание", subtitle: "", bg: bg4 }
     ]
   },
   {
     number: "04",
     title: "Понимание",
     description: [
-      "Объединяем архитектуру, ландшафт и интерьер в одну общую историю.",
-      "Каждое решение обосновано и работает на общую концепцию."
+      "Даём чёткое представление о\u00A0будущем результате ещё до\u00A0начала работ"
     ],
     bg: bg4,
     cards: []
@@ -101,7 +98,7 @@ export const ServicesDesignScroller: React.FC = () => {
       <div className={styles.mobileHeaderBlock}>
         <h2 className={styles.mobileHeaderTitle}>Дизайн</h2>
         <p className={styles.mobileHeaderDesc}>
-          Мы проектируем не отдельные элементы, а среду, где удобно жить, отдыхать и проводить время.
+          Мы проектируем не&nbsp;отдельные элементы, а&nbsp;среду, где удобно жить, отдыхать и&nbsp;проводить время.
         </p>
       </div>
 
@@ -116,7 +113,7 @@ export const ServicesDesignScroller: React.FC = () => {
             >
               {/* Background */}
               <div className={`${styles.svcSlideBg} ${isActive ? styles.svcSlideBgActive : ''}`}>
-                <img src={slide.bg} alt="" />
+                <img src={slide.bg} alt={`Этап проектирования — ${slide.title}`} />
                 <div className={styles.svcSlideBgOverlay} />
               </div>
 
@@ -130,13 +127,22 @@ export const ServicesDesignScroller: React.FC = () => {
                       <p key={j}>{line}</p>
                     ))}
                   </div>
+                  <a 
+                    href="/#projects" 
+                    className={`${styles.svcCta} ${isActive ? styles.svcCtaActive : ''}`}
+                  >
+                    <span>Смотреть кейсы</span>
+                    <div className={styles.svcCtaIcon}>
+                      <img src={imgArrowDiagonal} alt="Перейти к проектам" />
+                    </div>
+                  </a>
                 </div>
 
                 <div className={styles.svcSlideRight}>
                   {slide.cards.map((card, ci) => (
                     <div key={ci} className={`${styles.svcCard} ${isActive ? styles.svcCardActive : ''}`} style={{ transitionDelay: `${ci * 80}ms` }}>
                       <div className={styles.svcCardBg}>
-                        <img src={card.bg} alt="" />
+                        <img src={card.bg} alt={`Кейс Грин Рок — ${card.title}`} />
                         <div className={styles.svcCardBgOverlay} />
                       </div>
                       <p className={styles.svcCardNum}>{card.number}</p>

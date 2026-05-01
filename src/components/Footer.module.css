@@ -69,6 +69,11 @@
   text-decoration: none;
   line-height: 1.4;
   margin: 0;
+  transition: opacity 0.3s ease;
+}
+
+.contactLink:hover {
+  opacity: 0.7;
 }
 
 .footerDividerV {
@@ -183,6 +188,11 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.footerPromoCta:hover .footerCtaArrow img {
+  transform: rotate(45deg);
 }
 
 .footerCtaText {
@@ -245,13 +255,13 @@
 }
 
 .footerV2Container {
-  max-width: 1440px;
+  max-width: 1320px; /* Widened to match the grid above */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 1;
-  padding: 0 60px;
+  padding: 0;
 }
 
 /* Hide mobile-only parts on desktop */
@@ -343,7 +353,7 @@
     position: relative;
     margin-top: 20px;
     overflow: visible;
-    width: 335px;
+    width: 100%; /* Changed from 335px to match grid */
     height: 151px;
     flex-shrink: 0;
   }
@@ -411,8 +421,8 @@
   /* Button positioned in the mask cutout */
   .discussArrowBtn {
     position: absolute;
-    top: 1px;
-    right: 11px;
+    top: 0;
+    right: 0;
     width: 48px;
     height: 48px;
     display: flex;
@@ -420,12 +430,20 @@
     justify-content: center;
     z-index: 10;
     padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   .discussArrowBtn img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .discussArrowBtn:hover img {
+    transform: rotate(45deg);
   }
 
   .footerDividerMobile {
@@ -482,11 +500,13 @@
     gap: 12px;
   }
 
-  .footerContactList p {
+  .footerContactList p,
+  .footerContactList a {
     font-size: 17px;
     font-weight: 500;
     color: white;
     margin: 0;
+    text-decoration: none;
   }
 
   /* Socials */
@@ -509,9 +529,10 @@
   }
 
   .socialIcon img {
-    width: 32px;
-    height: auto;
+    width: 40px; /* Increased from 32px */
+    height: 40px;
     display: block;
+    object-fit: contain;
   }
 
   /* Legal */

@@ -7,24 +7,20 @@ import { useFormSubmit } from '../hooks/useFormSubmit';
 
 export const ContactSection: React.FC = () => {
   const { phone, status, error, honeypotRef, handlePhoneChange, handleSubmit } = useFormSubmit();
+  const [isAgreed, setIsAgreed] = React.useState(false);
 
   return (
     <section id="start" className={styles.contactSection}>
       <div className={styles.contactBgContainer}>
         <img src={imgBg} alt="" className={styles.contactBg} />
         <div className={styles.contactOverlay}></div>
-        <div className={styles.contactPlayBtn}>
-          <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M26.5 16.5L9.25 26.4593L9.25 6.54071L26.5 16.5Z" fill="white"/>
-          </svg>
-        </div>
       </div>
 
       <div className={styles.contactContent}>
         <div className={styles.contactHeader}>
-          <h2 className={styles.contactTitle}>Увидеть проект вживую — даже на&nbsp;расстоянии</h2>
+          <h2 className={styles.contactTitle}>{"Увидеть проект вживую — даже на\u00A0расстоянии"}</h2>
           <p className={styles.contactSubtitle}>
-            Онлайн-тур помогает почувствовать масштаб, атмосферу и&nbsp;уровень реализации ещё до&nbsp;первой встречи.
+            {"Онлайн-тур помогает почувствовать масштаб, атмосферу и\u00A0уровень реализации ещё до\u00A0первой встречи."}
           </p>
         </div>
 
@@ -33,7 +29,7 @@ export const ContactSection: React.FC = () => {
 
           {status === 'success' ? (
             <div className={styles.successMessage}>
-              <p>Заявка принята! Мы свяжемся с вами в ближайшее время.</p>
+              <p>Заявка принята! Мы свяжемся с&nbsp;вами в&nbsp;ближайшее время.</p>
             </div>
           ) : (
             <form className={styles.contactFormGlass} onSubmit={handleSubmit} noValidate>
@@ -57,11 +53,15 @@ export const ContactSection: React.FC = () => {
                   onChange={handlePhoneChange}
                   disabled={status === 'loading'}
                   autoComplete="tel"
-                  maxLength={14}
+                  maxLength={15}
                 />
               </div>
               {error && <p className={styles.formError}>{error}</p>}
-              <button type="submit" className={styles.contactSubmit} disabled={status === 'loading'}>
+              <button 
+                type="submit" 
+                className={styles.contactSubmit} 
+                disabled={status === 'loading' || !isAgreed}
+              >
                 <span className={styles.submitText}>
                   {status === 'loading' ? 'Отправляем...' : 'Записаться на онлайн-тур'}
                 </span>
@@ -72,12 +72,12 @@ export const ContactSection: React.FC = () => {
             </form>
           )}
 
-          <div className={styles.contactConsent}>
-            <div className={styles.consentCheck}>
-              <img src={imgCheck} alt="" />
+          <div className={styles.contactConsent} onClick={() => setIsAgreed(!isAgreed)}>
+            <div className={`${styles.consentCheck} ${isAgreed ? styles.consentCheckActive : ''}`}>
+              {isAgreed && <img src={imgCheck} alt="" />}
             </div>
             <p className={styles.consentText}>
-              Я согласен(на) на&nbsp;обработку персональных данных в&nbsp;соответствии с&nbsp;политикой конфиденциальности
+              {"Я согласен(на) на\u00A0обработку персональных данных в\u00A0соответствии с\u00A0политикой конфиденциальности"}
             </p>
           </div>
         </div>

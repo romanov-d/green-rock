@@ -3,8 +3,11 @@ import styles from './RivieraImplementationSection.module.css';
 
 import bg1 from '../assets/riviera_block5_main.webp';
 import bg2 from '../assets/riviera_block5_card2.webp';
+import bg2Mobile from '../assets/riviera_block5_card2_mobile.webp';
 import bg3 from '../assets/riviera_block5_card3.webp';
+import bg3Mobile from '../assets/riviera_block5_card3_mobile.webp';
 import bg4 from '../assets/riviera_block5_card4.webp';
+import bg4Mobile from '../assets/riviera_block5_card4_mobile.webp';
 
 interface Card {
   number: string;
@@ -17,53 +20,55 @@ interface SlideState {
   title: string;
   description: string[];
   bg: string;
+  bgMobile?: string;
   cards: Card[];
 }
 
 const slides: SlideState[] = [
   {
     number: "01",
-    title: "Геодезия",
+    title: "Точная геодезия",
     description: [
-      "Перед началом работ мы провели точную геодезическую съёмку, чтобы корректно работать со сложным рельефом и перепадами высот."
+      "Перед началом работ мы\u00A0провели точную геодезическую съёмку, чтобы корректно работать со\u00A0сложным рельефом и\u00A0перепадами высот."
     ],
     bg: bg1,
     cards: [
-      { number: "02", title: "Основания", bg: bg2 },
-      { number: "03", title: "Инженерия", bg: bg3 },
-      { number: "04", title: "Работа с водой", bg: bg4 }
+      { number: "02", title: "Основания маршрутов", bg: bg2 },
+      { number: "03", title: "Скрытая инженерия", bg: bg3 },
+      { number: "04", title: "Работа с\u00A0водой", bg: bg4 }
     ]
   },
   {
     number: "02",
-    title: "Основания",
+    title: "Основания маршрутов",
     description: [
-      "Для дорожек, ступеней и площадок подготовлены надёжные основания, рассчитанные на долгую эксплуатацию."
+      "Для дорожек, ступеней и\u00A0площадок подготовлены надёжные основания, рассчитанные на\u00A0долгую эксплуатацию."
     ],
     bg: bg2,
     cards: [
-      { number: "03", title: "Инженерия", bg: bg3 },
-      { number: "04", title: "Работа с водой", bg: bg4 }
+      { number: "03", title: "Скрытая инженерия", bg: bg3 },
+      { number: "04", title: "Работа с\u00A0водой", bg: bg4 }
     ]
   },
   {
     number: "03",
-    title: "Инженерия",
+    title: "Скрытая инженерия",
     description: [
-      "Для дорожек, ступеней и площадок подготовлены надёжные основания, рассчитанные на долгую эксплуатацию."
+      "Все инженерные системы интегрированы в\u00A0ландшафт и\u00A0остаются невидимыми, сохраняя чистоту архитектуры сада."
     ],
     bg: bg3,
     cards: [
-      { number: "04", title: "Работа с водой", bg: bg4 }
+      { number: "04", title: "Работа с\u00A0водой", bg: bg4 }
     ]
   },
   {
     number: "04",
-    title: "Работа с водой",
+    title: "Работа с\u00A0водой",
     description: [
-      "Ручей и водные элементы интегрированы в систему дренажа участка, что обеспечивает устойчивый водный баланс."
+      "Ручей и\u00A0водные элементы интегрированы в\u00A0систему дренажа участка, что обеспечивает устойчивый водный баланс."
     ],
     bg: bg4,
+    bgMobile: bg4Mobile,
     cards: []
   }
 ];
@@ -93,11 +98,10 @@ export const RivieraImplementationSection: React.FC = () => {
 
   return (
     <section ref={containerRef} className={styles.svcScrollContainer}>
-      {/* Mobile Implementation Header - Outside Sticky to scroll away */}
-      <div className={styles.svcHeaderMobile}>
+      <div className={styles.svcHeader}>
         <h2 className={styles.svcHeaderTitle}>Реализация</h2>
         <p className={styles.svcHeaderSubtitle}>
-          Большая часть работы остаётся невидимой, но именно она обеспечивает устойчивость и долговечность проекта.
+          Большая часть работы остаётся невидимой, но&nbsp;именно она обеспечивает устойчивость и&nbsp;долговечность проекта.
         </p>
       </div>
 
@@ -111,7 +115,10 @@ export const RivieraImplementationSection: React.FC = () => {
               className={`${styles.svcSlide} ${isActive ? styles.svcSlideActive : ''} ${isPrev ? styles.svcSlidePrev : ''}`}
             >
               <div className={`${styles.svcSlideBg} ${isActive ? styles.svcSlideBgActive : ''}`}>
-                <img src={slide.bg} alt="" />
+                <picture>
+                  {slide.bgMobile && <source srcSet={slide.bgMobile} media="(max-width: 768px)" />}
+                  <img src={slide.bg} alt="" />
+                </picture>
                 <div className={styles.svcSlideBgOverlay} />
               </div>
 

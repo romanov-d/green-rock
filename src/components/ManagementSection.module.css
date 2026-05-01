@@ -41,7 +41,7 @@
   text-align: center;
   max-width: 885px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 100px; /* Increased spacing */
 }
 
 .headerTitleLarge {
@@ -63,7 +63,7 @@
 }
 
 .managementCard {
-  height: 400px;
+  height: 360px; /* Reduced from 400px for better scale */
   position: relative;
   border-radius: 32px;
   overflow: hidden;
@@ -135,12 +135,14 @@
   .headerTitleLarge {
     font-size: 24px;
     line-height: 30px;
+    color: white;
   }
 
   .managementCards {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 0 20px;
+    margin-top: 24px;
   }
 
   .managementCard {

@@ -56,10 +56,6 @@
   animation-delay: 0.24s;
 }
 
-.titleLine:nth-child(3) {
-  animation-delay: 0.36s;
-}
-
 .heroSubtitle {
   font-size: 17px;
   line-height: 1.4;
@@ -90,7 +86,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.03); /* Subtle white glass tint */
+  background: rgba(255, 255, 255, 0.08); /* More visible white glass tint */
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
   z-index: 1;
@@ -266,7 +262,8 @@
     width: 100%;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
+    flex-direction: column; /* Keep lines separate */
+    gap: 0;
   }
 
   .titleLine {
@@ -277,7 +274,6 @@
   /* Preserve staggered delays on mobile */
   .titleLine:nth-child(1) { animation-delay: 0.12s; }
   .titleLine:nth-child(2) { animation-delay: 0.24s; }
-  .titleLine:nth-child(3) { animation-delay: 0.36s; }
 
   .animateSubtitle {
     animation-delay: 0.6s;

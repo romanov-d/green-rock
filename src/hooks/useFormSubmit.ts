@@ -2,6 +2,7 @@ import { useState, useCallback, useRef } from 'react';
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyrXsCFqEKI3jjLRJvKyXdKc-IOd5VCGcZutOPCPgjTz3NJeDeMvI-iFVEwYQBonMGhA/exec';
 const RATE_LIMIT_MS = 60_000;
 const lastSubmitKey = 'form_last_submit';
 
@@ -34,13 +35,22 @@ function formatPhone(val: string): string {
   return out;
 }
 
-// Mock submit — replace with real API call when backend is ready
-async function mockSubmit(phone: string): Promise<void> {
-  await new Promise<void>((res) => setTimeout(res, 900));
-  console.info('[Form] Mock submission:', { phone: '+7' + phone.replace(/\D/g, '') });
+async function submitToSheet(phone: string, formId: string): Promise<void> {
+  const payload = {
+    formId,
+    page: window.location.pathname,
+    phone,
+  };
+
+  await fetch(SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload),
+  });
 }
 
-export function useFormSubmit() {
+export function useFormSubmit(formId = 'contact_section') {
   const [phone, setPhoneRaw] = useState('');
   const [status, setStatus] = useState<SubmitStatus>('idle');
   const [error, setError] = useState('');
@@ -54,17 +64,14 @@ export function useFormSubmit() {
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot check
     if (honeypotRef.current?.value) return;
 
-    // Rate limit
     const last = getRateLimit();
     if (Date.now() - last < RATE_LIMIT_MS) {
       setError('Подождите минуту перед следующей отправкой');
       return;
     }
 
-    // Validation
     if (!validatePhone(phone)) {
       setError('Введите корректный номер телефона');
       return;
@@ -74,7 +81,7 @@ export function useFormSubmit() {
     setError('');
 
     try {
-      await mockSubmit(phone);
+      await submitToSheet(phone, formId);
       setRateLimit();
       setStatus('success');
       setPhoneRaw('');
@@ -82,7 +89,7 @@ export function useFormSubmit() {
       setStatus('error');
       setError('Что-то пошло не так. Попробуйте позже.');
     }
-  }, [phone]);
+  }, [phone, formId]);
 
   const reset = useCallback(() => {
     setStatus('idle');

@@ -2,16 +2,29 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import imgPopupArrow from '../assets/arrow_white_circle.svg';
 import imgPopupClose from '../assets/popup_close.svg';
+import imgCheck from '../assets/consent_check.svg';
 import styles from './TourPopup.module.css';
 import { useFormSubmit } from '../hooks/useFormSubmit';
 
 interface TourPopupProps {
   isOpen: boolean;
   onClose: () => void;
+  title?: string;
+  subtitle?: string;
+  buttonText?: string;
+  formId?: string;
 }
 
-export const TourPopup: React.FC<TourPopupProps> = ({ isOpen, onClose }) => {
-  const { phone, status, error, honeypotRef, handlePhoneChange, handleSubmit, reset } = useFormSubmit();
+export const TourPopup: React.FC<TourPopupProps> = ({
+  isOpen,
+  onClose,
+  title = "Увидеть проект вживую — даже на расстоянии",
+  subtitle = "Онлайн-тур помогает почувствовать масштаб, атмосферу и уровень реализации ещё до первой встречи.",
+  buttonText = "Записаться на онлайн-тур",
+  formId = 'tour_popup'
+}) => {
+  const { phone, status, error, honeypotRef, handlePhoneChange, handleSubmit, reset } = useFormSubmit(formId);
+  const [isAgreed, setIsAgreed] = React.useState(false);
 
   const handleClose = () => {
     reset();
@@ -41,15 +54,15 @@ export const TourPopup: React.FC<TourPopupProps> = ({ isOpen, onClose }) => {
             </button>
 
             <div className={styles.popupHeader}>
-              <h2 className={styles.popupTitle}>Увидеть проект вживую — даже на расстоянии</h2>
+              <h2 className={styles.popupTitle}>{title}</h2>
               <p className={styles.popupSubtitle}>
-                Онлайн-тур помогает почувствовать масштаб, атмосферу и уровень реализации ещё до первой встречи.
+                {subtitle}
               </p>
             </div>
 
             {status === 'success' ? (
               <div className={styles.popupSuccess}>
-                <p>Заявка принята! Мы свяжемся с вами в ближайшее время.</p>
+                <p>Заявка принята! Мы свяжемся с&nbsp;вами в&nbsp;ближайшее время.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
@@ -77,14 +90,27 @@ export const TourPopup: React.FC<TourPopupProps> = ({ isOpen, onClose }) => {
                       maxLength={14}
                     />
                   </div>
-                  <button type="submit" className={styles.popupSubmitBtn} disabled={status === 'loading'}>
-                    <span>{status === 'loading' ? 'Отправляем...' : 'Записаться на онлайн-тур'}</span>
+                  <button
+                    type="submit"
+                    className={styles.popupSubmitBtn}
+                    disabled={status === 'loading' || !isAgreed}
+                  >
+                    <span>{status === 'loading' ? 'Отправляем...' : buttonText}</span>
                     <div className={styles.submitIcon}>
                       <img src={imgPopupArrow} alt="Arrow" />
                     </div>
                   </button>
                 </div>
                 {error && <p className={styles.popupError}>{error}</p>}
+
+                <div className={styles.popupConsent} onClick={() => setIsAgreed(!isAgreed)}>
+                  <div className={`${styles.consentCheck} ${isAgreed ? styles.consentCheckActive : ''}`}>
+                    {isAgreed && <img src={imgCheck} alt="" />}
+                  </div>
+                  <p className={styles.consentText}>
+                    {"Я согласен(на) на обработку персональных данных в соответствии с политикой конфиденциальности"}
+                  </p>
+                </div>
               </form>
             )}
           </motion.div>

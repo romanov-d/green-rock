@@ -9,10 +9,15 @@ import imgBlock3Card1 from '../assets/services_block3_card1.webp';
 import imgBlock3Card2 from '../assets/services_block3_card2.webp';
 import imgBlock3Card3 from '../assets/services_block3_card3.webp';
 import imgBlock3Card4 from '../assets/services_block3_card4.webp';
+import imgBlock3Card1Mobile from '../assets/services_block3_card1_mobile.webp';
+import imgBlock3Card2Mobile from '../assets/services_block3_card2_mobile.webp';
+import imgBlock3Card3Mobile from '../assets/services_block3_card3_mobile.webp';
+import imgBlock3Card4Mobile from '../assets/services_block3_card4_mobile.webp';
 import imgBlock5Top from '../assets/services_block5_top.webp';
 import imgBlock5Left from '../assets/services_block5_left.webp';
 import imgBlock5Right from '../assets/services_block5_right.webp';
 import imgBlock6Bg from '../assets/services_block6_bg.webp';
+import imgBlock6BgMobile from '../assets/services_block6_bg_mobile.webp';
 import imgBlock6Card1 from '../assets/services_block6_card1.webp';
 import imgBlock6Card2 from '../assets/services_block6_card2.webp';
 import imgBlock6Card3 from '../assets/services_block6_card3.webp';
@@ -34,13 +39,22 @@ import { ArchitectureSection } from '../components/ArchitectureSection';
 import { ServicesDesignScroller } from '../components/ServicesDesignScroller';
 import { Header } from '../components/Header/Header';
 import { MobileMenu } from '../components/MobileMenu';
+import { TourPopup } from '../components/TourPopup';
 import { ManagementSection } from '../components/ManagementSection';
 import { RevealSection } from '../components/RevealSection';
+import { useHeaderPopups } from '../hooks/useHeaderPopups';
+import { Helmet } from 'react-helmet-async';
 
 export const ServicesPage: React.FC = () => {
   const location = useLocation();
   const lenis = useLenis();
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const {
+    isMenuOpen,
+    isProjectPopupOpen,
+    toggleMenu,
+    openProjectPopup,
+    closeProjectPopup,
+  } = useHeaderPopups();
 
   React.useEffect(() => {
     if (location.hash) {
@@ -113,8 +127,33 @@ export const ServicesPage: React.FC = () => {
 
   return (
     <div className={styles.servicesPage}>
-      <Header onMenuToggle={() => setIsMenuOpen(!isMenuOpen)} isMenuOpen={isMenuOpen} />
-      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <Helmet>
+        <title>Услуги | Грин Рок: Архитектура, ландшафт и интерьеры</title>
+        <meta name="description" content="Комплексные услуги по проектированию и реализации жилых пространств. Создаем целостную среду: от идеи и концепции до авторского сопровождения и реализации." />
+        <meta name="keywords" content="услуги ландшафтного дизайна, проектирование интерьеров, авторский надзор, архитектурное проектирование, ландшафтные работы спб" />
+        <meta property="og:title" content="Услуги | Грин Рок: Архитектура, ландшафт и интерьеры" />
+        <meta property="og:description" content="Комплексные услуги по проектированию и реализации жилых пространств. Создаем целостную среду." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <Header 
+        onMenuToggle={toggleMenu} 
+        isMenuOpen={isMenuOpen} 
+        onStartProjectClick={openProjectPopup} 
+      />
+      <MobileMenu 
+        isOpen={isMenuOpen} 
+        onClose={() => toggleMenu()} 
+        onStartProjectClick={openProjectPopup}
+      />
+      
+      <TourPopup 
+        isOpen={isProjectPopupOpen}
+        formId="project_popup" 
+        onClose={closeProjectPopup}
+        title={"Начать проект —\nс понимания пространства"}
+        subtitle="Обсудим территорию, задачи и сценарии использования. Определим направление и решения, с которых стоит начать."
+        buttonText="Начать проект"
+      />
 
       {/* Block 1: Hero */}
       <RevealSection>
@@ -126,11 +165,11 @@ export const ServicesPage: React.FC = () => {
 
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
-              <span className={styles.titleLine}>Мы создаём среду,</span>
-              <span className={styles.titleLine}>в которой хочется жить</span>
+              <span className={styles.titleLine}>{"Мы создаём среду,"}</span>
+              <span className={styles.titleLine}>{"в\u00A0которой хочется жить"}</span>
             </h1>
             <p className={`${styles.heroSubtitle} ${styles.animateSubtitle}`}>
-              Работаем с проектом как с цельной историей — где архитектура, ландшафт и внутреннее пространство связаны между собой и подчинены одной логике.
+              {"Работаем с\u00A0проектом как\u00A0с\u00A0цельной историей\u00A0— где\u00A0архитектура, ландшафт и\u00A0внутреннее пространство связаны между собой и\u00A0подчинены одной логике."}
             </p>
           </div>
         </section>
@@ -143,55 +182,67 @@ export const ServicesPage: React.FC = () => {
       <RevealSection>
         <section id="landscape" className={styles.landscapeSection}>
           <div className={styles.sectionHeaderRow}>
-            <h2 className={styles.sectionTitle}>Ландшафт</h2>
+            <h2 className={styles.sectionTitle}>{"Ландшафт"}</h2>
             <p className={styles.sectionDesc}>
-              <span className={styles.opacityMuted}>Берём на себя всё, что связано с участком. Это не про «сделать красиво».</span>
-              <span> Это создать место, куда хочется возвращаться.</span>
+              <span className={styles.opacityMuted}>{"Берём на\u00A0себя всё, что\u00A0связано с\u00A0участком. Это\u00A0не\u00A0про «сделать красиво»."}</span>
+              <span>{" Это\u00A0создать место, куда\u00A0хочется возвращаться."}</span>
             </p>
           </div>
 
           <div className={styles.landscapeGrid}>
             <div className={styles.landscapeCard}>
-              <img src={imgBlock3Card1} alt="" className={styles.cardBgAbs} />
+              <picture className={styles.cardBgAbs}>
+                <source srcSet={imgBlock3Card1Mobile} media="(max-width: 768px)" />
+                <img src={imgBlock3Card1} alt="" className={styles.cardBgAbsImg} />
+              </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
-                <h3 className={styles.landscapeCardTitle}>Сценарии <br />и логика пространства</h3>
+                <h3 className={styles.landscapeCardTitle}>{"Сценарии и\u00A0логика пространства"}</h3>
               </div>
               <div className={styles.cardBottomContent}>
-                <p className={styles.cardText}>Зона отдыха, движения, уединения. Как вы перемещаетесь по пространству и как оно ощущается в разное время.</p>
+                <p className={styles.cardText}>{"Зона отдыха, движения, уединения. Как\u00A0вы\u00A0перемещаетесь по\u00A0пространству и\u00A0как\u00A0оно ощущается в\u00A0разное время."}</p>
               </div>
             </div>
 
             <div className={styles.landscapeCard}>
-              <img src={imgBlock3Card2} alt="" className={styles.cardBgAbs} />
+              <picture className={styles.cardBgAbs}>
+                <source srcSet={imgBlock3Card2Mobile} media="(max-width: 768px)" />
+                <img src={imgBlock3Card2} alt="" className={styles.cardBgAbsImg} />
+              </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
-                <h3 className={styles.landscapeCardTitle}>Озеленение <br />и работа с природой</h3>
+                <h3 className={styles.landscapeCardTitle}>{"Озеленение и\u00A0работа с\u00A0природой"}</h3>
               </div>
               <div className={styles.cardBottomContent}>
-                <p className={styles.cardText}>С учётом климата, участка и того, как пространство будет выглядеть и развиваться со временем.</p>
+                <p className={styles.cardText}>{"С\u00A0учётом климата, участка и\u00A0того, как\u00A0пространство будет выглядеть и\u00A0развиваться со\u00A0временем."}</p>
               </div>
             </div>
 
             <div className={styles.landscapeCard}>
-              <img src={imgBlock3Card4} alt="" className={styles.cardBgAbs} />
+              <picture className={styles.cardBgAbs}>
+                <source srcSet={imgBlock3Card4Mobile} media="(max-width: 768px)" />
+                <img src={imgBlock3Card4} alt="" className={styles.cardBgAbsImg} />
+              </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
-                <h3 className={styles.landscapeCardTitle}>Вода, свет <br />и атмосфера</h3>
+                <h3 className={styles.landscapeCardTitle}>{"Вода, свет и\u00A0атмосфера"}</h3>
               </div>
               <div className={styles.cardBottomContent}>
-                <p className={styles.cardText}>Пруды, отражения, освещение и вечерние сценарии — всё, что делает участок живым и объёмным.</p>
+                <p className={styles.cardText}>{"Пруды, отражения, освещение и\u00A0вечерние сценарии\u00A0— всё, что\u00A0делает участок живым и\u00A0объёмным."}</p>
               </div>
             </div>
 
             <div className={styles.landscapeCard}>
-              <img src={imgBlock3Card3} alt="" className={styles.cardBgAbs} />
+              <picture className={styles.cardBgAbs}>
+                <source srcSet={imgBlock3Card3Mobile} media="(max-width: 768px)" />
+                <img src={imgBlock3Card3} alt="" className={styles.cardBgAbsImg} />
+              </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
-                <h3 className={styles.landscapeCardTitle}>Конструкции <br />и инженерия</h3>
+                <h3 className={styles.landscapeCardTitle}>{"Конструкции и\u00A0инженерия"}</h3>
               </div>
               <div className={styles.cardBottomContent}>
-                <p className={styles.cardText}>Дорожки, террасы, дренаж, полив — решения, которые не видны, но от которых зависит, как долго всё будет работать.</p>
+                <p className={styles.cardText}>{"Дорожки, террасы, дренаж, полив\u00A0— решения, которые не\u00A0видны, но\u00A0от\u00A0которых зависит, как\u00A0долго всё будет работать."}</p>
               </div>
             </div>
           </div>
@@ -204,7 +255,7 @@ export const ServicesPage: React.FC = () => {
 
       {/* Block 5: Interiors */}
       <RevealSection>
-        <section className={styles.interiorsSection}>
+        <section id="interior" className={styles.interiorsSection}>
           <div className={styles.interiorsBgOverlay}>
             <img src={imgBlock5Top} alt="" className={styles.sectionBgImg} />
             <div className={styles.greenGlassOverlay} />
@@ -212,16 +263,20 @@ export const ServicesPage: React.FC = () => {
 
           <div className={styles.interiorsHeader}>
             <div className={styles.headerLeft}>
-              <h2 className={styles.sectionTitle}>Интерьеры</h2>
-              <p className={`${styles.sectionDesc} ${styles.opacityMuted}`}>То, что человек чувствует, а не только видит.</p>
+              <h2 className={styles.sectionTitle}>{"Интерьеры"}</h2>
+              <p className={`${styles.sectionDesc} ${styles.opacityMuted}`}>{"То, что\u00A0человек чувствует, а\u00A0не\u00A0только видит."}</p>
             </div>
             <div className={styles.headerRight}>
-              <a href="#start" className={styles.interiorsCta}>
+              <button 
+                onClick={openProjectPopup} 
+                className={styles.interiorsCta}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+              >
                 <div className={styles.ctaIconCircle}>
                   <img src={imgArrowDiagonal} alt="" />
                 </div>
                 <span>Начать проект</span>
-              </a>
+              </button>
             </div>
           </div>
 
@@ -260,22 +315,23 @@ export const ServicesPage: React.FC = () => {
 
       {/* Block 6: Management */}
       <RevealSection>
-        <ManagementSection 
+        <ManagementSection
           bgImage={imgBlock6Bg}
+          bgImageMobile={imgBlock6BgMobile}
           cards={[
             {
-              title: "Есть участок, и хочется сразу сделать всё правильно",
-              subtitle: "Продумать пространство заранее и избежать переделок в будущем",
+              title: "Есть участок, и\u00A0хочется сразу сделать всё правильно",
+              subtitle: "Продумать пространство заранее и\u00A0избежать переделок в\u00A0будущем",
               image: imgBlock6Card1
             },
             {
-              title: "Проект требует точных и продуманных решений",
-              subtitle: "Сложные условия, масштаб и задачи, где важен опыт и продуманность",
+              title: "Проект требует точных и\u00A0продуманных решений",
+              subtitle: "Сложные условия, масштаб и\u00A0задачи, где\u00A0важен опыт и\u00A0продуманность",
               image: imgBlock6Card2
             },
             {
               title: "Необходимо пространство, которое запоминается",
-              subtitle: "И создаёт впечатление, а не просто выглядит аккуратно",
+              subtitle: "И\u00A0создаёт впечатление, а\u00A0не\u00A0просто выглядит аккуратно",
               image: imgBlock6Card3
             }
           ]}
@@ -291,7 +347,7 @@ export const ServicesPage: React.FC = () => {
 
         <div className={styles.processSticky}>
           <div className={styles.processSectionHeader}>
-            <h2 className={styles.processSectionTitle}>Как мы ведём проект</h2>
+            <h2 className={styles.processSectionTitle}>{"Как мы\u00A0ведём проект"}</h2>
           </div>
 
           <div 
@@ -307,10 +363,9 @@ export const ServicesPage: React.FC = () => {
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>01</span>
               <div className={styles.processCardContent}>
-                <h3 className={styles.processCardTitle}>Погружение</h3>
+                <h3 className={styles.processCardTitle}>{"Погружение"}</h3>
                 <p className={styles.processCardDesc}>
-                  Выезжаем на объект, изучаем пространство, рельеф, окружение и сценарии использования. 
-                  Фиксируем всё — от замеров до съёмки с дрона — чтобы видеть проект целиком.
+                  {"Выезжаем на\u00A0объект, изучаем пространство, рельеф, окружение и\u00A0сценарии использования. Фиксируем всё\u00A0— от\u00A0замеров до\u00A0съёмки с\u00A0дрона\u00A0— чтобы\u00A0видеть проект целиком."}
                 </p>
               </div>
             </div>
@@ -320,10 +375,9 @@ export const ServicesPage: React.FC = () => {
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>02</span>
               <div className={styles.processCardContent}>
-                <h3 className={styles.processCardTitle}>Концепция</h3>
+                <h3 className={styles.processCardTitle}>{"Концепция"}</h3>
                 <p className={styles.processCardDesc}>
-                  Продумываем, как пространство будет использоваться — 
-                  и формируем логику, в которой всё связано между собой.
+                  {"Продумываем, как\u00A0пространство будет использоваться\u00A0— и\u00A0формируем логику, в\u00A0которой всё\u00A0связано между собой."}
                 </p>
               </div>
             </div>
@@ -333,10 +387,9 @@ export const ServicesPage: React.FC = () => {
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>03</span>
               <div className={styles.processCardContent}>
-                <h3 className={styles.processCardTitle}>Решения</h3>
+                <h3 className={styles.processCardTitle}>{"Решения"}</h3>
                 <p className={styles.processCardDesc}>
-                  Создаём проект под конкретную задачу. Каждое решение — индивидуально: 
-                  под участок, архитектуру и цели проекта.
+                  {"Создаём проект под\u00A0конкретную задачу. Каждое решение\u00A0— индивидуально: под\u00A0участок, архитектуру и\u00A0цели проекта."}
                 </p>
               </div>
             </div>
@@ -346,10 +399,9 @@ export const ServicesPage: React.FC = () => {
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>04</span>
               <div className={styles.processCardContent}>
-                <h3 className={styles.processCardTitle}>Комплектация</h3>
+                <h3 className={styles.processCardTitle}>{"Комплектация"}</h3>
                 <p className={styles.processCardDesc}>
-                  Берём на себя материалы и процессы. Подбираем, закупаем и координируем подрядчиков. 
-                  Вы не погружаетесь в операционные задачи.
+                  {"Берём на\u00A0себя материалы и\u00A0процессы. Подбираем, закупаем и\u00A0координируем подрядчиков. Вы\u00A0не\u00A0погружаетесь в\u00A0операционные задачи."}
                 </p>
               </div>
             </div>
@@ -359,9 +411,9 @@ export const ServicesPage: React.FC = () => {
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>05</span>
               <div className={styles.processCardContent}>
-                <h3 className={styles.processCardTitle}>Реализация</h3>
+                <h3 className={styles.processCardTitle}>{"Реализация"}</h3>
                 <p className={styles.processCardDesc}>
-                  Контролируем стройку и качество исполнения, сохраняя целостность идеи на всех этапах.
+                  {"Контролируем стройку и\u00A0качество исполнения, сохраняя целостность идеи на\u00A0всех этапах."}
                 </p>
               </div>
             </div>
@@ -371,10 +423,9 @@ export const ServicesPage: React.FC = () => {
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>06</span>
               <div className={styles.processCardContent}>
-                <h3 className={styles.processCardTitle}>Сопровождение</h3>
+                <h3 className={styles.processCardTitle}>{"Сопровождение"}</h3>
                 <p className={styles.processCardDesc}>
-                  Остаёмся с проектом после сдачи. Следим за тем, как пространство работает, 
-                  и при необходимости корректируем его в течение первого года.
+                  {"Остаёмся с\u00A0проектом после сдачи. Следим за\u00A0тем, как\u00A0пространство работает, и\u00A0при\u00A0необходимости корректируем его в\u00A0течение первого года."}
                 </p>
               </div>
             </div>
@@ -392,7 +443,7 @@ export const ServicesPage: React.FC = () => {
 
           <div className={styles.benefitsSectionContent}>
             <div className={styles.benefitsHeader}>
-              <h2 className={styles.benefitsTitle}>Что вы получаете, работая с Грин Рок</h2>
+              <h2 className={styles.benefitsTitle}>{"Что вы получаете, работая с Грин Рок"}</h2>
             </div>
 
             <div className={styles.benefitsBottomContent}>
@@ -415,7 +466,7 @@ export const ServicesPage: React.FC = () => {
                   <img src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Цельное пространство</h3>
-                    <p className={styles.benefitCardDesc}>Архитектура, ландшафт и интерьер связаны между собой и работают как единое решение</p>
+                    <p className={styles.benefitCardDesc}>{"Архитектура, ландшафт и интерьер связаны между собой и работают как единое решение"}</p>
                   </div>
                 </div>
 
@@ -423,7 +474,7 @@ export const ServicesPage: React.FC = () => {
                   <img src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Понимание проекта заранее</h3>
-                    <p className={styles.benefitCardDesc}>Вы видите будущий результат и принимаете решения ещё до начала реализации</p>
+                    <p className={styles.benefitCardDesc}>Вы видите будущий результат и принимаете решения ещё до начала реализации</p>
                   </div>
                 </div>
 
@@ -431,15 +482,15 @@ export const ServicesPage: React.FC = () => {
                   <img src={imgShape302} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Продуманные решения</h3>
-                    <p className={styles.benefitCardDesc}>Все элементы согласованы между собой и работают в рамках одной логики</p>
+                    <p className={styles.benefitCardDesc}>Все элементы согласованы между собой и работают в рамках одной логики</p>
                   </div>
                 </div>
 
                 <div className={`${styles.benefitCard} ${styles.benefitCardW411}`}>
                   <img src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
-                    <h3 className={styles.benefitCardTitle}>Спокойная реализации</h3>
-                    <p className={styles.benefitCardDesc}>Проект ведётся системно, с соблюдением сроков и проходит без лишних сложностей</p>
+                    <h3 className={styles.benefitCardTitle}>Спокойная реализация</h3>
+                    <p className={styles.benefitCardDesc}>Проект ведётся системно, с соблюдением сроков и проходит без лишних сложностей</p>
                   </div>
                 </div>
 
@@ -447,7 +498,7 @@ export const ServicesPage: React.FC = () => {
                   <img src={imgShape302} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Долговечный результат</h3>
-                    <p className={styles.benefitCardDesc}>Пространство сохраняет актуальность и выглядит уверенно со временем</p>
+                    <p className={styles.benefitCardDesc}>Пространство сохраняет актуальность и выглядит уверенно со временем</p>
                   </div>
                 </div>
 
@@ -455,7 +506,7 @@ export const ServicesPage: React.FC = () => {
                   <img src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Место, куда хочется возвращаться</h3>
-                    <p className={styles.benefitCardDesc}>Создаём среду, которая работает в повседневной жизни и приносит удовольствие</p>
+                    <p className={styles.benefitCardDesc}>Создаём среду, которая работает в повседневной жизни и приносит удовольствие</p>
                   </div>
                 </div>
               </div>
@@ -468,7 +519,7 @@ export const ServicesPage: React.FC = () => {
         <ContactSection />
       </RevealSection>
 
-      <Footer />
+      <Footer onStartProjectClick={openProjectPopup} />
     </div>
   );
 };

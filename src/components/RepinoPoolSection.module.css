@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 120px 80px;
+  padding: 120px 0; /* Changed from 80px to align with grid */
 }
 
 .poolBgContainer {
@@ -34,7 +34,7 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px; /* Aligned to project grid */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,24 +71,25 @@
 
 .poolDetailsSvg {
   width: 100%;
-  max-width: 1000px; /* Limit size on large screens */
+  max-width: 1320px; /* Increased to match grid */
   height: auto;
   display: block;
 }
 
 @media (max-width: 768px) {
   .projectBlock5 {
-    padding: 0; /* Remove padding to match Lubitovo style */
+    padding: 0;
     height: 100vh;
     height: 100dvh;
     min-height: 100vh;
-    background: #0C1A1C; /* Base background for safety */
+    overflow: visible;
+    background: #0C1A1C;
   }
 
   .poolBgOverlay {
-    background: rgba(12, 26, 28, 0.85); /* Darker and more opaque */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(12, 26, 28, 0.85);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .poolContent {

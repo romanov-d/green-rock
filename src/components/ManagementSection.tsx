@@ -25,22 +25,24 @@ const ManagementCard: React.FC<ManagementCardProps> = ({ title, subtitle, image 
 interface ManagementSectionProps {
   cards: ManagementCardProps[];
   bgImage: string;
+  bgImageMobile?: string;
 }
 
-export const ManagementSection: React.FC<ManagementSectionProps> = ({ cards, bgImage }) => {
+export const ManagementSection: React.FC<ManagementSectionProps> = ({ cards, bgImage, bgImageMobile }) => {
   return (
     <section className={styles.managementSection}>
       <div className={styles.sectionBg}>
-        <img src={bgImage} alt="" className={styles.bgImg} />
+        <picture>
+          {bgImageMobile && <source srcSet={bgImageMobile} media="(max-width: 768px)" />}
+          <img src={bgImage} alt="" className={styles.bgImg} />
+        </picture>
         <div className={styles.bgOverlay} />
       </div>
 
       <div className={styles.sectionContent}>
         <div className={styles.contentHeaderCentered}>
-          <h2 className={styles.headerTitleLarge}>
-            Мы подключаемся там, где важно собрать пространство <span className={styles.opacityMuted}>целиком —</span>
-            <br />
-            <span className={styles.opacityMuted}>без компромиссов и случайных решений.</span>
+          <h2 className={`${styles.headerTitleLarge} anim-fade-up`}>
+            {"Мы подключаемся там, где важно собрать пространство целиком — без компромиссов и случайных решений."}
           </h2>
         </div>
 

@@ -129,6 +129,16 @@
 .submitIcon {
   width: 48px;
   height: 48px;
+  transition: transform 0.3s ease;
+}
+
+.contactSubmit:hover:not(:disabled) .submitIcon {
+  transform: rotate(45deg);
+}
+
+.contactSubmit:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .submitIcon img {
@@ -139,22 +149,39 @@
 
 .contactConsent {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   align-items: flex-start;
   max-width: 400px;
   text-align: left;
+  cursor: pointer;
 }
 
 .consentCheck {
   width: 24px;
   height: 24px;
   flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%; /* Pure circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.consentCheckActive {
+  border-color: transparent; /* Remove border when active as SVG has its own */
+  background: transparent;
 }
 
 .consentCheck img {
-  width: 100%;
+  width: 100%; /* Fill container */
   height: 100%;
   object-fit: contain;
+}
+
+.consentCheckActive img {
+  filter: none; /* Reset any filters */
 }
 
 .consentText {
@@ -164,19 +191,7 @@
   opacity: 0.5;
 }
 
-.contactPlayBtn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  cursor: pointer;
-}
+/* Removed Play Btn styles */
 
 .contactFormLabel {
   display: none;

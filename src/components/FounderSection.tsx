@@ -1,4 +1,6 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
+import React, { useRef, useState } from 'react';
+import { useLenis } from 'lenis/react';
+
 import imgBg from '../assets/founder_bg.webp';
 import imgArrowIcon from '../assets/arrow_white_circle.svg';
 
@@ -33,13 +35,13 @@ const team: TeamMember[] = [
     name: "Иван Гук",
     role: "Геодезист",
     photo: imgIvan,
-    quote: "«Продумываем пространство на годы»"
+    quote: "«Продумываем пространство на годы»"
   },
   {
     name: "Павел Ройсс",
     role: "Прораб",
     photo: imgPavel,
-    quote: "«Берём ответственность за результат»"
+    quote: "«Берём ответственность за результат»"
   },
   {
     name: "Анастасья Имшеник",
@@ -49,14 +51,14 @@ const team: TeamMember[] = [
   },
   {
     name: "Наим Рустамов",
-    role: "каменьщик-плиточник, мастер высш. к.",
+    role: "каменщик-плиточник, мастер в.к.",
     photo: imgNaim,
-    quote: "«Внимательны к каждой детали»"
+    quote: "«Внимательны к каждой детали»"
   }
 ];
 
 // Heading text — same for all except founder state
-const HEADING_TEAM = "Специалисты, которые ведут проект от первой идеи до готового пространства.";
+const HEADING_TEAM = "Специалисты, которые ведут проект от первой идеи\nдо готового пространства.";
 
 import styles from './FounderSection.module.css';
 
@@ -64,7 +66,7 @@ export const FounderSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleScroll = useCallback(() => {
+  useLenis(() => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const scrollableHeight = containerRef.current.offsetHeight - window.innerHeight;
@@ -73,13 +75,7 @@ export const FounderSection: React.FC = () => {
     const p = Math.max(0, Math.min(1, scrolled / scrollableHeight));
     const idx = Math.min(team.length - 1, Math.floor(p * team.length));
     setActiveIndex(idx);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [handleScroll]);
+  });
 
   const active = team[activeIndex];
 
@@ -122,7 +118,7 @@ export const FounderSection: React.FC = () => {
           {/* Founder promise — bottom left */}
           {active.isFounder && (
             <p className={`${styles.teamPromise} anim-fade-up-team`} style={{ animationDelay: '0.4s' }}>
-              Мы отвечаем за результат — от идеи до реализации
+              {"Мы отвечаем за\u00A0результат — от\u00A0идеи до\u00A0реализации"}
             </p>
           )}
 

@@ -6,7 +6,7 @@ import styles from './QuoteSection.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const QUOTE_TEXT = "Хорошие пространства запоминаются не только тем, как выглядят. Они запоминаются тем, как в них себя чувствуешь.";
+const QUOTE_TEXT = "Хорошие пространства запоминаются не\u00A0только тем, как\u00A0выглядят. Они\u00A0запоминаются тем, как\u00A0в\u00A0них себя чувствуешь.";
 
 export const QuoteSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -20,22 +20,7 @@ export const QuoteSection: React.FC = () => {
 
     // Reset GSAP to avoid issues on re-renders
     const ctx = gsap.context(() => {
-      // 1. Parallax for background
-      gsap.fromTo(imgRef.current, 
-        { y: -50, scale: 1.15 },
-        {
-          y: 50,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          }
-        }
-      );
-
-      // 2. Text Reveal Animation
+      // 1. Text Reveal Animation
       const charElements = containerRef.current?.querySelectorAll(`.${styles.quoteChar}`);
       if (charElements && charElements.length > 0) {
         gsap.to(charElements, {
@@ -44,8 +29,8 @@ export const QuoteSection: React.FC = () => {
           ease: 'none',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top center', // Start when section hits center of screen
-            end: 'bottom center', // End when section leaves center
+            start: 'top 60%', // Start slightly earlier
+            end: 'center 40%', // End much faster (before section center leaves screen)
             scrub: 0.5,
           }
         });

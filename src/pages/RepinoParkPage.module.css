@@ -127,6 +127,11 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.projectCta:hover .projectCtaIcon img {
+  transform: rotate(45deg);
 }
 
 .projectCtaText {
@@ -195,6 +200,14 @@
   text-align: right;
 }
 
+.mobileOnly {
+  display: none;
+}
+
+.desktopOnly {
+  display: flex;
+}
+
 .projectScroll {
   display: flex;
   flex-direction: column;
@@ -208,7 +221,7 @@
 .scrollHint {
   font-size: 11px;
   font-weight: 500;
-  text-transform: lowercase;
+  
   opacity: 0.7;
 }
 
@@ -352,11 +365,18 @@
   opacity: 0.9;
 }
 
+.cardPlan picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .cardPlan img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  display: block;
 }
 
 .cardDetails {
@@ -492,7 +512,7 @@
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1012,6 +1032,13 @@
   .desktopOnly {
     display: none;
   }
+  .mobileOnly {
+    display: flex;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
 
   .projectHero {
     height: 100vh;
@@ -1081,12 +1108,13 @@
     margin-top: 40px;
     align-items: center;
     width: 100%;
+    opacity: 0.7;
   }
 
   .projectSpecs p {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.4;
-    opacity: 0.8;
+    opacity: 0.7;
   }
 
   .projectHeroBottom {
@@ -1305,10 +1333,9 @@
     margin-bottom: 24px;
   }
 
-  .listTitle {
+  .panelList li {
     font-size: 15px;
-    line-height: 1.6;
-    opacity: 0.7;
+    line-height: 1.4;
   }
 
   /* ===== BLOCK 7 MOBILE ===== */
@@ -1356,15 +1383,15 @@
   .rivieraSummarySection {
     height: 100vh;
     height: 100dvh;
-    padding: 0 20px;
-    align-items: center;
+    padding: 0 20px 40px;
+    align-items: flex-end;
     justify-content: center;
   }
 
   .summaryCard {
     width: 100%;
     height: auto;
-    padding: 60px 24px;
+    padding: 32px 24px;
     border-radius: 32px;
     background: rgba(17, 32, 28, 0.7);
     backdrop-filter: blur(20px);
@@ -1374,7 +1401,7 @@
   .summaryCardTitle {
     font-size: 24px;
     line-height: 1.2;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .summaryCardList {
