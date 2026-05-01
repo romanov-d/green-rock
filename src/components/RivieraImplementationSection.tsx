@@ -3,9 +3,7 @@ import styles from './RivieraImplementationSection.module.css';
 
 import bg1 from '../assets/riviera_block5_main.webp';
 import bg2 from '../assets/riviera_block5_card2.webp';
-import bg2Mobile from '../assets/riviera_block5_card2_mobile.webp';
 import bg3 from '../assets/riviera_block5_card3.webp';
-import bg3Mobile from '../assets/riviera_block5_card3_mobile.webp';
 import bg4 from '../assets/riviera_block5_card4.webp';
 import bg4Mobile from '../assets/riviera_block5_card4_mobile.webp';
 

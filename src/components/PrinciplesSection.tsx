@@ -8,7 +8,6 @@ import bgState4 from '../assets/principles_bg_4.webp';
 
 import bgCard1Mobile from '../assets/principles_card_1_mobile.webp';
 import bgCard2Mobile from '../assets/principles_card_2_mobile.webp';
-import bgCard3Mobile from '../assets/principles_card_3_mobile.webp';
 import bgState4Mobile from '../assets/principles_card_4_mobile.webp';
 import miniCalmMobile from '../assets/principles_mini_calm_mobile.webp';
 import miniBalanceMobile from '../assets/principles_mini_balance_mobile.webp';

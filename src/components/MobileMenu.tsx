@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import imgYoutube from '../assets/youtube_icon.svg';
 import imgTelegram from '../assets/telegram_icon.svg';
 import imgPromoImg from '../assets/mobilemenubanner.svg';
-import imgArrow from '../assets/arrow_diagonal_grey.svg';
 
 import styles from './MobileMenu.module.css';
 
