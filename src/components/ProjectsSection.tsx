@@ -130,7 +130,7 @@ export const ProjectsSection: React.FC = () => {
                 style={{ '--card-index': index } as React.CSSProperties}
               >
                 <div className={styles.projectCardImgWrapper}>
-                  <img src={project.image} alt={`Проект ${project.name} — ${project.tags.join(', ')}`} className={styles.projectCardImg} />
+                  <img loading="lazy" decoding="async" src={project.image} alt={`Проект ${project.name} — ${project.tags.join(', ')}`} className={styles.projectCardImg} />
                 </div>
                 <div className={styles.projectCardOverlay}></div>
                 
@@ -141,7 +141,7 @@ export const ProjectsSection: React.FC = () => {
                     <span className={styles.projectMeta}>{project.meta}</span>
                   </div>
                   <div className={styles.projectCardBtn}>
-                    <img src={imgArrow} alt="Open" />
+                    <img loading="lazy" decoding="async" src={imgArrow} alt="Open" />
                   </div>
                 </div>
 

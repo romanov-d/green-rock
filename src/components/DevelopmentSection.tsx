@@ -11,7 +11,7 @@ export const DevelopmentSection: React.FC = () => {
   return (
     <section className={styles.devSection}>
       <div className={styles.devMeshContainer}>
-        <img src={imgMesh} alt="" className={styles.devMesh} />
+        <img loading="lazy" decoding="async" src={imgMesh} alt="" className={styles.devMesh} />
         <div className={styles.devBgOverlay}></div>
       </div>
 
@@ -25,7 +25,7 @@ export const DevelopmentSection: React.FC = () => {
           <div className={styles.devVideoGrid}>
             {/* Video Card 1 */}
             <div className={styles.videoCard}>
-              <img src={imgThumbGlamping} alt="Глэмпинг" className={styles.videoThumb} />
+              <img loading="lazy" decoding="async" src={imgThumbGlamping} alt="Глэмпинг" className={styles.videoThumb} />
               <div className={styles.videoOverlay}>
                 {/* Desktop Info */}
                 <div className={styles.videoCardInfoWrap}>
@@ -46,13 +46,13 @@ export const DevelopmentSection: React.FC = () => {
                 </div>
               </div>
               <button className={styles.videoPlayBtn}>
-                <img src={imgPlay} alt="Play" />
+                <img loading="lazy" decoding="async" src={imgPlay} alt="Play" />
               </button>
             </div>
 
             {/* Video Card 2 */}
             <div className={styles.videoCard}>
-              <img src={imgThumbRelief} alt="Рельеф" className={styles.videoThumb} />
+              <img loading="lazy" decoding="async" src={imgThumbRelief} alt="Рельеф" className={styles.videoThumb} />
               <div className={styles.videoOverlay}>
                 {/* Desktop Info */}
                 <div className={styles.videoCardInfoWrap}>
@@ -73,7 +73,7 @@ export const DevelopmentSection: React.FC = () => {
                 </div>
               </div>
               <button className={styles.videoPlayBtn}>
-                <img src={imgPlay} alt="Play" />
+                <img loading="lazy" decoding="async" src={imgPlay} alt="Play" />
               </button>
             </div>
           </div>
@@ -82,7 +82,7 @@ export const DevelopmentSection: React.FC = () => {
         <div className={styles.devBanner}>
           <picture className={styles.bannerImgPicture}>
               <source srcSet={imgBannerMobile} media="(max-width: 768px)" />
-              <img src={imgBanner} alt="Development" className={styles.bannerImg} />
+              <img loading="lazy" decoding="async" src={imgBanner} alt="Development" className={styles.bannerImg} />
             </picture>
           <div className={styles.bannerTopBlur}></div>
           <div className={styles.bannerBottomBlur}></div>

@@ -55,7 +55,7 @@ export const RepinoParkPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className={styles.projectHero}>
-        <img src={imgRepinoBg} alt="Репино парк" className={styles.projectHeroBg} />
+        <img fetchPriority="high" decoding="async" src={imgRepinoBg} alt="Репино парк" className={styles.projectHeroBg} />
         <div className={styles.projectHeroOverlay}></div>
 
         {/* Header */}
@@ -120,7 +120,7 @@ export const RepinoParkPage: React.FC = () => {
             </p>
             <div className={styles.block2Subtitle}>
               <div className={styles.subtitleDivider}>
-                <img src={imgLineV} alt="Line" />
+                <img loading="lazy" decoding="async" src={imgLineV} alt="Line" />
               </div>
               <div className={styles.subtitleContent}>
                 <p className={styles.subtitleMain}>Главный принцип — баланс:</p>
@@ -136,13 +136,13 @@ export const RepinoParkPage: React.FC = () => {
         </div>
 
         <div className={styles.block2Visual}>
-          <img src={imgBlock2Bg} alt="Repino Landscape" className={styles.block2Bg} />
+          <img loading="lazy" decoding="async" src={imgBlock2Bg} alt="Repino Landscape" className={styles.block2Bg} />
 
           <div className={styles.block2FloatingCard}>
             <div className={styles.cardPlan}>
               <picture>
                 <source srcSet={imgBlock2CardMobile} media="(max-width: 768px)" />
-                <img src={imgBlock2Card} alt="Details" />
+                <img loading="lazy" decoding="async" src={imgBlock2Card} alt="Details" />
               </picture>
             </div>
             <div className={styles.cardDetails}>
@@ -166,7 +166,7 @@ export const RepinoParkPage: React.FC = () => {
       <section className={styles.projectBlock3}>
         <div className={styles.block3Container}>
           <div className={styles.block3Visual}>
-            <img src={imgBlock3Img} alt="Pavements" className={styles.block3Img} />
+            <img loading="lazy" decoding="async" src={imgBlock3Img} alt="Pavements" className={styles.block3Img} />
           </div>
 
           <div className={styles.block3Content}>
@@ -174,7 +174,7 @@ export const RepinoParkPage: React.FC = () => {
 
             <div className={styles.block3Subtitle}>
               <div className={styles.subtitleDivider}>
-                <img src={imgBlock3Line} alt="Line" />
+                <img loading="lazy" decoding="async" src={imgBlock3Line} alt="Line" />
               </div>
               <div className={styles.subtitleContent}>
                 <p className={styles.subtitleMain}>
@@ -197,7 +197,7 @@ export const RepinoParkPage: React.FC = () => {
       <div className={styles.swappableBlocks}>
         {/* Block 4: Full Width Image */}
         <section className={`${styles.projectImageFull} ${styles.swapOrder1}`}>
-          <img src={imgBlock4Full} alt="Repino Detail" className={styles.fullBgImage} />
+          <img loading="lazy" decoding="async" src={imgBlock4Full} alt="Repino Detail" className={styles.fullBgImage} />
         </section>
 
         {/* Block 5: Pool */}
@@ -209,7 +209,7 @@ export const RepinoParkPage: React.FC = () => {
       {/* Block 6: Curved Bench */}
       <section className={styles.rivieraFullBlock}>
         <div className={styles.fullBgContainer}>
-          <img src={imgBlock6Bg} alt="Curved Bench" className={styles.fullBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock6Bg} alt="Curved Bench" className={styles.fullBgImg} />
         </div>
 
         <div className={styles.sidePanelDark}>
@@ -217,7 +217,7 @@ export const RepinoParkPage: React.FC = () => {
             <h2 className={styles.panelTitle}>Изогнутая скамья — форма, продиктованная деревьями.</h2>
 
             <div className={styles.panelDividerH}>
-              <img src={imgBlock6Line} alt="Line" />
+              <img loading="lazy" decoding="async" src={imgBlock6Line} alt="Line" />
             </div>
 
             <div className={styles.panelDescription}>
@@ -243,7 +243,7 @@ export const RepinoParkPage: React.FC = () => {
           </div>
         </div>
         <div className={styles.greeneryVisual}>
-          <img src={imgBlock7Bg} alt="Greenery" className={styles.greeneryBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock7Bg} alt="Greenery" className={styles.greeneryBgImg} />
           <div className={styles.greeneryOverlay}></div>
         </div>
       </section>
@@ -251,7 +251,7 @@ export const RepinoParkPage: React.FC = () => {
       {/* Block 8: Summary */}
       <section className={styles.rivieraSummarySection}>
         <div className={styles.summaryBgContainer}>
-          <img src={imgBlock8Bg} alt="Repino Summary" className={styles.summaryBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock8Bg} alt="Repino Summary" className={styles.summaryBgImg} />
           <div className={styles.summaryBgOverlay}></div>
         </div>
 

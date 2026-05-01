@@ -115,7 +115,7 @@ export const RivieraImplementationSection: React.FC = () => {
               <div className={`${styles.svcSlideBg} ${isActive ? styles.svcSlideBgActive : ''}`}>
                 <picture>
                   {slide.bgMobile && <source srcSet={slide.bgMobile} media="(max-width: 768px)" />}
-                  <img src={slide.bg} alt="" />
+                  <img loading="lazy" decoding="async" src={slide.bg} alt="" />
                 </picture>
                 <div className={styles.svcSlideBgOverlay} />
               </div>
@@ -135,7 +135,7 @@ export const RivieraImplementationSection: React.FC = () => {
                   {slide.cards.map((card, ci) => (
                     <div key={ci} className={`${styles.svcCard} ${isActive ? styles.svcCardActive : ''}`} style={{ transitionDelay: `${ci * 80}ms` }}>
                       <div className={styles.svcCardBg}>
-                        <img src={card.bg} alt="" />
+                        <img loading="lazy" decoding="async" src={card.bg} alt="" />
                         <div className={styles.svcCardBgOverlay} />
                       </div>
                       <p className={styles.svcCardNum}>{card.number}</p>

@@ -83,7 +83,7 @@ export const FounderSection: React.FC = () => {
     <section ref={containerRef} id="about" className={styles.teamScrollContainer}>
       <div className={styles.teamSticky}>
         {/* Background */}
-        <img src={imgBg} alt="" className={styles.teamBg} />
+        <img loading="lazy" decoding="async" src={imgBg} alt="" className={styles.teamBg} />
         <div className={styles.teamBgOverlay} />
 
         {/* Content */}
@@ -94,14 +94,14 @@ export const FounderSection: React.FC = () => {
               <div className={styles.teamFounderQuote} key="founder">
                 <h2 className={`${styles.teamQuoteText} anim-fade-up`}>{active.quote}</h2>
                 <div className={`${styles.teamSignature} anim-fade-up`} style={{ animationDelay: '0.2s' }}>
-                  <img src={imgSignature} alt="Подпись" />
+                  <img loading="lazy" decoding="async" src={imgSignature} alt="Подпись" />
                 </div>
               </div>
             ) : (
               <div className={styles.teamHeadingBlock} key={`heading-${activeIndex}`}>
                 <h2 className={`${styles.teamHeading} anim-fade-up`}>{HEADING_TEAM}</h2>
                 <a href="#consult" className={`${styles.teamCta} anim-fade-up`} style={{ animationDelay: '0.15s' }}>
-                  <div className={styles.teamCtaIcon}><img src={imgArrowIcon} alt="" /></div>
+                  <div className={styles.teamCtaIcon}><img loading="lazy" decoding="async" src={imgArrowIcon} alt="" /></div>
                   <span>Консультация с архитектором</span>
                 </a>
               </div>
@@ -129,7 +129,7 @@ export const FounderSection: React.FC = () => {
                 key={i}
                 className={`${styles.teamCard} ${i === activeIndex ? styles.teamCardActive : ''}`}
               >
-                <img src={member.photo} alt={member.name} className={styles.teamCardPhoto} />
+                <img loading="lazy" decoding="async" src={member.photo} alt={member.name} className={styles.teamCardPhoto} />
                 <div className={styles.teamCardGradient} />
                 {/* Show on card for everyone EXCEPT founder on mobile */}
                 <div className={`${styles.teamCardInfo} ${member.isFounder ? styles.founderInfoHideMobile : ''}`}>
@@ -158,13 +158,13 @@ export const FounderSection: React.FC = () => {
                   // Option to scroll to person? For now just manual
                 }}
               >
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={imgAvatarBorder} 
                   alt="" 
                   className={`${styles.teamAvatarBorderSvg} ${i === activeIndex ? styles.teamAvatarBorderVisible : ''}`} 
                 />
                 <div className={styles.teamAvatarImgWrapper}>
-                  <img src={member.photo} alt={member.name} />
+                  <img loading="lazy" decoding="async" src={member.photo} alt={member.name} />
                 </div>
               </div>
             ))}

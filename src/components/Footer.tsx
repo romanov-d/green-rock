@@ -21,7 +21,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
   return (
     <footer className={styles.footerV2}>
       <div className={styles.footerV2Bg}>
-        <img src={imgFooterImage} alt="" />
+        <img loading="lazy" decoding="async" src={imgFooterImage} alt="" />
       </div>
       <div className={styles.footerV2Container}>
 
@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
           {/* Left Column */}
           <div className={styles.footerLeft}>
             <div className={styles.footerLogo}>
-              <img src={imgLogo} alt="Грин Рок" />
+              <img loading="lazy" decoding="async" src={imgLogo} alt="Грин Рок" />
             </div>
             <div className={styles.footerDividerH}></div>
             <div className={styles.footerNavSection}>
@@ -76,10 +76,10 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
             
             <div className={styles.footerSocials}>
               <a href="https://youtube.com" className={styles.footerSocialIcon}>
-                <img src={imgYoutube} alt="YouTube" />
+                <img loading="lazy" decoding="async" src={imgYoutube} alt="YouTube" />
               </a>
               <a href="https://t.me" className={styles.footerSocialIcon}>
-                <img src={imgTelegram} alt="Telegram" />
+                <img loading="lazy" decoding="async" src={imgTelegram} alt="Telegram" />
               </a>
             </div>
           </div>
@@ -87,10 +87,10 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
           {/* Right Column — Promo Image */}
           <div className={styles.footerRight}>
             <div className={styles.footerPromo}>
-              <img src={imgFooterImage} alt="Проект" className={styles.footerPromoImg} />
+              <img loading="lazy" decoding="async" src={imgFooterImage} alt="Проект" className={styles.footerPromoImg} />
               <a href="#discuss" className={styles.footerPromoCta} onClick={handleStartProject}>
                 <div className={styles.footerCtaArrow}>
-                  <img src={imgArrow} alt="Обсудить" />
+                  <img loading="lazy" decoding="async" src={imgArrow} alt="Обсудить" />
                 </div>
                 <span className={styles.footerCtaText}>Обсудить проект</span>
               </a>
@@ -111,7 +111,7 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
         {/* Mobile Header (Hidden on Desktop) */}
         <div className={styles.footerMobileTop}>
           <div className={styles.footerMobileLogo}>
-            <img src={imgLogo} alt="Грин Рок" />
+            <img loading="lazy" decoding="async" src={imgLogo} alt="Грин Рок" />
           </div>
           <div className={styles.footerMobileBrand}>
             <h2 className={styles.footerMobileCompany}>Грин Рок</h2>
@@ -128,11 +128,11 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
             <h3 className={styles.discussTitle}>Хотите обсудить ваш проект?</h3>
             <p className={styles.discussSubtitle}>Свяжитесь с нами и мы ответим на любые интересующие вас вопросы</p>
             <div className={styles.discussImageWrap}>
-              <img src={imgFooterImage} alt="Discuss" />
+              <img loading="lazy" decoding="async" src={imgFooterImage} alt="Discuss" />
             </div>
           </div>
           <button className={styles.discussArrowBtn} onClick={handleStartProject}>
-            <img src={imgArrow} alt="Discuss" />
+            <img loading="lazy" decoding="async" src={imgArrow} alt="Discuss" />
           </button>
         </div>
 
@@ -174,10 +174,10 @@ export const Footer: React.FC<FooterProps> = ({ onStartProjectClick }) => {
         {/* Socials */}
         <div className={styles.footerSocialsMobile}>
           <a href="https://youtube.com" className={styles.socialIcon}>
-            <img src={imgYoutube} alt="YouTube" />
+            <img loading="lazy" decoding="async" src={imgYoutube} alt="YouTube" />
           </a>
           <a href="https://t.me" className={styles.socialIcon}>
-            <img src={imgTelegram} alt="Telegram" />
+            <img loading="lazy" decoding="async" src={imgTelegram} alt="Telegram" />
           </a>
         </div>
 

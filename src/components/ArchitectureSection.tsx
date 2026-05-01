@@ -114,7 +114,7 @@ export const ArchitectureSection: React.FC = () => {
             key={i}
             className={`${styles.archBg} ${i === activeIndex ? styles.archBgActive : ''}`}
           >
-            <img src={slide.bg} alt="" />
+            <img loading="lazy" decoding="async" src={slide.bg} alt="" />
             <div className={styles.archBgOverlay} />
           </div>
         ))}
@@ -145,7 +145,7 @@ export const ArchitectureSection: React.FC = () => {
               >
                 <picture className={styles.archCardImgPicture}>
                   <source srcSet={card.imgMobile} media="(max-width: 768px)" />
-                  <img src={card.img} alt="" className={styles.archCardImg} />
+                  <img loading="lazy" decoding="async" src={card.img} alt="" className={styles.archCardImg} />
                 </picture>
                 <div className={styles.archCardGradient} />
                 <p className={styles.archCardTitle}>{card.title}</p>

@@ -159,7 +159,7 @@ export const ServicesPage: React.FC = () => {
       <RevealSection>
         <section className={styles.servicesHero}>
           <div className={styles.heroBgContainer}>
-            <img src={imgHeroBg} alt="Environment" className={styles.heroBgImg} />
+            <img fetchPriority="high" decoding="async" src={imgHeroBg} alt="Environment" className={styles.heroBgImg} />
             <div className={styles.heroOverlay}></div>
           </div>
 
@@ -193,7 +193,7 @@ export const ServicesPage: React.FC = () => {
             <div className={styles.landscapeCard}>
               <picture className={styles.cardBgAbs}>
                 <source srcSet={imgBlock3Card1Mobile} media="(max-width: 768px)" />
-                <img src={imgBlock3Card1} alt="" className={styles.cardBgAbsImg} />
+                <img loading="lazy" decoding="async" src={imgBlock3Card1} alt="" className={styles.cardBgAbsImg} />
               </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
@@ -207,7 +207,7 @@ export const ServicesPage: React.FC = () => {
             <div className={styles.landscapeCard}>
               <picture className={styles.cardBgAbs}>
                 <source srcSet={imgBlock3Card2Mobile} media="(max-width: 768px)" />
-                <img src={imgBlock3Card2} alt="" className={styles.cardBgAbsImg} />
+                <img loading="lazy" decoding="async" src={imgBlock3Card2} alt="" className={styles.cardBgAbsImg} />
               </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
@@ -221,7 +221,7 @@ export const ServicesPage: React.FC = () => {
             <div className={styles.landscapeCard}>
               <picture className={styles.cardBgAbs}>
                 <source srcSet={imgBlock3Card4Mobile} media="(max-width: 768px)" />
-                <img src={imgBlock3Card4} alt="" className={styles.cardBgAbsImg} />
+                <img loading="lazy" decoding="async" src={imgBlock3Card4} alt="" className={styles.cardBgAbsImg} />
               </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
@@ -235,7 +235,7 @@ export const ServicesPage: React.FC = () => {
             <div className={styles.landscapeCard}>
               <picture className={styles.cardBgAbs}>
                 <source srcSet={imgBlock3Card3Mobile} media="(max-width: 768px)" />
-                <img src={imgBlock3Card3} alt="" className={styles.cardBgAbsImg} />
+                <img loading="lazy" decoding="async" src={imgBlock3Card3} alt="" className={styles.cardBgAbsImg} />
               </picture>
               <div className={styles.cardOverlayAbs} style={{ background: 'rgba(14, 44, 43, 0.25)' }}></div>
               <div className={styles.cardTopContent}>
@@ -257,7 +257,7 @@ export const ServicesPage: React.FC = () => {
       <RevealSection>
         <section id="interior" className={styles.interiorsSection}>
           <div className={styles.interiorsBgOverlay}>
-            <img src={imgBlock5Top} alt="" className={styles.sectionBgImg} />
+            <img loading="lazy" decoding="async" src={imgBlock5Top} alt="" className={styles.sectionBgImg} />
             <div className={styles.greenGlassOverlay} />
           </div>
 
@@ -273,7 +273,7 @@ export const ServicesPage: React.FC = () => {
                 style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
               >
                 <div className={styles.ctaIconCircle}>
-                  <img src={imgArrowDiagonal} alt="" />
+                  <img loading="lazy" decoding="async" src={imgArrowDiagonal} alt="" />
                 </div>
                 <span>Начать проект</span>
               </button>
@@ -282,7 +282,7 @@ export const ServicesPage: React.FC = () => {
 
           <div className={styles.interiorsLayout}>
             <div className={`${styles.interiorCard} ${styles.largeCard}`}>
-              <img src={imgBlock5Top} alt="" className={styles.cardBgCover} />
+              <img loading="lazy" decoding="async" src={imgBlock5Top} alt="" className={styles.cardBgCover} />
               <div className={styles.cardDarkenOverlay} />
               <div className={styles.cardContentCentered}>
                 <h3 className={styles.interiorCardTitle}>Пространства для отдыха</h3>
@@ -292,7 +292,7 @@ export const ServicesPage: React.FC = () => {
 
             <div className={styles.interiorsBottomRow}>
               <div className={styles.interiorCard}>
-                <img src={imgBlock5Left} alt="" className={styles.cardBgCover} />
+                <img loading="lazy" decoding="async" src={imgBlock5Left} alt="" className={styles.cardBgCover} />
                 <div className={styles.cardDarkenOverlay} />
                 <div className={styles.cardContentCentered}>
                   <h3 className={styles.interiorCardTitle}>Места, <br />которые запоминаются</h3>
@@ -301,7 +301,7 @@ export const ServicesPage: React.FC = () => {
               </div>
 
               <div className={styles.interiorCard}>
-                <img src={imgBlock5Right} alt="" className={styles.cardBgCover} />
+                <img loading="lazy" decoding="async" src={imgBlock5Right} alt="" className={styles.cardBgCover} />
                 <div className={styles.cardDarkenOverlay} />
                 <div className={styles.cardContentCentered}>
                   <h3 className={styles.interiorCardTitle}>Атмосфера</h3>
@@ -341,7 +341,7 @@ export const ServicesPage: React.FC = () => {
       {/* Block 7: Process Stages */}
       <section ref={processRef} className={styles.processSection}>
         <div className={styles.processBgOverlay}>
-          <img src={imgProcess01} alt="" className={styles.processBgImg} />
+          <img loading="lazy" decoding="async" src={imgProcess01} alt="" className={styles.processBgImg} />
           <div className={styles.darkGreenGlassOverlay} />
         </div>
 
@@ -359,7 +359,7 @@ export const ServicesPage: React.FC = () => {
             }}
           >
             <div className={styles.processCard}>
-              <img src={imgProcess01} alt="" className={styles.processCardBg} />
+              <img loading="lazy" decoding="async" src={imgProcess01} alt="" className={styles.processCardBg} />
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>01</span>
               <div className={styles.processCardContent}>
@@ -371,7 +371,7 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className={styles.processCard}>
-              <img src={imgProcess02} alt="" className={styles.processCardBg} />
+              <img loading="lazy" decoding="async" src={imgProcess02} alt="" className={styles.processCardBg} />
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>02</span>
               <div className={styles.processCardContent}>
@@ -383,7 +383,7 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className={styles.processCard}>
-              <img src={imgProcess03} alt="" className={styles.processCardBg} />
+              <img loading="lazy" decoding="async" src={imgProcess03} alt="" className={styles.processCardBg} />
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>03</span>
               <div className={styles.processCardContent}>
@@ -395,7 +395,7 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className={styles.processCard}>
-              <img src={imgProcess04} alt="" className={styles.processCardBg} />
+              <img loading="lazy" decoding="async" src={imgProcess04} alt="" className={styles.processCardBg} />
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>04</span>
               <div className={styles.processCardContent}>
@@ -407,7 +407,7 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className={styles.processCard}>
-              <img src={imgProcess05} alt="" className={styles.processCardBg} />
+              <img loading="lazy" decoding="async" src={imgProcess05} alt="" className={styles.processCardBg} />
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>05</span>
               <div className={styles.processCardContent}>
@@ -419,7 +419,7 @@ export const ServicesPage: React.FC = () => {
             </div>
 
             <div className={styles.processCard}>
-              <img src={imgProcess06} alt="" className={styles.processCardBg} />
+              <img loading="lazy" decoding="async" src={imgProcess06} alt="" className={styles.processCardBg} />
               <div className={styles.processCardOverlay} />
               <span className={styles.processCardNumber}>06</span>
               <div className={styles.processCardContent}>
@@ -437,7 +437,7 @@ export const ServicesPage: React.FC = () => {
       <RevealSection>
         <section className={styles.benefitsSection}>
           <div className={styles.benefitsBgContainer}>
-            <img src={imgBlock8Bg} alt="" className={styles.benefitsBgImg} />
+            <img loading="lazy" decoding="async" src={imgBlock8Bg} alt="" className={styles.benefitsBgImg} />
             <div className={styles.benefitsBgOverlay} />
           </div>
 
@@ -453,17 +453,17 @@ export const ServicesPage: React.FC = () => {
                 </div>
                 <div className={styles.benefitsArrows}>
                   <div className={styles.arrowBtn} onClick={() => scrollSlider('left')}>
-                    <img src={arrowLeftCircle} alt="Назад" />
+                    <img loading="lazy" decoding="async" src={arrowLeftCircle} alt="Назад" />
                   </div>
                   <div className={styles.arrowBtn} onClick={() => scrollSlider('right')}>
-                    <img src={arrowRightCircle} alt="Вперед" />
+                    <img loading="lazy" decoding="async" src={arrowRightCircle} alt="Вперед" />
                   </div>
                 </div>
               </div>
 
               <div className={styles.benefitsSlider} ref={sliderRef}>
                 <div className={`${styles.benefitCard} ${styles.benefitCardW411}`}>
-                  <img src={imgShape411} alt="" className={styles.cardShape} />
+                  <img loading="lazy" decoding="async" src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Цельное пространство</h3>
                     <p className={styles.benefitCardDesc}>{"Архитектура, ландшафт и интерьер связаны между собой и работают как единое решение"}</p>
@@ -471,7 +471,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className={`${styles.benefitCard} ${styles.benefitCardW411}`}>
-                  <img src={imgShape411} alt="" className={styles.cardShape} />
+                  <img loading="lazy" decoding="async" src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Понимание проекта заранее</h3>
                     <p className={styles.benefitCardDesc}>Вы видите будущий результат и принимаете решения ещё до начала реализации</p>
@@ -479,7 +479,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className={`${styles.benefitCard} ${styles.benefitCardW302}`}>
-                  <img src={imgShape302} alt="" className={styles.cardShape} />
+                  <img loading="lazy" decoding="async" src={imgShape302} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Продуманные решения</h3>
                     <p className={styles.benefitCardDesc}>Все элементы согласованы между собой и работают в рамках одной логики</p>
@@ -487,7 +487,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className={`${styles.benefitCard} ${styles.benefitCardW411}`}>
-                  <img src={imgShape411} alt="" className={styles.cardShape} />
+                  <img loading="lazy" decoding="async" src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Спокойная реализация</h3>
                     <p className={styles.benefitCardDesc}>Проект ведётся системно, с соблюдением сроков и проходит без лишних сложностей</p>
@@ -495,7 +495,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className={`${styles.benefitCard} ${styles.benefitCardW302}`}>
-                  <img src={imgShape302} alt="" className={styles.cardShape} />
+                  <img loading="lazy" decoding="async" src={imgShape302} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Долговечный результат</h3>
                     <p className={styles.benefitCardDesc}>Пространство сохраняет актуальность и выглядит уверенно со временем</p>
@@ -503,7 +503,7 @@ export const ServicesPage: React.FC = () => {
                 </div>
 
                 <div className={`${styles.benefitCard} ${styles.benefitCardW411}`}>
-                  <img src={imgShape411} alt="" className={styles.cardShape} />
+                  <img loading="lazy" decoding="async" src={imgShape411} alt="" className={styles.cardShape} />
                   <div className={styles.cardInner}>
                     <h3 className={styles.benefitCardTitle}>Место, куда хочется возвращаться</h3>
                     <p className={styles.benefitCardDesc}>Создаём среду, которая работает в повседневной жизни и приносит удовольствие</p>

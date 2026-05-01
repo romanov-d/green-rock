@@ -12,7 +12,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section id="start" className={styles.contactSection}>
       <div className={styles.contactBgContainer}>
-        <img src={imgBg} alt="" className={styles.contactBg} />
+        <img loading="lazy" decoding="async" src={imgBg} alt="" className={styles.contactBg} />
         <div className={styles.contactOverlay}></div>
       </div>
 
@@ -66,7 +66,7 @@ export const ContactSection: React.FC = () => {
                   {status === 'loading' ? 'Отправляем...' : 'Записаться на онлайн-тур'}
                 </span>
                 <div className={styles.submitIcon}>
-                  <img src={imgArrow} alt="" />
+                  <img loading="lazy" decoding="async" src={imgArrow} alt="" />
                 </div>
               </button>
             </form>
@@ -74,7 +74,7 @@ export const ContactSection: React.FC = () => {
 
           <div className={styles.contactConsent} onClick={() => setIsAgreed(!isAgreed)}>
             <div className={`${styles.consentCheck} ${isAgreed ? styles.consentCheckActive : ''}`}>
-              {isAgreed && <img src={imgCheck} alt="" />}
+              {isAgreed && <img loading="lazy" decoding="async" src={imgCheck} alt="" />}
             </div>
             <p className={styles.consentText}>
               {"Я согласен(на) на\u00A0обработку персональных данных в\u00A0соответствии с\u00A0политикой конфиденциальности"}

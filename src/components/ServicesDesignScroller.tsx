@@ -113,7 +113,7 @@ export const ServicesDesignScroller: React.FC = () => {
             >
               {/* Background */}
               <div className={`${styles.svcSlideBg} ${isActive ? styles.svcSlideBgActive : ''}`}>
-                <img src={slide.bg} alt={`Этап проектирования — ${slide.title}`} />
+                <img loading="lazy" decoding="async" src={slide.bg} alt={`Этап проектирования — ${slide.title}`} />
                 <div className={styles.svcSlideBgOverlay} />
               </div>
 
@@ -133,7 +133,7 @@ export const ServicesDesignScroller: React.FC = () => {
                   >
                     <span>Смотреть кейсы</span>
                     <div className={styles.svcCtaIcon}>
-                      <img src={imgArrowDiagonal} alt="Перейти к проектам" />
+                      <img loading="lazy" decoding="async" src={imgArrowDiagonal} alt="Перейти к проектам" />
                     </div>
                   </a>
                 </div>
@@ -142,7 +142,7 @@ export const ServicesDesignScroller: React.FC = () => {
                   {slide.cards.map((card, ci) => (
                     <div key={ci} className={`${styles.svcCard} ${isActive ? styles.svcCardActive : ''}`} style={{ transitionDelay: `${ci * 80}ms` }}>
                       <div className={styles.svcCardBg}>
-                        <img src={card.bg} alt={`Кейс Грин Рок — ${card.title}`} />
+                        <img loading="lazy" decoding="async" src={card.bg} alt={`Кейс Грин Рок — ${card.title}`} />
                         <div className={styles.svcCardBgOverlay} />
                       </div>
                       <p className={styles.svcCardNum}>{card.number}</p>

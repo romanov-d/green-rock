@@ -70,7 +70,7 @@ export const RepinoPoolSection: React.FC = () => {
   return (
     <section ref={sectionRef} className={styles.projectBlock5}>
       <div className={styles.poolBgContainer}>
-        <img src={imgBlock5Bg} alt="Pool Background" className={styles.poolBgImg} />
+        <img loading="lazy" decoding="async" src={imgBlock5Bg} alt="Pool Background" className={styles.poolBgImg} />
         <div className={styles.poolBgOverlay}></div>
       </div>
 
@@ -83,7 +83,7 @@ export const RepinoPoolSection: React.FC = () => {
         </div>
 
         <div className={styles.poolVisualWrapper}>
-          <img 
+          <img loading="lazy" decoding="async" 
             ref={svgRef} 
             src={imgPoolSvg} 
             alt="Pool Details" 

@@ -67,7 +67,7 @@ export const RivieraPage: React.FC = () => {
       />
 
       <section className={styles.projectHero}>
-        <img src={imgRivieraBg} alt="Панорамный вид проекта Ривьера - ландшафт на сложном рельефе" className={styles.projectHeroBg} />
+        <img fetchPriority="high" decoding="async" src={imgRivieraBg} alt="Панорамный вид проекта Ривьера - ландшафт на сложном рельефе" className={styles.projectHeroBg} />
         <div className={styles.projectHeroOverlay}></div>
 
         {/* Hero Content */}
@@ -136,12 +136,12 @@ export const RivieraPage: React.FC = () => {
         <div className={styles.block2Visual}>
           <picture className={styles.block2Bg}>
               <source srcSet={imgBlock2MainMobile} media="(max-width: 768px)" />
-              <img src={imgBlock2Main} alt="Террасирование и укрепление склона на участке Ривьера" className={styles.block2BgImg} />
+              <img loading="lazy" decoding="async" src={imgBlock2Main} alt="Террасирование и укрепление склона на участке Ривьера" className={styles.block2BgImg} />
             </picture>
 
           <div className={styles.block2FloatingCard}>
             <div className={styles.cardPlan}>
-              <img src={imgBlock2Plan} alt="План благоустройства участка Ривьера" />
+              <img loading="lazy" decoding="async" src={imgBlock2Plan} alt="План благоустройства участка Ривьера" />
             </div>
             <div className={styles.cardDetails}>
               <div className={styles.cardColumn}>
@@ -166,13 +166,13 @@ export const RivieraPage: React.FC = () => {
       <section className={styles.projectBlock3Riviera}>
         <div className={styles.block3Container}>
           <div className={styles.block3Visual}>
-            <img src={imgBlock3Img} alt="Архитектура рельефа и лестницы в саду Ривьера" />
+            <img loading="lazy" decoding="async" src={imgBlock3Img} alt="Архитектура рельефа и лестницы в саду Ривьера" />
           </div>
           <div className={styles.block3Content}>
             <h2 className={styles.block3Title}>Архитектура рельефа</h2>
             <div className={styles.block3DescWrapper}>
               <div className={styles.descDivider}>
-                <img src={imgLineV} alt="Line" />
+                <img loading="lazy" decoding="async" src={imgLineV} alt="Line" />
               </div>
               <div className={styles.descText}>
                 <p>{"Вместо выравнивания участка мы использовали естественный рельеф как\u00A0основу структуры сада."}</p>
@@ -186,7 +186,7 @@ export const RivieraPage: React.FC = () => {
       {/* Block 4: Water Element */}
       <section className={styles.rivieraFullBlock}>
         <div className={styles.fullBgContainer}>
-          <img src={imgBlock4Bg} alt="Природный ручей интегрированный в ландшафт" className={styles.fullBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock4Bg} alt="Природный ручей интегрированный в ландшафт" className={styles.fullBgImg} />
         </div>
 
         <div className={styles.sidePanelDark}>
@@ -194,7 +194,7 @@ export const RivieraPage: React.FC = () => {
             <h2 className={styles.panelTitle}>Вода как элемент ландшафтной архитектуры</h2>
 
             <div className={styles.panelDividerH}>
-              <img src={imgLineH} alt="Line" />
+              <img loading="lazy" decoding="async" src={imgLineH} alt="Line" />
             </div>
 
             <div className={styles.panelDescription}>
@@ -220,7 +220,7 @@ export const RivieraPage: React.FC = () => {
 
       {/* Block 6: Full Width Image */}
       <section className={styles.projectImageFull}>
-        <img src={imgBlock6Full} alt="Детали мощения и озеленения в проекте Ривьера" className={styles.fullBgImage} />
+        <img loading="lazy" decoding="async" src={imgBlock6Full} alt="Детали мощения и озеленения в проекте Ривьера" className={styles.fullBgImage} />
       </section>
 
       {/* Block 7: Zones with Scroll */}
@@ -229,7 +229,7 @@ export const RivieraPage: React.FC = () => {
       {/* Block 8: Summary Card */}
       <section className={styles.rivieraSummarySection}>
         <div className={styles.summaryBgContainer}>
-          <img src={imgBlock8Summary} alt="Завершенный ландшафтный проект Ривьера" className={styles.summaryBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock8Summary} alt="Завершенный ландшафтный проект Ривьера" className={styles.summaryBgImg} />
           <div className={styles.summaryBgOverlay}></div>
         </div>
 

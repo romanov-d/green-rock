@@ -134,7 +134,7 @@ export const RivieraZonesSection: React.FC = () => {
             key={i}
             className={`${styles.prinBg} ${i === activeIndex ? styles.prinBgActive : ''}`}
           >
-            <img src={slide.bg} alt="" />
+            <img loading="lazy" decoding="async" src={slide.bg} alt="" />
             <div className={styles.prinBgOverlay} />
           </div>
         ))}
@@ -165,7 +165,7 @@ export const RivieraZonesSection: React.FC = () => {
               >
                 <picture className={styles.prinCardImgPicture}>
                   <source srcSet={card.imgMobile} media="(max-width: 768px)" />
-                  <img src={card.img} alt="" className={styles.prinCardImg} />
+                  <img loading="lazy" decoding="async" src={card.img} alt="" className={styles.prinCardImg} />
                 </picture>
                 <div className={styles.prinCardGradient} />
                 <p className={styles.prinCardTitle} style={{ whiteSpace: 'pre-line' }}>{card.title}</p>

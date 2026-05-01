@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onTourClick, children }) => {
     <div className={styles.heroBlock}>
       {children}
       {/* Background Section */}
-      <img src={imgBackground} alt="Архитектурное бюро Грин Рок - ландшафтный дизайн и интерьеры" className={styles.backgroundImage} />
+      <img fetchPriority="high" decoding="async" src={imgBackground} alt="Архитектурное бюро Грин Рок - ландшафтный дизайн и интерьеры" className={styles.backgroundImage} />
       <div className={styles.overlay}></div>
       <div className={styles.heroMeshContainer}></div>
 
@@ -35,8 +35,8 @@ export const Hero: React.FC<HeroProps> = ({ onTourClick, children }) => {
         className={`${styles.tourCardWrapper} ${styles.animateCard}`} 
         onClick={onTourClick}
       >
-        <img src={imgPcOnline} alt="Online Tour" className={styles.pcOnlyCard} />
-        <img src={imgMobileOnline} alt="Online Tour" className={styles.mobileOnlyCard} />
+        <img loading="lazy" decoding="async" src={imgPcOnline} alt="Online Tour" className={styles.pcOnlyCard} />
+        <img loading="lazy" decoding="async" src={imgMobileOnline} alt="Online Tour" className={styles.mobileOnlyCard} />
       </section>
 
       {/* Bottom Navigation / Scroll Progress */}

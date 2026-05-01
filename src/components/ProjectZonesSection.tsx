@@ -133,7 +133,7 @@ export const ProjectZonesSection: React.FC = () => {
             key={i}
             className={`${styles.zoneBg} ${i === activeIndex ? styles.zoneBgActive : ''}`}
           >
-            <img src={slide.bg} alt="" />
+            <img loading="lazy" decoding="async" src={slide.bg} alt="" />
             <div className={styles.zoneBgOverlay} />
           </div>
         ))}
@@ -164,7 +164,7 @@ export const ProjectZonesSection: React.FC = () => {
               >
                 <picture className={styles.zoneCardImgPicture}>
                   <source srcSet={card.imgMobile} media="(max-width: 768px)" />
-                  <img src={card.img} alt="" className={styles.zoneCardImg} />
+                  <img loading="lazy" decoding="async" src={card.img} alt="" className={styles.zoneCardImg} />
                 </picture>
                 <div className={styles.zoneCardGradient} />
                 <p className={styles.zoneCardTitle}>{card.title}</p>

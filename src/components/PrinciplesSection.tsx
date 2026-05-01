@@ -124,7 +124,7 @@ export const PrinciplesSection: React.FC = () => {
           >
             <picture>
               <source srcSet={slide.bgMobile} media="(max-width: 768px)" />
-              <img src={slide.bg} alt="" />
+              <img loading="lazy" decoding="async" src={slide.bg} alt="" />
             </picture>
             <div className={styles.prinBgOverlay} />
           </div>
@@ -156,7 +156,7 @@ export const PrinciplesSection: React.FC = () => {
               >
                 <picture className={styles.prinCardImgPicture}>
                   <source srcSet={card.imgMobile} media="(max-width: 768px)" />
-                  <img src={card.img} alt="" className={styles.prinCardImg} />
+                  <img loading="lazy" decoding="async" src={card.img} alt="" className={styles.prinCardImg} />
                 </picture>
                 <div className={styles.prinCardGradient} />
                 <p className={styles.prinCardTitle}>{card.title}</p>

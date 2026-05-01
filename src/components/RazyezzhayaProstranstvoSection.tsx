@@ -37,7 +37,7 @@ export const RazyezzhayaProstranstvoSection: React.FC = () => {
   return (
     <section ref={containerRef} className={styles.projectBlockAnnotated}>
       <div className={styles.sectionBg}>
-        <img src={imgBlock5Bg} alt="Background" className={styles.bgImg} />
+        <img loading="lazy" decoding="async" src={imgBlock5Bg} alt="Background" className={styles.bgImg} />
         <div className={styles.bgOverlay}></div>
       </div>
 
@@ -49,7 +49,7 @@ export const RazyezzhayaProstranstvoSection: React.FC = () => {
           </div>
 
           <div className={styles.annotatedVisualWrapper}>
-            <img ref={svgRef} src={imgProstranstvoSvg} alt="Prostranstvo Details" className={styles.prostranstvoSvg} />
+            <img loading="lazy" decoding="async" ref={svgRef} src={imgProstranstvoSvg} alt="Prostranstvo Details" className={styles.prostranstvoSvg} />
           </div>
         </div>
       </div>

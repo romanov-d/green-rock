@@ -102,7 +102,7 @@ export const RazyezzhayaPage: React.FC = () => {
 
       {/* Block 1: Hero */}
       <section className={styles.heroBlock}>
-        <img src={imgRazHero} alt="Интерьер отеля на Разъезжей - дизайн от Грин Рок" className={styles.backgroundImage} />
+        <img fetchPriority="high" decoding="async" src={imgRazHero} alt="Интерьер отеля на Разъезжей - дизайн от Грин Рок" className={styles.backgroundImage} />
         <div className={styles.overlay} style={{ background: 'linear-gradient(to bottom, rgba(12, 26, 28, 0.24) 0%, rgba(12, 26, 28, 0.6) 86.7%)' }}></div>
 
         <div className={styles.glassyNavTags}>
@@ -158,12 +158,12 @@ export const RazyezzhayaPage: React.FC = () => {
         </div>
 
         <div className={styles.block2Visual}>
-          <img src={imgBlock2Bg} alt="Концепция интерьера отеля Разъезжая" className={styles.block2Bg} />
+          <img loading="lazy" decoding="async" src={imgBlock2Bg} alt="Концепция интерьера отеля Разъезжая" className={styles.block2Bg} />
 
           <div ref={block2CardsRef} className={styles.block2FeatureCards}>
             <div className={styles.featureCard}>
               <div className={styles.cardImgBox}>
-                <img src={imgBlock2Card1} alt="Архитектурная структура отеля" />
+                <img loading="lazy" decoding="async" src={imgBlock2Card1} alt="Архитектурная структура отеля" />
               </div>
               <div className={styles.cardText}>
                 <h3>{"Чёткая структура"}</h3>
@@ -173,7 +173,7 @@ export const RazyezzhayaPage: React.FC = () => {
 
             <div className={styles.featureCard}>
               <div className={styles.cardImgBox}>
-                <img src={imgBlock2Card2} alt="Компактные решения в интерьере" />
+                <img loading="lazy" decoding="async" src={imgBlock2Card2} alt="Компактные решения в интерьере" />
               </div>
               <div className={styles.cardText}>
                 <h3>{"Компактность"}</h3>
@@ -183,7 +183,7 @@ export const RazyezzhayaPage: React.FC = () => {
 
             <div className={styles.featureCard}>
               <div className={styles.cardImgBox}>
-                <img src={imgBlock2Card3} alt="Выразительная архитектура интерьера" />
+                <img loading="lazy" decoding="async" src={imgBlock2Card3} alt="Выразительная архитектура интерьера" />
               </div>
               <div className={styles.cardText}>
                 <h3>{"Выразительность через архитектуру"}</h3>
@@ -206,7 +206,7 @@ export const RazyezzhayaPage: React.FC = () => {
 
           <div className={styles.block3Left}>
             <div className={styles.block3ImageBox}>
-              <img src={imgBlock3Img} alt="Ритм и геометрия в коридорах отеля" />
+              <img loading="lazy" decoding="async" src={imgBlock3Img} alt="Ритм и геометрия в коридорах отеля" />
             </div>
           </div>
 
@@ -235,7 +235,7 @@ export const RazyezzhayaPage: React.FC = () => {
       {/* Block 4: Navigation */}
       <section className={styles.rivieraFullBlock}>
         <div className={styles.fullBgContainer}>
-          <img src={imgBlock4Bg} alt="Графичная навигация на полу отеля" className={styles.fullBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock4Bg} alt="Графичная навигация на полу отеля" className={styles.fullBgImg} />
         </div>
 
         <div className={styles.sidePanelDark}>
@@ -243,7 +243,7 @@ export const RazyezzhayaPage: React.FC = () => {
             <h2 className={styles.panelTitle}>{"Навигация через рисунок"}</h2>
 
             <div className={styles.panelDividerH}>
-              <img src={imgBlock4LineH} alt="Line" />
+              <img loading="lazy" decoding="async" src={imgBlock4LineH} alt="Line" />
             </div>
 
             <div className={styles.panelDescription}>
@@ -270,7 +270,7 @@ export const RazyezzhayaPage: React.FC = () => {
         <div className={styles.fullBgContainer}>
           <picture className={styles.fullBgImg}>
               <source srcSet={imgBlock6BgMobile} media="(max-width: 768px)" />
-              <img src={imgBlock6Bg} alt="Интерьер санузлов в едином стиле" className={styles.fullBgImgInner} />
+              <img loading="lazy" decoding="async" src={imgBlock6Bg} alt="Интерьер санузлов в едином стиле" className={styles.fullBgImgInner} />
             </picture>
           <div className={styles.fullBgOverlay}></div>
         </div>
@@ -301,7 +301,7 @@ export const RazyezzhayaPage: React.FC = () => {
       {/* Block 8: Photo */}
       <section className={styles.rivieraFullBlock}>
         <div className={styles.fullBgContainer}>
-          <img src={imgBlock8Bg} alt="Детали отделки и освещения в отеле" className={styles.fullBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock8Bg} alt="Детали отделки и освещения в отеле" className={styles.fullBgImg} />
           <div className={styles.fullBgOverlay} style={{ background: 'rgba(20, 46, 51, 0.2)' }}></div>
         </div>
       </section>
@@ -309,7 +309,7 @@ export const RazyezzhayaPage: React.FC = () => {
       {/* Block 9: Photo */}
       <section className={styles.rivieraFullBlock}>
         <div className={styles.fullBgContainer}>
-          <img src={imgBlock9Bg} alt="Перспектива пространства и ритм материалов" className={styles.fullBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock9Bg} alt="Перспектива пространства и ритм материалов" className={styles.fullBgImg} />
           <div className={styles.fullBgOverlay} style={{ background: 'rgba(20, 46, 51, 0.2)' }}></div>
         </div>
       </section>
@@ -317,7 +317,7 @@ export const RazyezzhayaPage: React.FC = () => {
       {/* Block 10: Summary */}
       <section className={styles.summarySectionRaz}>
         <div className={styles.summaryBgContainer}>
-          <img src={imgBlock10Bg} alt="Финальный вид реализованного проекта Разъезжая" className={styles.summaryBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock10Bg} alt="Финальный вид реализованного проекта Разъезжая" className={styles.summaryBgImg} />
           <div className={styles.summaryOverlay} style={{ background: 'rgba(27, 58, 63, 0.1)' }}></div>
         </div>
 

@@ -82,7 +82,7 @@ export const LubitovoPage: React.FC = () => {
       
       {/* Hero Section */}
       <section className={styles.projectHero}>
-        <img src={imgLubitovoBg} alt="Панорамный вид участка Любитово - ландшафтный дизайн Грин Рок" className={styles.projectHeroBg} />
+        <img fetchPriority="high" decoding="async" src={imgLubitovoBg} alt="Панорамный вид участка Любитово - ландшафтный дизайн Грин Рок" className={styles.projectHeroBg} />
         <div className={styles.projectHeroOverlay}></div>
 
         {/* Header */}
@@ -157,11 +157,11 @@ export const LubitovoPage: React.FC = () => {
         </div>
 
         <div className={styles.block2Visual}>
-          <img src={imgBlock2Main} alt="Маршруты и дорожки на участке Любитово" className={styles.block2Bg} />
+          <img loading="lazy" decoding="async" src={imgBlock2Main} alt="Маршруты и дорожки на участке Любитово" className={styles.block2Bg} />
 
           <div className={styles.block2FloatingCard}>
             <div className={styles.cardPlan}>
-              <img src={imgBlock2Plan} alt="Генплан участка Любитово" />
+              <img loading="lazy" decoding="async" src={imgBlock2Plan} alt="Генплан участка Любитово" />
             </div>
             <div className={styles.cardDetails}>
               <div className={styles.cardColumn}>
@@ -227,7 +227,7 @@ export const LubitovoPage: React.FC = () => {
 
       {/* Block 5: Full Width Image */}
       <section className={styles.projectImageFull}>
-        <img src={imgBlock5Image} alt="Цветущий сад и декоративные кустарники в Любитово" className={styles.fullBgImage} />
+        <img loading="lazy" decoding="async" src={imgBlock5Image} alt="Цветущий сад и декоративные кустарники в Любитово" className={styles.fullBgImage} />
       </section>
 
       {/* Block 6: Detailed Routes */}
@@ -235,7 +235,7 @@ export const LubitovoPage: React.FC = () => {
 
       {/* Block 7: Variants and Realization */}
       <section className={styles.projectSplitBlock}>
-        <img src={imgBlock7Bg} alt="Процесс реализации ландшафтного проекта" className={styles.splitBg} />
+        <img loading="lazy" decoding="async" src={imgBlock7Bg} alt="Процесс реализации ландшафтного проекта" className={styles.splitBg} />
         <div className={styles.splitOverlay}></div>
         
         <div className={styles.splitContentWrapper}>
@@ -270,12 +270,12 @@ export const LubitovoPage: React.FC = () => {
 
       {/* Block 8: Separator Image */}
       <section className={styles.projectImageFull}>
-        <img src={imgBlock8Bg} alt="Зона отдыха у воды на участке Любитово" className={styles.fullBgImage} />
+        <img loading="lazy" decoding="async" src={imgBlock8Bg} alt="Зона отдыха у воды на участке Любитово" className={styles.fullBgImage} />
       </section>
 
       <section className={styles.lubitovoSummarySection}>
         <div className={styles.summaryBgContainer}>
-          <img src={imgBlock9Bg} alt="Завершенный проект Любитово - Грин Рок" className={styles.summaryBgImg} />
+          <img loading="lazy" decoding="async" src={imgBlock9Bg} alt="Завершенный проект Любитово - Грин Рок" className={styles.summaryBgImg} />
           <div className={styles.summaryOverlay}></div>
         </div>
 

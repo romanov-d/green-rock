@@ -111,7 +111,7 @@ export const ServicesSection: React.FC = () => {
             >
               {/* Background */}
               <div className={`${styles.svcSlideBg} ${isActive ? styles.svcSlideBgActive : ''}`}>
-                <img src={slide.bg} alt={`Услуга Грин Рок — ${slide.title}`} />
+                <img loading="lazy" decoding="async" src={slide.bg} alt={`Услуга Грин Рок — ${slide.title}`} />
                 <div className={styles.svcSlideBgOverlay} />
               </div>
 
@@ -127,7 +127,7 @@ export const ServicesSection: React.FC = () => {
                       ))}
                     </div>
                     <a href="#more" className={`${styles.svcCta} ${isActive ? styles.svcCtaActive : ''}`}>
-                      <div className={styles.svcCtaIcon}><img src={arrowIcon} alt="" /></div>
+                      <div className={styles.svcCtaIcon}><img loading="lazy" decoding="async" src={arrowIcon} alt="" /></div>
                       <span>Подробнее об услуге</span>
                     </a>
                   </div>
@@ -136,11 +136,11 @@ export const ServicesSection: React.FC = () => {
                     {slide.cards.map((card, ci) => (
                       <div key={ci} className={`${styles.svcCard} ${isActive ? styles.svcCardActive : ''}`} style={{ transitionDelay: `${ci * 80}ms` }}>
                         <div className={styles.svcCardBg}>
-                          <img src={card.bg} alt={`Пример работы — ${card.title}`} />
+                          <img loading="lazy" decoding="async" src={card.bg} alt={`Пример работы — ${card.title}`} />
                           <div className={styles.svcCardBgOverlay} />
                         </div>
                         <p className={styles.svcCardNum}>{card.number}</p>
-                        <div className={styles.svcCardArrow}><img src={arrowIcon} alt="" /></div>
+                        <div className={styles.svcCardArrow}><img loading="lazy" decoding="async" src={arrowIcon} alt="" /></div>
                         <div className={styles.svcCardInfo}>
                           <h3>{card.title}</h3>
                           <p>{card.subtitle}</p>
